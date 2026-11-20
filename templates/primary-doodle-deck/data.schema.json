@@ -27,6 +27,9 @@
       "properties": {
         "brand": { "type": "string", "minLength": 1, "maxLength": 24 },
         "exportSlug": { "type": "string", "maxLength": 40 },
+        "editBtn": { "type": "string", "maxLength": 24 },
+        "customBtn": { "type": "string", "maxLength": 24 },
+        "editBanner": { "type": "string", "maxLength": 90 },
         "gridBtn": { "type": "string", "maxLength": 24 },
         "notesBtn": { "type": "string", "maxLength": 24 },
         "fullBtn": { "type": "string", "maxLength": 24 },

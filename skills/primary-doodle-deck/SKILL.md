@@ -65,8 +65,8 @@ Mọi thay đổi chỉ nằm ở **dữ liệu JSON (`data.json`)** — tuyệt
 ## 5. Đầu ra (`Output`)
 
 1. **File dữ liệu đã kiểm chuẩn:** `data.json` (khớp `templates/data.schema.json`).
-2. **File trình chiếu HTML tự chứa:** `<ten-du-an>-deck.html` (chạy trực tiếp bằng mọi trình duyệt hiện đại, hỗ trợ Desktop 16:9, Mobile cuộn dọc, `VI | EN`, Lưới `G`, Ghi chú `N`, In PDF 16:9 và nút `Xuất .pptx`).
-3. **File PowerPoint (`.pptx`) 16:9 chỉnh sửa được** khi xuất từ trình duyệt hoặc script CLI.
+2. **File trình chiếu HTML tự chứa:** `<ten-du-an>-deck.html` (chạy trực tiếp bằng mọi trình duyệt hiện đại, hỗ trợ Desktop 16:9, Mobile cuộn dọc, `VI | EN`, Lưới `G`, Ghi chú `N`, In PDF 16:9, nút **`Xuất .pptx`**, và trình chỉnh sửa trực tiếp trên trình duyệt **`Sửa chữ (E)`** + **`Tuỳ chỉnh`** font, màu sắc, ảnh nền, số liệu biểu đồ, lưu lại file HTML/JSON mới).
+3. **File PowerPoint (`.pptx`) 16:9 chỉnh sửa được** khi xuất từ trình duyệt hoặc script CLI (kể cả sau khi đã tuỳ biến chữ, màu, ảnh nền và biểu đồ).
 
 ---
 

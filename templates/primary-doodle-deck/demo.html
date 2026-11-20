@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BútChìMàu — Primary Doodle Deck (HTML 16:9 &amp; .pptx)</title>
-  <meta name="description" content="Slide Template Skill phong cách Primary Doodle Deck: tiêu đề viết tay tiếng Việt chuẩn dấu, bảng màu Cobalt–Đỏ–Vàng, sticker băng keo SVG thủ công, hỗ trợ VI | EN và xuất .pptx." />
+  <meta name="description" content="Slide Template Skill phong cách Primary Doodle Deck: tiêu đề viết tay tiếng Việt chuẩn dấu, bảng màu Cobalt–Đỏ–Vàng, sticker băng keo SVG thủ công, tuỳ chỉnh trực tiếp trên trình duyệt, hỗ trợ VI | EN và xuất .pptx." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Shantell+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Mali:wght@500;700&family=Pangolin&family=Playpen+Sans:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Shantell+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@4.0.1/dist/pptxgen.bundle.js" defer></script>
   <style>
     :root {
@@ -55,6 +55,11 @@
       cursor: pointer;
     }
 
+    input, select {
+      font: inherit;
+      color: inherit;
+    }
+
     :focus-visible {
       outline: 3px solid var(--pd-cobalt);
       outline-offset: 2px;
@@ -74,8 +79,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 20px;
-      gap: 12px;
+      padding: 0 18px;
+      gap: 10px;
     }
 
     .bar-group {
@@ -115,7 +120,7 @@
       justify-content: center;
       gap: 6px;
       height: 36px;
-      padding: 0 12px;
+      padding: 0 11px;
       background: var(--pd-surface);
       border: 2px solid var(--pd-ink);
       border-radius: 9px;
@@ -149,6 +154,11 @@
       color: #FFFFFF;
     }
 
+    .tool-btn.is-edit-on {
+      background: var(--pd-yellow);
+      color: var(--pd-ink);
+    }
+
     .tool-btn.btn-primary {
       background: var(--pd-cobalt);
       color: #FFFFFF;
@@ -158,8 +168,8 @@
       font-family: var(--font-mono);
       font-size: 13px;
       font-weight: 700;
-      padding: 0 8px;
-      min-width: 68px;
+      padding: 0 6px;
+      min-width: 64px;
       text-align: center;
     }
 
@@ -174,7 +184,7 @@
     }
 
     .lang-opt {
-      padding: 0 10px;
+      padding: 0 9px;
       font-family: var(--font-mono);
       font-size: 12px;
       font-weight: 700;
@@ -248,6 +258,44 @@
       color: var(--pd-muted);
     }
 
+    /* EDIT MODE BANNER & INLINE OUTLINE */
+    .edit-banner {
+      position: fixed;
+      top: calc(var(--toolbar-h) + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 45;
+      background: var(--pd-yellow);
+      color: var(--pd-ink);
+      border: 2px solid var(--pd-ink);
+      border-radius: 999px;
+      padding: 4px 14px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: 3px 3px 0 var(--pd-ink);
+      display: none;
+      white-space: nowrap;
+    }
+
+    body.is-edit-mode .edit-banner {
+      display: block;
+    }
+
+    body.is-edit-mode [data-edit-path],
+    body.is-edit-mode #ui-notes-text[contenteditable="true"] {
+      outline: 2px dashed rgba(24, 73, 214, 0.48);
+      outline-offset: 3px;
+      border-radius: 4px;
+      cursor: text;
+    }
+
+    body.is-edit-mode [data-edit-path]:focus,
+    body.is-edit-mode #ui-notes-text:focus {
+      outline: 2.5px solid var(--pd-cobalt);
+      background: rgba(255, 212, 59, 0.22);
+    }
+
     /* ================= STAGE VIEWPORT (DESKTOP) ================= */
     .stage-viewport {
       padding-top: var(--toolbar-h);
@@ -278,13 +326,11 @@
       flex-shrink: 0;
     }
 
-    /* ================= SLIDE CANVAS ================= */
+    /* ================= SLIDE CANVAS & BACKGROUND LAYERS ================= */
     .slide {
       width: 1280px;
       height: 720px;
       background-color: var(--pd-bg);
-      background-image: radial-gradient(var(--pd-grid) 1.5px, transparent 1.5px);
-      background-size: 24px 24px;
       border: 3px solid var(--pd-ink);
       border-radius: 18px;
       box-shadow: 8px 8px 0 var(--pd-ink);
@@ -298,6 +344,48 @@
 
     .slide.is-active {
       display: flex;
+    }
+
+    .slide-bg-layer {
+      position: absolute;
+      inset: 0;
+      border-radius: 15px;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .slide-bg-photo {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide-bg-overlay {
+      position: absolute;
+      inset: 0;
+    }
+
+    .slide-bg-pattern {
+      position: absolute;
+      inset: 0;
+    }
+
+    .slide-bg-pattern.p-dots {
+      background-image: radial-gradient(var(--pd-grid) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+
+    .slide-bg-pattern.p-grid {
+      background-image:
+        linear-gradient(to right, var(--pd-grid) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--pd-grid) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .slide-bg-pattern.p-solid {
+      background-image: none;
     }
 
     .slide-top {
@@ -393,14 +481,8 @@
     }
 
     /* ================= TYPOGRAPHY & SKETCH PRIMITIVES ================= */
-    .hand {
-      font-family: var(--font-hand);
-    }
-
-    .mono {
-      font-family: var(--font-mono);
-      font-variant-numeric: tabular-nums;
-    }
+    .hand { font-family: var(--font-hand); }
+    .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 
     .h1-cover {
       font-family: var(--font-hand);
@@ -497,11 +579,16 @@
       box-shadow: 5px 5px 0 var(--pd-ink);
     }
 
-    /* ================= SVG STICKERS ================= */
     .sticker-tape {
       position: absolute;
       pointer-events: none;
       z-index: 5;
+    }
+
+    body.hide-stickers .sticker-tape,
+    body.hide-stickers .sticky-note-clip,
+    body.hide-stickers .kpi-loop-svg {
+      display: none !important;
     }
 
     /* ================= SLIDE 01: COVER ================= */
@@ -645,7 +732,7 @@
       margin: 0;
     }
 
-    /* ================= SLIDE 03: PROBLEM (3 STAGGERED CARDS) ================= */
+    /* ================= SLIDE 03: PROBLEM ================= */
     .problem-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -700,7 +787,7 @@
       color: var(--pd-ink);
     }
 
-    /* ================= SLIDE 04: SOLUTION FLOW ================= */
+    /* ================= SLIDE 04: FLOW ================= */
     .flow-row {
       display: grid;
       grid-template-columns: 1fr 74px 1fr 74px 1fr;
@@ -856,7 +943,7 @@
       pointer-events: none;
     }
 
-    /* ================= SLIDE 06: BEFORE / AFTER SPLIT ================= */
+    /* ================= SLIDE 06: BEFORE / AFTER ================= */
     .compare-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -927,7 +1014,7 @@
     .compare-bullet.b-red { background: #FEE2E2; color: var(--pd-red); border-color: var(--pd-red); }
     .compare-bullet.b-cobalt { background: var(--pd-cobalt); color: #FFFFFF; }
 
-    /* ================= SLIDE 07: ROADMAP TIMELINE ================= */
+    /* ================= SLIDE 07: ROADMAP ================= */
     .roadmap-wrap {
       position: relative;
       height: 410px;
@@ -962,19 +1049,10 @@
       align-items: stretch;
     }
 
-    .roadmap-col.is-top {
-      justify-content: flex-start;
-      padding-top: 8px;
-    }
+    .roadmap-col.is-top { justify-content: flex-start; padding-top: 8px; }
+    .roadmap-col.is-bottom { justify-content: flex-end; padding-bottom: 8px; }
 
-    .roadmap-col.is-bottom {
-      justify-content: flex-end;
-      padding-bottom: 8px;
-    }
-
-    .roadmap-card {
-      padding: 18px 18px 16px;
-    }
+    .roadmap-card { padding: 18px 18px 16px; }
 
     .roadmap-q {
       display: inline-block;
@@ -987,7 +1065,7 @@
       margin-bottom: 8px;
     }
 
-    /* ================= SLIDE 08: NOTEBOOK TABLE ================= */
+    /* ================= SLIDE 08: TABLE ================= */
     .table-card {
       overflow: hidden;
       border: 2.5px solid var(--pd-ink);
@@ -1014,9 +1092,7 @@
       border-right: 2px solid var(--pd-ink);
     }
 
-    .notebook-table th:last-child {
-      border-right: 0;
-    }
+    .notebook-table th:last-child { border-right: 0; }
 
     .notebook-table td {
       padding: 18px 20px;
@@ -1028,17 +1104,9 @@
       vertical-align: middle;
     }
 
-    .notebook-table td:last-child {
-      border-right: 0;
-    }
-
-    .notebook-table tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .notebook-table tr.is-featured td {
-      background: #FFFBEB;
-    }
+    .notebook-table td:last-child { border-right: 0; }
+    .notebook-table tr:last-child td { border-bottom: 0; }
+    .notebook-table tr.is-featured td { background: #FFFBEB; }
 
     .price-pill {
       display: inline-block;
@@ -1052,7 +1120,7 @@
       color: var(--pd-ink);
     }
 
-    /* ================= SLIDE 09: CLOSING CTA ================= */
+    /* ================= SLIDE 09: CLOSING ================= */
     .closing-center {
       text-align: center;
       display: flex;
@@ -1137,6 +1205,213 @@
       box-shadow: 4px 4px 0 var(--pd-ink);
     }
 
+    /* ================= CUSTOMIZER STUDIO DRAWER ================= */
+    .custom-drawer {
+      position: fixed;
+      top: var(--toolbar-h);
+      right: 0;
+      bottom: 0;
+      width: 356px;
+      max-width: 100vw;
+      background: var(--pd-bg);
+      border-left: 2.5px solid var(--pd-ink);
+      box-shadow: -6px 0 24px rgba(19, 23, 34, 0.14);
+      z-index: 65;
+      display: none;
+      flex-direction: column;
+    }
+
+    .custom-drawer.is-open {
+      display: flex;
+    }
+
+    .custom-head {
+      padding: 14px 16px;
+      border-bottom: 2px solid var(--pd-ink);
+      background: var(--pd-surface);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .custom-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .custom-sec {
+      background: var(--pd-surface);
+      border: 2px solid var(--pd-ink);
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 3px 3px 0 var(--pd-ink);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .custom-sec-title {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--pd-cobalt);
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .preset-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .preset-btn {
+      padding: 7px 6px;
+      border: 2px solid var(--pd-ink);
+      border-radius: 8px;
+      background: var(--pd-bg);
+      font-size: 11.5px;
+      font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .preset-btn.is-active {
+      background: var(--pd-yellow);
+    }
+
+    .preset-swatches {
+      display: flex;
+      gap: 3px;
+    }
+
+    .preset-swatches span {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      border: 1px solid var(--pd-ink);
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .color-field {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      padding: 5px 8px;
+      border: 1.5px solid var(--pd-ink);
+      border-radius: 8px;
+      background: var(--pd-bg);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .color-field input[type="color"] {
+      width: 26px;
+      height: 22px;
+      border: 1px solid var(--pd-ink);
+      border-radius: 4px;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+    }
+
+    .field-col {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+
+    .field-select, .field-input {
+      width: 100%;
+      padding: 7px 10px;
+      border: 2px solid var(--pd-ink);
+      border-radius: 8px;
+      background: var(--pd-surface);
+      font-size: 13px;
+    }
+
+    .pattern-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .seg-btn {
+      padding: 6px 8px;
+      border: 1.5px solid var(--pd-ink);
+      border-radius: 7px;
+      background: var(--pd-bg);
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .seg-btn.is-active {
+      background: var(--pd-cobalt);
+      color: #FFFFFF;
+    }
+
+    .upload-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .mini-btn {
+      padding: 6px 10px;
+      border: 1.5px solid var(--pd-ink);
+      border-radius: 8px;
+      background: var(--pd-bg);
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .mini-btn:hover { background: var(--pd-yellow); }
+    .mini-btn.is-cobalt { background: var(--pd-cobalt); color: #FFFFFF; }
+    .mini-btn.is-danger { background: #FEE2E2; color: var(--pd-red); }
+
+    .chart-edit-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 6px;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .chart-edit-grid input {
+      width: 100%;
+      padding: 4px 6px;
+      border: 1.5px solid var(--pd-ink);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      background: var(--pd-bg);
+    }
+
+    .action-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
     /* ================= SPEAKER NOTES DRAWER ================= */
     .notes-drawer {
       position: fixed;
@@ -1155,9 +1430,7 @@
       gap: 6px;
     }
 
-    .notes-drawer.is-open {
-      display: flex;
-    }
+    .notes-drawer.is-open { display: flex; }
 
     .notes-head {
       display: flex;
@@ -1188,9 +1461,7 @@
       padding: 24px;
     }
 
-    .overview-modal.is-open {
-      display: flex;
-    }
+    .overview-modal.is-open { display: flex; }
 
     .overview-panel {
       width: min(1040px, 100%);
@@ -1229,16 +1500,8 @@
       transition: transform 0.12s ease, background 0.12s ease;
     }
 
-    .thumb-card:hover {
-      transform: translate(-1px, -1px);
-      background: #FFFBEB;
-    }
-
-    .thumb-card.is-current {
-      border-color: var(--pd-cobalt);
-      box-shadow: 4px 4px 0 var(--pd-cobalt);
-      background: #EFF6FF;
-    }
+    .thumb-card:hover { transform: translate(-1px, -1px); background: #FFFBEB; }
+    .thumb-card.is-current { border-color: var(--pd-cobalt); box-shadow: 4px 4px 0 var(--pd-cobalt); background: #EFF6FF; }
 
     .thumb-meta {
       display: flex;
@@ -1280,11 +1543,10 @@
       font-weight: 700;
       box-shadow: 4px 4px 0 rgba(19, 23, 34, 0.3);
       display: none;
+      max-width: calc(100vw - 40px);
     }
 
-    .toast.is-show {
-      display: block;
-    }
+    .toast.is-show { display: block; }
 
     /* ================= MOBILE READER (< 768px — GATE 2: 375px SAFE) ================= */
     @media (max-width: 767px) {
@@ -1294,14 +1556,14 @@
       }
 
       .studio-bar {
-        padding: 0 10px;
+        padding: 0 8px;
         gap: 6px;
         height: 54px;
       }
 
       .brand-pill {
-        padding: 4px 9px;
-        font-size: 13px;
+        padding: 4px 8px;
+        font-size: 12.5px;
       }
 
       .hide-mobile {
@@ -1310,18 +1572,12 @@
 
       .nav-btn, .tool-btn {
         height: 32px;
-        padding: 0 9px;
-        font-size: 12px;
-      }
-
-      .lang-switch {
-        height: 32px;
-      }
-
-      .lang-opt {
         padding: 0 8px;
-        font-size: 11px;
+        font-size: 11.5px;
       }
+
+      .lang-switch { height: 32px; }
+      .lang-opt { padding: 0 7px; font-size: 11px; }
 
       .stage-viewport {
         padding: 66px 12px 28px;
@@ -1356,9 +1612,8 @@
         overflow: hidden;
       }
 
-      .slide > .sticker-tape {
-        display: none;
-      }
+      .slide-bg-layer { border-radius: 11px; }
+      .slide > .sticker-tape { display: none; }
 
       .cover-grid > *,
       .agenda-grid > *,
@@ -1370,41 +1625,15 @@
         min-width: 0;
       }
 
-      .cover-art-box svg {
-        max-width: 100%;
-        height: auto;
-      }
+      .cover-art-box svg { max-width: 100%; height: auto; }
+      .lead-copy { max-width: 100%; }
+      .slide-body { padding: 14px 0 12px; }
 
-      .lead-copy {
-        max-width: 100%;
-      }
-
-      .slide-body {
-        padding: 14px 0 12px;
-      }
-
-      .h1-cover {
-        font-size: 30px;
-        line-height: 1.2;
-      }
-
-      .h2-slide {
-        font-size: 24px;
-        line-height: 1.24;
-        margin-bottom: 14px;
-      }
-
-      .h3-card {
-        font-size: 19px;
-      }
-
-      .lead-copy {
-        font-size: 16px;
-      }
-
-      .body-copy, .compare-list li, .notebook-table td {
-        font-size: 15px;
-      }
+      .h1-cover { font-size: 30px; line-height: 1.2; }
+      .h2-slide { font-size: 24px; line-height: 1.24; margin-bottom: 14px; }
+      .h3-card { font-size: 19px; }
+      .lead-copy { font-size: 16px; }
+      .body-copy, .compare-list li, .notebook-table td { font-size: 15px; }
 
       .cover-grid,
       .agenda-grid,
@@ -1418,122 +1647,50 @@
         gap: 14px;
       }
 
-      .cover-art-box {
-        transform: none;
-        padding: 16px;
+      .cover-art-box { transform: none; padding: 16px; }
+      .sticky-note { transform: none; padding: 32px 18px 20px; }
+      .sticky-q { font-size: 23px; }
+      .problem-card { min-height: 0; padding: 28px 18px 18px; }
+      .problem-card.is-raised { transform: none; }
+      .problem-stat { font-size: 36px; }
+
+      .flow-row { grid-template-columns: 1fr; gap: 10px; }
+      .flow-station { min-height: 0; padding: 18px 16px; }
+      .flow-arrow-slot { transform: rotate(90deg); height: 36px; }
+      .flow-banner { flex-direction: column; align-items: flex-start; padding: 14px 16px; }
+      .flow-banner-text { font-size: 17px; }
+
+      .kpi-loop-svg { width: 145px; height: 54px; left: -10px; top: -8px; }
+      .roadmap-wrap { height: auto; }
+      .roadmap-line-svg { display: none; }
+      .roadmap-col.is-top, .roadmap-col.is-bottom { padding: 0; }
+
+      .table-card { overflow-x: auto; }
+      .notebook-table th { font-size: 15px; padding: 11px 12px; }
+      .notebook-table td { padding: 11px 12px; white-space: nowrap; }
+
+      .closing-quote { font-size: 26px; }
+      .qa-bubble { position: static; transform: rotate(0deg); align-self: flex-end; font-size: 17px; padding: 6px 14px; }
+      .contact-strip { font-size: 13px; padding: 10px 14px; gap: 10px; }
+      .sticker-tape { transform: scale(0.75); top: 6px !important; }
+      .problem-card .sticker-tape { top: -14px !important; }
+      .export-menu { width: 248px; right: -4px; }
+
+      .custom-drawer {
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 76vh;
+        border-left: 0;
+        border-top: 2.5px solid var(--pd-ink);
+        border-radius: 16px 16px 0 0;
       }
 
-      .sticky-note {
-        transform: none;
-        padding: 32px 18px 20px;
-      }
-
-      .sticky-q {
-        font-size: 23px;
-      }
-
-      .problem-card {
-        min-height: 0;
-        padding: 28px 18px 18px;
-      }
-
-      .problem-card.is-raised {
-        transform: none;
-      }
-
-      .problem-stat {
-        font-size: 36px;
-      }
-
-      .flow-row {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .flow-station {
-        min-height: 0;
-        padding: 18px 16px;
-      }
-
-      .flow-arrow-slot {
-        transform: rotate(90deg);
-        height: 36px;
-      }
-
-      .flow-banner {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 14px 16px;
-      }
-
-      .flow-banner-text {
-        font-size: 17px;
-      }
-
-      .kpi-loop-svg {
-        width: 145px;
-        height: 54px;
-        left: -10px;
-        top: -8px;
-      }
-
-      .roadmap-wrap {
-        height: auto;
-      }
-
-      .roadmap-line-svg {
-        display: none;
-      }
-
-      .roadmap-col.is-top,
-      .roadmap-col.is-bottom {
-        padding: 0;
-      }
-
-      .table-card {
-        overflow-x: auto;
-      }
-
-      .notebook-table th {
-        font-size: 15px;
-        padding: 11px 12px;
-      }
-
-      .notebook-table td {
-        padding: 11px 12px;
-        white-space: nowrap;
-      }
-
-      .closing-quote {
-        font-size: 26px;
-      }
-
-      .qa-bubble {
-        position: static;
-        transform: rotate(0deg);
-        align-self: flex-end;
-        font-size: 17px;
-        padding: 6px 14px;
-      }
-
-      .contact-strip {
-        font-size: 13px;
-        padding: 10px 14px;
-        gap: 10px;
-      }
-
-      .sticker-tape {
-        transform: scale(0.75);
-        top: 6px !important;
-      }
-
-      .problem-card .sticker-tape {
-        top: -14px !important;
-      }
-
-      .export-menu {
-        width: 248px;
-        right: -4px;
+      .edit-banner {
+        font-size: 10.5px;
+        padding: 3px 10px;
       }
     }
 
@@ -1553,6 +1710,8 @@
       .studio-bar,
       .notes-drawer,
       .overview-modal,
+      .custom-drawer,
+      .edit-banner,
       .toast {
         display: none !important;
       }
@@ -1578,6 +1737,8 @@
         page-break-after: always;
       }
 
+      .slide-bg-layer { border-radius: 0 !important; }
+
       .slide:last-child {
         break-after: auto;
         page-break-after: auto;
@@ -1602,6 +1763,8 @@
     </div>
 
     <div class="bar-group">
+      <button class="tool-btn hide-mobile" id="btn-edit" type="button" title="Chỉnh sửa chữ trực tiếp (E)">Sửa chữ (E)</button>
+      <button class="tool-btn" id="btn-customize" type="button" title="Tuỳ chỉnh font, màu, ảnh nền">Tuỳ chỉnh</button>
       <button class="tool-btn hide-mobile" id="btn-grid" type="button">Lưới (G)</button>
       <button class="tool-btn hide-mobile" id="btn-notes" type="button">Ghi chú (N)</button>
       <button class="tool-btn hide-mobile" id="btn-full" type="button">Toàn màn hình</button>
@@ -1630,12 +1793,132 @@
     </div>
   </header>
 
+  <!-- EDIT MODE PILL -->
+  <div class="edit-banner" id="ui-edit-banner">Đang bật Sửa chữ · Bấm trực tiếp vào chữ trên slide để chỉnh sửa</div>
+
   <!-- 16:9 DECK STAGE -->
   <main class="stage-viewport">
     <div class="stage-frame" id="stage-frame">
       <div class="deck-stage" id="deck-stage"></div>
     </div>
   </main>
+
+  <!-- CUSTOMIZER STUDIO DRAWER -->
+  <aside class="custom-drawer" id="custom-drawer" aria-label="Bảng tuỳ chỉnh slide">
+    <div class="custom-head">
+      <strong class="hand" style="font-size:18px;" id="ui-cust-title">Tuỳ chỉnh Slide Studio</strong>
+      <button class="nav-btn" type="button" id="btn-close-custom" style="height:30px;padding:0 10px;">✕</button>
+    </div>
+    <div class="custom-body">
+
+      <!-- 1. Palette Presets & Pickers -->
+      <section class="custom-sec">
+        <h3 class="custom-sec-title" id="ui-c-palette">1. Bảng màu &amp; Tuỳ chọn màu</h3>
+        <div class="preset-row">
+          <button type="button" class="preset-btn is-active" data-preset="primary">
+            <div class="preset-swatches">
+              <span style="background:#FBF9F4"></span><span style="background:#1849D6"></span><span style="background:#D62828"></span><span style="background:#FFD43B"></span>
+            </div>
+            <span>Primary</span>
+          </button>
+          <button type="button" class="preset-btn" data-preset="ocean">
+            <div class="preset-swatches">
+              <span style="background:#F4F9F9"></span><span style="background:#0F4C81"></span><span style="background:#D9483B"></span><span style="background:#FACC15"></span>
+            </div>
+            <span>Ocean</span>
+          </button>
+          <button type="button" class="preset-btn" data-preset="studio">
+            <div class="preset-swatches">
+              <span style="background:#FFFFFF"></span><span style="background:#131722"></span><span style="background:#E03E2D"></span><span style="background:#FFE066"></span>
+            </div>
+            <span>Studio Ink</span>
+          </button>
+        </div>
+        <div class="color-grid">
+          <label class="color-field"><span id="ui-lbl-bg">Nền giấy</span><input type="color" id="inp-bg" value="#FBF9F4"></label>
+          <label class="color-field"><span id="ui-lbl-cobalt">Nhấn chính</span><input type="color" id="inp-cobalt" value="#1849D6"></label>
+          <label class="color-field"><span id="ui-lbl-red">Nhấn phụ</span><input type="color" id="inp-red" value="#D62828"></label>
+          <label class="color-field"><span id="ui-lbl-yellow">Highlight</span><input type="color" id="inp-yellow" value="#FFD43B"></label>
+        </div>
+      </section>
+
+      <!-- 2. Vietnamese Fonts -->
+      <section class="custom-sec">
+        <h3 class="custom-sec-title" id="ui-c-fonts">2. Font chữ tiếng Việt</h3>
+        <label class="field-col">
+          <span id="ui-lbl-fhand">Font tiêu đề viết tay</span>
+          <select class="field-select" id="sel-font-hand">
+            <option value="Shantell Sans">Shantell Sans (Mặc định · Marker)</option>
+            <option value="Playpen Sans">Playpen Sans (Tròn mềm mại)</option>
+            <option value="Mali">Mali (Nét mảnh nhẹ nhàng)</option>
+            <option value="Pangolin">Pangolin (Nét bút chì)</option>
+          </select>
+        </label>
+        <label class="field-col">
+          <span id="ui-lbl-fsans">Font nội dung thân bài</span>
+          <select class="field-select" id="sel-font-sans">
+            <option value="Plus Jakarta Sans">Plus Jakarta Sans (Mặc định)</option>
+            <option value="Be Vietnam Pro">Be Vietnam Pro (Chuẩn Việt)</option>
+            <option value="Inter">Inter (Trung tính)</option>
+          </select>
+        </label>
+      </section>
+
+      <!-- 3. Background Pattern & Image -->
+      <section class="custom-sec">
+        <h3 class="custom-sec-title" id="ui-c-bg">3. Hoạ tiết &amp; Ảnh nền Slide</h3>
+        <div class="pattern-row">
+          <button type="button" class="seg-btn is-active" data-pattern="dots" id="pat-dots">Dot-grid</button>
+          <button type="button" class="seg-btn" data-pattern="grid" id="pat-grid">Ô ly vở</button>
+          <button type="button" class="seg-btn" data-pattern="solid" id="pat-solid">Giấy trơn</button>
+        </div>
+        <div class="upload-row">
+          <label class="mini-btn is-cobalt" style="flex:1;cursor:pointer;">
+            <span id="ui-lbl-upload">Chọn ảnh nền...</span>
+            <input type="file" id="inp-bg-image" accept="image/*" style="display:none;">
+          </label>
+          <button type="button" class="mini-btn is-danger" id="btn-clear-bg">Xoá ảnh</button>
+        </div>
+        <label class="field-col">
+          <span><span id="ui-lbl-overlay">Độ phủ lớp giấy mờ:</span> <strong class="mono" id="ui-overlay-val">80%</strong></span>
+          <input type="range" id="inp-bg-overlay" min="20" max="95" value="80">
+        </label>
+        <div class="pattern-row" style="grid-template-columns:1fr 1fr;">
+          <button type="button" class="seg-btn is-active" data-bgscope="all" id="scope-all">Tất cả slide</button>
+          <button type="button" class="seg-btn" data-bgscope="current" id="scope-one">Chỉ slide này</button>
+        </div>
+      </section>
+
+      <!-- 4. Stickers & Chart Numbers -->
+      <section class="custom-sec">
+        <h3 class="custom-sec-title" id="ui-c-extras">4. Sticker &amp; Số liệu Biểu đồ (Slide 05)</h3>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;cursor:pointer;">
+          <input type="checkbox" id="chk-stickers" checked>
+          <span id="ui-lbl-stickers">Hiện băng keo washi &amp; nét vẽ SVG</span>
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;cursor:pointer;">
+          <input type="checkbox" id="chk-edit-inline">
+          <span id="ui-lbl-inline">Bật chế độ sửa chữ trực tiếp trên slide</span>
+        </label>
+        <div class="chart-edit-grid" id="chart-editor-rows"></div>
+      </section>
+
+      <!-- 5. Save / Export HTML / JSON / Reset -->
+      <section class="custom-sec">
+        <h3 class="custom-sec-title" id="ui-c-save">5. Lưu bản chỉnh sửa &amp; Chia sẻ</h3>
+        <div class="action-grid">
+          <button type="button" class="mini-btn is-cobalt" id="btn-save-html">Lưu HTML mới</button>
+          <button type="button" class="mini-btn" id="btn-export-json">Tải JSON</button>
+          <label class="mini-btn" style="cursor:pointer;">
+            <span id="ui-lbl-import">Nạp JSON</span>
+            <input type="file" id="inp-import-json" accept="application/json" style="display:none;">
+          </label>
+          <button type="button" class="mini-btn is-danger" id="btn-reset-all">Khôi phục gốc</button>
+        </div>
+      </section>
+
+    </div>
+  </aside>
 
   <!-- SPEAKER NOTES DRAWER -->
   <aside class="notes-drawer" id="notes-drawer" aria-live="polite">
@@ -1662,20 +1945,24 @@
 
   <script>
     /* =====================================================================
-       1. SINGLE-SOURCE BILINGUAL DECK DATA (VI | EN)
+       1. SINGLE-SOURCE BILINGUAL DECK DATA (VI | EN) & INITIAL THEME
        ===================================================================== */
     /* __DECK_DATA_START__ */
     const DECK_DATA = {
       vi: {
         ui: {
           brand: 'BútChìMàu',
+          exportSlug: 'ButChiMau-Primary-Doodle',
+          editBtn: 'Sửa chữ (E)',
+          customBtn: 'Tuỳ chỉnh',
           gridBtn: 'Lưới (G)',
           notesBtn: 'Ghi chú (N)',
           fullBtn: 'Toàn màn hình',
           pdfBtn: 'In PDF',
           pptxBtn: 'Xuất .pptx ▾',
+          editBanner: 'Đang bật Sửa chữ · Bấm trực tiếp vào chữ trên slide để chỉnh sửa',
           exportTitle: 'CHỌN CHẾ ĐỘ FONT .PPTX',
-          expOpt1T: 'Chuẩn thiết kế (Shantell Sans)',
+          expOpt1T: 'Chuẩn thiết kế (theo font đang chọn)',
           expOpt1D: 'Giữ trọn nét viết tay khi mở trên máy đã cài font.',
           expOpt2T: 'An toàn đa máy (Segoe Print / Arial)',
           expOpt2D: 'Hiển thị chuẩn dấu tiếng Việt trên mọi Windows/macOS.',
@@ -1684,7 +1971,7 @@
           notesPrefix: 'GHI CHÚ DIỄN GIẢ · SLIDE',
           footBrand: 'BútChìMàu · ButChiMau.vn · 2026',
           exportingMsg: 'Đang tạo file .pptx editable + sticker 2x...',
-          exportDoneMsg: 'Đã tải xong ButChiMau-Primary-Doodle-VI.pptx!',
+          exportDoneMsg: 'Đã tải xong file .pptx!',
           exportErrMsg: 'Chưa tải được thư viện PptxGenJS (cần mạng hoặc dùng In PDF).'
         },
         slides: [
@@ -1840,13 +2127,17 @@
       en: {
         ui: {
           brand: 'CrayonLab',
+          exportSlug: 'CrayonLab-Primary-Doodle',
+          editBtn: 'Edit Text (E)',
+          customBtn: 'Customize',
           gridBtn: 'Grid (G)',
           notesBtn: 'Notes (N)',
           fullBtn: 'Fullscreen',
           pdfBtn: 'Print PDF',
           pptxBtn: 'Export .pptx ▾',
+          editBanner: 'Text Edit Mode ON · Click any text on a slide to edit inline',
           exportTitle: 'SELECT .PPTX FONT MODE',
-          expOpt1T: 'Design Match (Shantell Sans)',
+          expOpt1T: 'Design Match (selected font)',
           expOpt1D: 'Preserves handwritten marker style when fonts are installed.',
           expOpt2T: 'Universal Safe (Segoe Print / Arial)',
           expOpt2D: 'Clean diacritics and spacing across any Windows/macOS.',
@@ -1855,7 +2146,7 @@
           notesPrefix: 'SPEAKER NOTES · SLIDE',
           footBrand: 'CrayonLab · ButChiMau.vn · 2026',
           exportingMsg: 'Building editable .pptx + 2x SVG stickers...',
-          exportDoneMsg: 'Downloaded CrayonLab-Primary-Doodle-EN.pptx!',
+          exportDoneMsg: 'Downloaded .pptx file!',
           exportErrMsg: 'PptxGenJS library unavailable offline (use Print PDF).'
         },
         slides: [
@@ -2011,82 +2302,160 @@
     };
     /* __DECK_DATA_END__ */
 
+    /* __THEME_STATE_START__ */
+    const INITIAL_THEME = {
+      preset: 'primary',
+      bg: '#FBF9F4',
+      surface: '#FFFFFF',
+      ink: '#131722',
+      muted: '#4B5565',
+      cobalt: '#1849D6',
+      red: '#D62828',
+      yellow: '#FFD43B',
+      grid: '#E6E1D6',
+      fontHand: 'Shantell Sans',
+      fontSans: 'Plus Jakarta Sans',
+      bgPattern: 'dots',
+      bgImage: '',
+      bgOverlay: 0.80,
+      bgScope: 'all',
+      bgSlideIndex: 0,
+      showStickers: true
+    };
+    /* __THEME_STATE_END__ */
+
+    const DEFAULT_DECK_SNAPSHOT = JSON.parse(JSON.stringify(DECK_DATA));
+    const DEFAULT_THEME_SNAPSHOT = JSON.parse(JSON.stringify(INITIAL_THEME));
+    const STORAGE_KEY = 'pdd_studio_draft_v1';
+
+    let THEME_STATE = JSON.parse(JSON.stringify(INITIAL_THEME));
+    let currentLang = 'vi';
+    let currentSlide = 0;
+    let isEditMode = false;
+
+    const PRESETS = {
+      primary: { bg: '#FBF9F4', cobalt: '#1849D6', red: '#D62828', yellow: '#FFD43B', grid: '#E6E1D6' },
+      ocean: { bg: '#F4F9F9', cobalt: '#0F4C81', red: '#D9483B', yellow: '#FACC15', grid: '#D7E5E5' },
+      studio: { bg: '#FFFFFF', cobalt: '#131722', red: '#E03E2D', yellow: '#FFE066', grid: '#E5E7EB' }
+    };
+
+    function loadDraftFromStorage() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        if (parsed.deck?.vi?.slides?.length === 9 && parsed.deck?.en?.slides?.length === 9) {
+          Object.assign(DECK_DATA, parsed.deck);
+        }
+        if (parsed.theme) {
+          THEME_STATE = { ...THEME_STATE, ...parsed.theme };
+        }
+      } catch {}
+    }
+
+    function saveDraftToStorage() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ deck: DECK_DATA, theme: THEME_STATE }));
+      } catch {}
+    }
+
+    function hexToRgba(hex, alpha) {
+      const h = (hex || '#FBF9F4').replace('#', '');
+      const r = parseInt(h.slice(0, 2), 16) || 251;
+      const g = parseInt(h.slice(2, 4), 16) || 249;
+      const b = parseInt(h.slice(4, 6), 16) || 244;
+      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
+
+    function applyThemeToCSS() {
+      const root = document.documentElement;
+      root.style.setProperty('--pd-bg', THEME_STATE.bg);
+      root.style.setProperty('--pd-surface', THEME_STATE.surface);
+      root.style.setProperty('--pd-ink', THEME_STATE.ink);
+      root.style.setProperty('--pd-muted', THEME_STATE.muted);
+      root.style.setProperty('--pd-cobalt', THEME_STATE.cobalt);
+      root.style.setProperty('--pd-red', THEME_STATE.red);
+      root.style.setProperty('--pd-yellow', THEME_STATE.yellow);
+      root.style.setProperty('--pd-grid', THEME_STATE.grid);
+      root.style.setProperty('--font-hand', `'${THEME_STATE.fontHand}', 'Segoe Print', cursive, sans-serif`);
+      root.style.setProperty('--font-sans', `'${THEME_STATE.fontSans}', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`);
+
+      document.body.classList.toggle('hide-stickers', !THEME_STATE.showStickers);
+      syncCustomizerControls();
+    }
+
     /* =====================================================================
-       2. INLINE SVG STICKERS & DOODLE PRIMITIVES (EXPLICIT HEX FOR 2X PNG)
+       2. INLINE SVG STICKERS & DOODLE PRIMITIVES (THEME-AWARE EXPLICIT HEX)
        ===================================================================== */
     function washiTapeSVG(colorHex, w = 136, h = 34) {
       return `
         <svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 136 34" fill="none">
-          <path d="M5 4 L129 2 L134 9 L128 16 L133 23 L128 31 L6 32 L1 24 L7 17 L2 10 Z" fill="${colorHex}" fill-opacity="0.88" stroke="#131722" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M18 8 L26 26 M38 7 L46 26 M90 6 L98 25 M110 7 L118 25" stroke="#131722" stroke-opacity="0.18" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M5 4 L129 2 L134 9 L128 16 L133 23 L128 31 L6 32 L1 24 L7 17 L2 10 Z" fill="${colorHex}" fill-opacity="0.88" stroke="${THEME_STATE.ink}" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M18 8 L26 26 M38 7 L46 26 M90 6 L98 25 M110 7 L118 25" stroke="${THEME_STATE.ink}" stroke-opacity="0.18" stroke-width="1.6" stroke-linecap="round"/>
         </svg>`;
     }
 
     function coverSketchSVG() {
+      const { cobalt, red, yellow, ink } = THEME_STATE;
       return `
         <svg xmlns="http://www.w3.org/2000/svg" width="380" height="270" viewBox="0 0 380 270" fill="none">
-          <!-- Soft yellow backing blob -->
-          <rect x="28" y="34" width="320" height="206" rx="18" fill="#FFD43B" stroke="#131722" stroke-width="3"/>
-          <!-- Open Sketchbook -->
-          <rect x="50" y="54" width="236" height="168" rx="12" fill="#FFFFFF" stroke="#131722" stroke-width="3"/>
-          <line x1="168" y1="54" x2="168" y2="222" stroke="#131722" stroke-width="2.5" stroke-dasharray="6 5"/>
-          <!-- Left page mini chart -->
-          <rect x="74" y="144" width="18" height="48" rx="3" fill="#1849D6" stroke="#131722" stroke-width="2"/>
-          <rect x="100" y="122" width="18" height="70" rx="3" fill="#D62828" stroke="#131722" stroke-width="2"/>
-          <rect x="126" y="102" width="18" height="90" rx="3" fill="#FFD43B" stroke="#131722" stroke-width="2"/>
-          <path d="M70 96 C92 84, 122 86, 148 76" stroke="#1849D6" stroke-width="3.5" stroke-linecap="round"/>
-          <!-- Right page checklist & star -->
-          <circle cx="198" cy="96" r="11" fill="#FFD43B" stroke="#131722" stroke-width="2.2"/>
-          <path d="M194 96 L197 100 L204 92" stroke="#131722" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-          <line x1="218" y1="96" x2="264" y2="96" stroke="#131722" stroke-width="3" stroke-linecap="round"/>
-          <circle cx="198" cy="134" r="11" fill="#1849D6" stroke="#131722" stroke-width="2.2"/>
-          <line x1="218" y1="134" x2="258" y2="134" stroke="#131722" stroke-width="3" stroke-linecap="round"/>
-          <rect x="188" y="164" width="76" height="34" rx="8" fill="#D62828" stroke="#131722" stroke-width="2.2"/>
+          <rect x="28" y="34" width="320" height="206" rx="18" fill="${yellow}" stroke="${ink}" stroke-width="3"/>
+          <rect x="50" y="54" width="236" height="168" rx="12" fill="#FFFFFF" stroke="${ink}" stroke-width="3"/>
+          <line x1="168" y1="54" x2="168" y2="222" stroke="${ink}" stroke-width="2.5" stroke-dasharray="6 5"/>
+          <rect x="74" y="144" width="18" height="48" rx="3" fill="${cobalt}" stroke="${ink}" stroke-width="2"/>
+          <rect x="100" y="122" width="18" height="70" rx="3" fill="${red}" stroke="${ink}" stroke-width="2"/>
+          <rect x="126" y="102" width="18" height="90" rx="3" fill="${yellow}" stroke="${ink}" stroke-width="2"/>
+          <path d="M70 96 C92 84, 122 86, 148 76" stroke="${cobalt}" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="198" cy="96" r="11" fill="${yellow}" stroke="${ink}" stroke-width="2.2"/>
+          <path d="M194 96 L197 100 L204 92" stroke="${ink}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="218" y1="96" x2="264" y2="96" stroke="${ink}" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="198" cy="134" r="11" fill="${cobalt}" stroke="${ink}" stroke-width="2.2"/>
+          <line x1="218" y1="134" x2="258" y2="134" stroke="${ink}" stroke-width="3" stroke-linecap="round"/>
+          <rect x="188" y="164" width="76" height="34" rx="8" fill="${red}" stroke="${ink}" stroke-width="2.2"/>
           <line x1="202" y1="181" x2="250" y2="181" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-          <!-- Cobalt Marker Pen -->
           <g transform="translate(292 64) rotate(18)">
-            <rect x="0" y="22" width="26" height="122" rx="6" fill="#1849D6" stroke="#131722" stroke-width="3"/>
-            <rect x="0" y="22" width="26" height="24" rx="4" fill="#FFFFFF" stroke="#131722" stroke-width="3"/>
-            <path d="M6 22 L13 2 L20 22 Z" fill="#FFD43B" stroke="#131722" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="0" y="22" width="26" height="122" rx="6" fill="${cobalt}" stroke="${ink}" stroke-width="3"/>
+            <rect x="0" y="22" width="26" height="24" rx="4" fill="#FFFFFF" stroke="${ink}" stroke-width="3"/>
+            <path d="M6 22 L13 2 L20 22 Z" fill="${yellow}" stroke="${ink}" stroke-width="2.5" stroke-linejoin="round"/>
           </g>
-          <!-- Sparkles -->
-          <path d="M36 22 L39 32 L49 35 L39 38 L36 48 L33 38 L23 35 L33 32 Z" fill="#D62828" stroke="#131722" stroke-width="1.8"/>
-          <path d="M342 204 L345 213 L354 216 L345 219 L342 228 L339 219 L330 216 L339 213 Z" fill="#1849D6" stroke="#131722" stroke-width="1.8"/>
+          <path d="M36 22 L39 32 L49 35 L39 38 L36 48 L33 38 L23 35 L33 32 Z" fill="${red}" stroke="${ink}" stroke-width="1.8"/>
+          <path d="M342 204 L345 213 L354 216 L345 219 L342 228 L339 219 L330 216 L339 213 Z" fill="${cobalt}" stroke="${ink}" stroke-width="1.8"/>
         </svg>`;
     }
 
     function paperclipSVG() {
       return `
         <svg xmlns="http://www.w3.org/2000/svg" width="38" height="58" viewBox="0 0 38 58" fill="none">
-          <path d="M12 20 V42 C12 48.5 26 48.5 26 42 V13 C26 5.5 8 5.5 8 13 V44 C8 54 30 54 30 44 V18" stroke="#1849D6" stroke-width="4.2" stroke-linecap="round"/>
-          <path d="M12 20 V42 C12 48.5 26 48.5 26 42 V13 C26 5.5 8 5.5 8 13 V44 C8 54 30 54 30 44 V18" stroke="#131722" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M12 20 V42 C12 48.5 26 48.5 26 42 V13 C26 5.5 8 5.5 8 13 V44 C8 54 30 54 30 44 V18" stroke="${THEME_STATE.cobalt}" stroke-width="4.2" stroke-linecap="round"/>
+          <path d="M12 20 V42 C12 48.5 26 48.5 26 42 V13 C26 5.5 8 5.5 8 13 V44 C8 54 30 54 30 44 V18" stroke="${THEME_STATE.ink}" stroke-width="1.3" stroke-linecap="round"/>
         </svg>`;
     }
 
     function doodleArrowSVG() {
       return `
         <svg xmlns="http://www.w3.org/2000/svg" width="66" height="44" viewBox="0 0 66 44" fill="none">
-          <path d="M4 25 C18 10, 38 34, 57 18" stroke="#131722" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M47 12 L60 17 L53 30" stroke="#1849D6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 25 C18 10, 38 34, 57 18" stroke="${THEME_STATE.ink}" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M47 12 L60 17 L53 30" stroke="${THEME_STATE.cobalt}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>`;
     }
 
     function redLoopSVG() {
       return `
         <svg class="kpi-loop-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 68" fill="none">
-          <path d="M16 38 C14 14, 154 6, 166 30 C176 52, 34 62, 12 42 C4 34, 24 14, 72 11" stroke="#D62828" stroke-width="3.8" stroke-linecap="round"/>
+          <path d="M16 38 C14 14, 154 6, 166 30 C176 52, 34 62, 12 42 C4 34, 24 14, 72 11" stroke="${THEME_STATE.red}" stroke-width="3.8" stroke-linecap="round"/>
         </svg>`;
     }
 
     function roadmapLineSVG() {
+      const { cobalt, red, yellow, ink } = THEME_STATE;
       return `
         <svg class="roadmap-line-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 60" fill="none" preserveAspectRatio="none">
-          <path d="M20 30 Q 180 12, 310 30 T 600 30 T 890 30 T 1138 30" stroke="#131722" stroke-width="4" stroke-linecap="round"/>
-          <path d="M1122 18 L1144 30 L1122 42" stroke="#1849D6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="145" cy="24" r="11" fill="#1849D6" stroke="#131722" stroke-width="3"/>
-          <circle cx="445" cy="34" r="11" fill="#FFD43B" stroke="#131722" stroke-width="3"/>
-          <circle cx="745" cy="24" r="11" fill="#D62828" stroke="#131722" stroke-width="3"/>
-          <circle cx="1040" cy="34" r="11" fill="#1849D6" stroke="#131722" stroke-width="3"/>
+          <path d="M20 30 Q 180 12, 310 30 T 600 30 T 890 30 T 1138 30" stroke="${ink}" stroke-width="4" stroke-linecap="round"/>
+          <path d="M1122 18 L1144 30 L1122 42" stroke="${cobalt}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="145" cy="24" r="11" fill="${cobalt}" stroke="${ink}" stroke-width="3"/>
+          <circle cx="445" cy="34" r="11" fill="${yellow}" stroke="${ink}" stroke-width="3"/>
+          <circle cx="745" cy="24" r="11" fill="${red}" stroke="${ink}" stroke-width="3"/>
+          <circle cx="1040" cy="34" r="11" fill="${cobalt}" stroke="${ink}" stroke-width="3"/>
         </svg>`;
     }
 
@@ -2094,49 +2463,67 @@
       const W = 610, H = 295, padL = 44, padB = 38, padT = 18, padR = 16;
       const chartW = W - padL - padR;
       const chartH = H - padT - padB;
+      const { cobalt, red, ink, muted, grid } = THEME_STATE;
       let bars = '';
-      // Horizontal grid lines 0, 25, 50, 75, 100
       for (let v = 0; v <= 100; v += 25) {
         const y = padT + chartH - (v / 100) * chartH;
-        bars += `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="#E6E1D6" stroke-width="1.5" stroke-dasharray="4 4"/>`;
-        bars += `<text x="${padL - 10}" y="${y + 4}" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#4B5565">${v}%</text>`;
+        bars += `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="${grid}" stroke-width="1.5" stroke-dasharray="4 4"/>`;
+        bars += `<text x="${padL - 10}" y="${y + 4}" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="${muted}">${v}%</text>`;
       }
       const groupW = chartW / s.labels.length;
       s.labels.forEach((lbl, idx) => {
         const cx = padL + idx * groupW + groupW / 2;
-        const v1 = s.valuesNew[idx];
-        const v2 = s.valuesOld[idx];
+        const v1 = Math.max(0, Math.min(100, Number(s.valuesNew[idx]) || 0));
+        const v2 = Math.max(0, Math.min(100, Number(s.valuesOld[idx]) || 0));
         const h1 = (v1 / 100) * chartH;
         const h2 = (v2 / 100) * chartH;
         const y1 = padT + chartH - h1;
         const y2 = padT + chartH - h2;
-        // New series (Cobalt)
-        bars += `<rect x="${cx - 34}" y="${y1}" width="30" height="${h1}" rx="6" fill="#1849D6" stroke="#131722" stroke-width="2"/>`;
-        bars += `<text x="${cx - 19}" y="${y1 - 6}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#1849D6">${v1}%</text>`;
-        // Old series (Red)
-        bars += `<rect x="${cx + 4}" y="${y2}" width="30" height="${h2}" rx="6" fill="#D62828" stroke="#131722" stroke-width="2"/>`;
-        bars += `<text x="${cx + 19}" y="${y2 - 6}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#D62828">${v2}%</text>`;
-        // X-axis label
-        bars += `<text x="${cx}" y="${H - 12}" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#131722">${lbl}</text>`;
+        bars += `<rect x="${cx - 34}" y="${y1}" width="30" height="${h1}" rx="6" fill="${cobalt}" stroke="${ink}" stroke-width="2"/>`;
+        bars += `<text x="${cx - 19}" y="${y1 - 6}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="${cobalt}">${v1}%</text>`;
+        bars += `<rect x="${cx + 4}" y="${y2}" width="30" height="${h2}" rx="6" fill="${red}" stroke="${ink}" stroke-width="2"/>`;
+        bars += `<text x="${cx + 19}" y="${y2 - 6}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="${red}">${v2}%</text>`;
+        bars += `<text x="${cx}" y="${H - 12}" text-anchor="middle" font-family="${THEME_STATE.fontSans}, sans-serif" font-size="13" font-weight="700" fill="${ink}">${lbl}</text>`;
       });
       return `
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;display:block;">
-          <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${padT + chartH}" stroke="#131722" stroke-width="2"/>
-          <line x1="${padL}" y1="${padT + chartH}" x2="${W - padR}" y2="${padT + chartH}" stroke="#131722" stroke-width="2"/>
+          <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${padT + chartH}" stroke="${ink}" stroke-width="2"/>
+          <line x1="${padL}" y1="${padT + chartH}" x2="${W - padR}" y2="${padT + chartH}" stroke="${ink}" stroke-width="2"/>
           ${bars}
         </svg>`;
     }
 
     /* =====================================================================
-       3. RENDERING 9 DISTINCT SLIDE LAYOUTS
+       3. INLINE EDIT HELPERS & SLIDE RENDERING
        ===================================================================== */
-    let currentLang = 'vi';
-    let currentSlide = 0;
+    function edAttr(slideIdx, pathStr) {
+      return `data-edit-slide="${slideIdx}" data-edit-path="${pathStr}"${isEditMode ? ' contenteditable="true"' : ''}`;
+    }
+
+    function setByPath(obj, pathStr, val) {
+      const parts = pathStr.split('.');
+      let cur = obj;
+      for (let i = 0; i < parts.length - 1; i++) {
+        cur = cur[parts[i]];
+        if (!cur) return;
+      }
+      cur[parts[parts.length - 1]] = val;
+    }
 
     function tagClass(tone) {
       if (tone === 'yellow') return 'chapter-tag tag-yellow';
       if (tone === 'red') return 'chapter-tag tag-red';
       return 'chapter-tag';
+    }
+
+    function renderSlideBgLayer(idx) {
+      const hasPhoto = Boolean(THEME_STATE.bgImage) && (THEME_STATE.bgScope === 'all' || THEME_STATE.bgSlideIndex === idx);
+      const photoHtml = hasPhoto
+        ? `<div class="slide-bg-photo" style="background-image:url('${THEME_STATE.bgImage}');"></div>
+           <div class="slide-bg-overlay" style="background:${hexToRgba(THEME_STATE.bg, THEME_STATE.bgOverlay)};"></div>`
+        : '';
+      const patCls = `p-${THEME_STATE.bgPattern || 'dots'}`;
+      return `<div class="slide-bg-layer" aria-hidden="true">${photoHtml}<div class="slide-bg-pattern ${patCls}"></div></div>`;
     }
 
     function renderFooter(index, total, brandText) {
@@ -2153,25 +2540,26 @@
     }
 
     function renderSlideBody(s, idx) {
+      const { cobalt, red, yellow, ink } = THEME_STATE;
       switch (s.type) {
         case 'cover':
           return `
             <div class="cover-grid">
               <div>
                 <h1 class="h1-cover">
-                  ${s.titlePre}<br/>
-                  <span class="hl-yellow">${s.titleHighlight}</span>
-                  <span class="ul-cobalt">${s.titleUnderline}</span>
+                  <span ${edAttr(idx, 'titlePre')}>${s.titlePre}</span><br/>
+                  <span class="hl-yellow" ${edAttr(idx, 'titleHighlight')}>${s.titleHighlight}</span>
+                  <span class="ul-cobalt" ${edAttr(idx, 'titleUnderline')}>${s.titleUnderline}</span>
                 </h1>
-                <p class="lead-copy">${s.subtitle}</p>
+                <p class="lead-copy" ${edAttr(idx, 'subtitle')}>${s.subtitle}</p>
                 <div class="cover-meta">
-                  <button class="sketch-btn" type="button" onclick="goToSlide(1)">${s.cta}</button>
-                  <span class="cover-author">${s.author}</span>
+                  <button class="sketch-btn" type="button" onclick="if(!isEditMode)goToSlide(1)"><span ${edAttr(idx, 'cta')}>${s.cta}</span></button>
+                  <span class="cover-author" ${edAttr(idx, 'author')}>${s.author}</span>
                 </div>
               </div>
               <div class="cover-art-box">
                 ${coverSketchSVG()}
-                <span class="cover-art-caption">${s.artCaption}</span>
+                <span class="cover-art-caption" ${edAttr(idx, 'artCaption')}>${s.artCaption}</span>
               </div>
             </div>`;
 
@@ -2180,16 +2568,16 @@
             <div class="agenda-grid">
               <div class="sticky-note">
                 <div class="sticky-note-clip">${paperclipSVG()}</div>
-                <p class="sticky-q">${s.stickyQuestion}</p>
-                <p class="sticky-sub">${s.stickySub}</p>
+                <p class="sticky-q" ${edAttr(idx, 'stickyQuestion')}>${s.stickyQuestion}</p>
+                <p class="sticky-sub" ${edAttr(idx, 'stickySub')}>${s.stickySub}</p>
               </div>
               <div class="agenda-list">
-                ${s.items.map(it => `
+                ${s.items.map((it, ii) => `
                   <div class="agenda-item">
-                    <div class="agenda-badge c-${it.tone}">${it.num}</div>
+                    <div class="agenda-badge c-${it.tone}" ${edAttr(idx, `items.${ii}.num`)}>${it.num}</div>
                     <div>
-                      <h3 class="agenda-item-title">${it.title}</h3>
-                      <p class="agenda-item-desc">${it.desc}</p>
+                      <h3 class="agenda-item-title" ${edAttr(idx, `items.${ii}.title`)}>${it.title}</h3>
+                      <p class="agenda-item-desc" ${edAttr(idx, `items.${ii}.desc`)}>${it.desc}</p>
                     </div>
                   </div>
                 `).join('')}
@@ -2198,38 +2586,38 @@
 
         case 'problem':
           return `
-            <h2 class="h2-slide">${s.titlePre} <span class="ul-red">${s.titleAccent}</span></h2>
+            <h2 class="h2-slide"><span ${edAttr(idx, 'titlePre')}>${s.titlePre}</span> <span class="ul-red" ${edAttr(idx, 'titleAccent')}>${s.titleAccent}</span></h2>
             <div class="problem-grid">
-              ${s.cards.map(c => {
-                const tapeColor = c.tape === 'red' ? '#D62828' : (c.tape === 'cobalt' ? '#1849D6' : '#FFD43B');
+              ${s.cards.map((c, ci) => {
+                const tapeColor = c.tape === 'red' ? red : (c.tape === 'cobalt' ? cobalt : yellow);
                 return `
                   <article class="sketch-card problem-card ${c.raised ? 'is-raised' : ''}">
                     <div class="sticker-tape" style="top:-16px;left:50%;transform:translateX(-50%) rotate(${c.raised ? '2deg' : '-3deg'});">
                       ${washiTapeSVG(tapeColor, 128, 32)}
                     </div>
                     <div>
-                      <div class="problem-stat s-${c.statTone}">${c.stat}</div>
-                      <h3 class="h3-card">${c.title}</h3>
-                      <p class="body-copy">${c.desc}</p>
+                      <div class="problem-stat s-${c.statTone}" ${edAttr(idx, `cards.${ci}.stat`)}>${c.stat}</div>
+                      <h3 class="h3-card" ${edAttr(idx, `cards.${ci}.title`)}>${c.title}</h3>
+                      <p class="body-copy" ${edAttr(idx, `cards.${ci}.desc`)}>${c.desc}</p>
                     </div>
-                    <span class="problem-tag">${c.tag}</span>
+                    <span class="problem-tag" ${edAttr(idx, `cards.${ci}.tag`)}>${c.tag}</span>
                   </article>`;
               }).join('')}
             </div>`;
 
         case 'flow':
           return `
-            <h2 class="h2-slide">${s.titlePre} &rarr; <span class="hl-yellow">${s.titleAccent}</span></h2>
+            <h2 class="h2-slide"><span ${edAttr(idx, 'titlePre')}>${s.titlePre}</span> &rarr; <span class="hl-yellow" ${edAttr(idx, 'titleAccent')}>${s.titleAccent}</span></h2>
             <div class="flow-row">
               ${s.steps.map((st, i) => {
-                const pillBg = st.tone === 'cobalt' ? '#1849D6' : (st.tone === 'red' ? '#D62828' : '#FFD43B');
-                const pillFg = st.tone === 'yellow' ? '#131722' : '#FFFFFF';
+                const pillBg = st.tone === 'cobalt' ? cobalt : (st.tone === 'red' ? red : yellow);
+                const pillFg = st.tone === 'yellow' ? ink : '#FFFFFF';
                 const card = `
                   <article class="sketch-card flow-station">
                     <div>
-                      <span class="flow-step-pill" style="background:${pillBg};color:${pillFg};">${st.badge}</span>
-                      <h3 class="h3-card">${st.title}</h3>
-                      <p class="body-copy">${st.desc}</p>
+                      <span class="flow-step-pill" style="background:${pillBg};color:${pillFg};" ${edAttr(idx, `steps.${i}.badge`)}>${st.badge}</span>
+                      <h3 class="h3-card" ${edAttr(idx, `steps.${i}.title`)}>${st.title}</h3>
+                      <p class="body-copy" ${edAttr(idx, `steps.${i}.desc`)}>${st.desc}</p>
                     </div>
                   </article>`;
                 return i < s.steps.length - 1
@@ -2238,33 +2626,33 @@
               }).join('')}
             </div>
             <div class="flow-banner">
-              <p class="flow-banner-text">${s.bannerText}</p>
-              <span class="flow-banner-badge">${s.bannerBadge}</span>
+              <p class="flow-banner-text" ${edAttr(idx, 'bannerText')}>${s.bannerText}</p>
+              <span class="flow-banner-badge" ${edAttr(idx, 'bannerBadge')}>${s.bannerBadge}</span>
             </div>`;
 
         case 'metrics':
           return `
-            <h2 class="h2-slide">${s.titlePre} <span class="ul-cobalt">${s.titleAccent}</span></h2>
+            <h2 class="h2-slide"><span ${edAttr(idx, 'titlePre')}>${s.titlePre}</span> <span class="ul-cobalt" ${edAttr(idx, 'titleAccent')}>${s.titleAccent}</span></h2>
             <div class="metrics-grid">
               <div class="sketch-card chart-card">
                 <div class="chart-head">
-                  <h3 class="h3-card" style="margin:0;">${s.chartTitle}</h3>
+                  <h3 class="h3-card" style="margin:0;" ${edAttr(idx, 'chartTitle')}>${s.chartTitle}</h3>
                   <div class="chart-legend">
-                    <span class="legend-item"><span class="legend-swatch" style="background:#1849D6;"></span>${s.seriesNew}</span>
-                    <span class="legend-item"><span class="legend-swatch" style="background:#D62828;"></span>${s.seriesOld}</span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:${cobalt};"></span><span ${edAttr(idx, 'seriesNew')}>${s.seriesNew}</span></span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:${red};"></span><span ${edAttr(idx, 'seriesOld')}>${s.seriesOld}</span></span>
                   </div>
                 </div>
-                ${buildChartSVG(s)}
+                <div id="metrics-chart-svg">${buildChartSVG(s)}</div>
               </div>
               <div class="kpi-stack">
-                ${s.kpis.map(k => `
+                ${s.kpis.map((k, ki) => `
                   <div class="sketch-card kpi-card ${k.circled ? 'is-circled' : ''}">
                     <div class="kpi-num is-${k.tone}">
-                      ${k.num}
+                      <span ${edAttr(idx, `kpis.${ki}.num`)}>${k.num}</span>
                       ${k.circled ? redLoopSVG() : ''}
                     </div>
-                    <h3 class="h3-card" style="margin-bottom:2px;">${k.title}</h3>
-                    <p class="body-copy" style="font-size:15px;">${k.desc}</p>
+                    <h3 class="h3-card" style="margin-bottom:2px;" ${edAttr(idx, `kpis.${ki}.title`)}>${k.title}</h3>
+                    <p class="body-copy" style="font-size:15px;" ${edAttr(idx, `kpis.${ki}.desc`)}>${k.desc}</p>
                   </div>
                 `).join('')}
               </div>
@@ -2272,44 +2660,44 @@
 
         case 'compare':
           return `
-            <h2 class="h2-slide">${s.titlePre} <span class="hl-yellow">${s.titleAccent}</span></h2>
+            <h2 class="h2-slide"><span ${edAttr(idx, 'titlePre')}>${s.titlePre}</span> <span class="hl-yellow" ${edAttr(idx, 'titleAccent')}>${s.titleAccent}</span></h2>
             <div class="compare-grid">
               <div class="compare-col is-before">
                 <div class="compare-head">
                   <span class="compare-bullet b-red">×</span>
-                  <h3 class="h3-card" style="margin:0;color:var(--pd-red);">${s.beforeTitle}</h3>
+                  <h3 class="h3-card" style="margin:0;color:var(--pd-red);" ${edAttr(idx, 'beforeTitle')}>${s.beforeTitle}</h3>
                 </div>
                 <ul class="compare-list">
-                  ${s.beforeItems.map(item => `<li><span class="compare-bullet b-red">×</span><span>${item}</span></li>`).join('')}
+                  ${s.beforeItems.map((item, ii) => `<li><span class="compare-bullet b-red">×</span><span ${edAttr(idx, `beforeItems.${ii}`)}>${item}</span></li>`).join('')}
                 </ul>
               </div>
               <div class="compare-col is-after">
                 <div class="compare-head">
                   <span class="compare-bullet b-cobalt">✓</span>
-                  <h3 class="h3-card" style="margin:0;color:var(--pd-cobalt);">${s.afterTitle}</h3>
+                  <h3 class="h3-card" style="margin:0;color:var(--pd-cobalt);" ${edAttr(idx, 'afterTitle')}>${s.afterTitle}</h3>
                 </div>
                 <ul class="compare-list">
-                  ${s.afterItems.map(item => `<li><span class="compare-bullet b-cobalt">✓</span><span>${item}</span></li>`).join('')}
+                  ${s.afterItems.map((item, ii) => `<li><span class="compare-bullet b-cobalt">✓</span><span ${edAttr(idx, `afterItems.${ii}`)}>${item}</span></li>`).join('')}
                 </ul>
               </div>
             </div>`;
 
         case 'roadmap':
           return `
-            <h2 class="h2-slide">${s.titlePre} <span class="ul-cobalt">${s.titleAccent}</span></h2>
+            <h2 class="h2-slide"><span ${edAttr(idx, 'titlePre')}>${s.titlePre}</span> <span class="ul-cobalt" ${edAttr(idx, 'titleAccent')}>${s.titleAccent}</span></h2>
             <div class="roadmap-wrap">
               ${roadmapLineSVG()}
               <div class="roadmap-grid">
                 ${s.milestones.map((m, i) => {
                   const pos = i % 2 === 0 ? 'is-top' : 'is-bottom';
-                  const bg = m.tone === 'cobalt' ? '#1849D6' : (m.tone === 'red' ? '#D62828' : '#FFD43B');
-                  const fg = m.tone === 'yellow' ? '#131722' : '#FFFFFF';
+                  const bg = m.tone === 'cobalt' ? cobalt : (m.tone === 'red' ? red : yellow);
+                  const fg = m.tone === 'yellow' ? ink : '#FFFFFF';
                   return `
                     <div class="roadmap-col ${pos}">
                       <article class="sketch-card roadmap-card">
-                        <span class="roadmap-q" style="background:${bg};color:${fg};">${m.q}</span>
-                        <h3 class="h3-card">${m.title}</h3>
-                        <p class="body-copy" style="font-size:15px;">${m.desc}</p>
+                        <span class="roadmap-q" style="background:${bg};color:${fg};" ${edAttr(idx, `milestones.${i}.q`)}>${m.q}</span>
+                        <h3 class="h3-card" ${edAttr(idx, `milestones.${i}.title`)}>${m.title}</h3>
+                        <p class="body-copy" style="font-size:15px;" ${edAttr(idx, `milestones.${i}.desc`)}>${m.desc}</p>
                       </article>
                     </div>`;
                 }).join('')}
@@ -2318,19 +2706,19 @@
 
         case 'table':
           return `
-            <h2 class="h2-slide">${s.titlePre} <span class="hl-yellow">${s.titleAccent}</span></h2>
+            <h2 class="h2-slide"><span ${edAttr(idx, 'titlePre')}>${s.titlePre}</span> <span class="hl-yellow" ${edAttr(idx, 'titleAccent')}>${s.titleAccent}</span></h2>
             <div class="table-card">
               <table class="notebook-table">
                 <thead>
-                  <tr>${s.headers.map(h => `<th>${h}</th>`).join('')}</tr>
+                  <tr>${s.headers.map((h, hi) => `<th ${edAttr(idx, `headers.${hi}`)}>${h}</th>`).join('')}</tr>
                 </thead>
                 <tbody>
                   ${s.rows.map((r, ri) => `
                     <tr class="${ri === 1 ? 'is-featured' : ''}">
-                      <td><strong class="hand" style="font-size:19px;">${r[0]}</strong></td>
-                      <td>${r[1]}</td>
-                      <td>${r[2]}</td>
-                      <td><span class="price-pill">${r[3]}</span></td>
+                      <td><strong class="hand" style="font-size:19px;" ${edAttr(idx, `rows.${ri}.0`)}>${r[0]}</strong></td>
+                      <td ${edAttr(idx, `rows.${ri}.1`)}>${r[1]}</td>
+                      <td ${edAttr(idx, `rows.${ri}.2`)}>${r[2]}</td>
+                      <td><span class="price-pill" ${edAttr(idx, `rows.${ri}.3`)}>${r[3]}</span></td>
                     </tr>
                   `).join('')}
                 </tbody>
@@ -2340,21 +2728,21 @@
         case 'closing':
           return `
             <div class="closing-center">
-              <div class="qa-bubble">${s.qaTag}</div>
-              <h2 class="closing-quote">${s.quote}</h2>
+              <div class="qa-bubble" ${edAttr(idx, 'qaTag')}>${s.qaTag}</div>
+              <h2 class="closing-quote" ${edAttr(idx, 'quote')}>${s.quote}</h2>
               <div class="closing-steps">
-                ${s.steps.map(st => `
+                ${s.steps.map((st, si) => `
                   <div class="sketch-card closing-step">
-                    <span class="closing-step-num">${st.num}</span>
+                    <span class="closing-step-num" ${edAttr(idx, `steps.${si}.num`)}>${st.num}</span>
                     <div>
-                      <h3 class="h3-card" style="font-size:18px;margin-bottom:2px;">${st.title}</h3>
-                      <p class="body-copy" style="font-size:14.5px;">${st.desc}</p>
+                      <h3 class="h3-card" style="font-size:18px;margin-bottom:2px;" ${edAttr(idx, `steps.${si}.title`)}>${st.title}</h3>
+                      <p class="body-copy" style="font-size:14.5px;" ${edAttr(idx, `steps.${si}.desc`)}>${st.desc}</p>
                     </div>
                   </div>
                 `).join('')}
               </div>
               <div class="contact-strip">
-                ${s.contacts.map((c, ci) => ci > 0 ? `<span>·</span><span>${c}</span>` : `<span>${c}</span>`).join('')}
+                ${s.contacts.map((c, ci) => ci > 0 ? `<span>·</span><span ${edAttr(idx, `contacts.${ci}`)}>${c}</span>` : `<span ${edAttr(idx, `contacts.${ci}`)}>${c}</span>`).join('')}
               </div>
             </div>`;
       }
@@ -2367,15 +2755,16 @@
 
       stage.innerHTML = data.slides.map((s, i) => {
         const coverTapes = s.type === 'cover' ? `
-          <div class="sticker-tape" style="top:-12px;left:36px;transform:rotate(-8deg);">${washiTapeSVG('#FFD43B', 136, 34)}</div>
-          <div class="sticker-tape" style="top:-12px;right:44px;transform:rotate(7deg);">${washiTapeSVG('#1849D6', 136, 34)}</div>` : '';
+          <div class="sticker-tape" style="top:-12px;left:36px;transform:rotate(-8deg);">${washiTapeSVG(THEME_STATE.yellow, 136, 34)}</div>
+          <div class="sticker-tape" style="top:-12px;right:44px;transform:rotate(7deg);">${washiTapeSVG(THEME_STATE.cobalt, 136, 34)}</div>` : '';
         const closingTapes = s.type === 'closing' ? `
-          <div class="sticker-tape" style="top:-12px;left:42px;transform:rotate(-6deg);">${washiTapeSVG('#1849D6', 136, 34)}</div>` : '';
+          <div class="sticker-tape" style="top:-12px;left:42px;transform:rotate(-6deg);">${washiTapeSVG(THEME_STATE.cobalt, 136, 34)}</div>` : '';
         return `
           <section class="slide ${i === currentSlide ? 'is-active' : ''}" data-slide-index="${i}" aria-label="Slide ${s.id}">
+            ${renderSlideBgLayer(i)}
             ${coverTapes}${closingTapes}
             <header class="slide-top">
-              <span class="${tagClass(s.tagTone)}">${s.chapter}</span>
+              <span class="${tagClass(s.tagTone)}" ${edAttr(i, 'chapter')}>${s.chapter}</span>
               <span class="slide-num">${s.id} / 0${total}</span>
             </header>
             <div class="slide-body">${renderSlideBody(s, i)}</div>
@@ -2385,6 +2774,7 @@
 
       updateUI();
       renderOverview();
+      renderChartEditor();
       resizeStage();
     }
 
@@ -2395,12 +2785,16 @@
       const active = data.slides[currentSlide];
 
       document.documentElement.lang = currentLang;
+      document.title = `${ui.brand} — Primary Doodle Deck (HTML 16:9 & .pptx)`;
       document.getElementById('ui-brand').textContent = ui.brand;
+      document.getElementById('btn-edit').textContent = ui.editBtn || (currentLang === 'vi' ? 'Sửa chữ (E)' : 'Edit Text (E)');
+      document.getElementById('btn-customize').textContent = ui.customBtn || (currentLang === 'vi' ? 'Tuỳ chỉnh' : 'Customize');
       document.getElementById('btn-grid').textContent = ui.gridBtn;
       document.getElementById('btn-notes').textContent = ui.notesBtn;
       document.getElementById('btn-full').textContent = ui.fullBtn;
       document.getElementById('btn-pdf').textContent = ui.pdfBtn;
       document.getElementById('btn-pptx-toggle').textContent = ui.pptxBtn;
+      document.getElementById('ui-edit-banner').textContent = ui.editBanner || '';
       document.getElementById('ui-export-title').textContent = ui.exportTitle;
       document.getElementById('ui-exp-opt1-t').textContent = ui.expOpt1T;
       document.getElementById('ui-exp-opt1-d').textContent = ui.expOpt1D;
@@ -2414,7 +2808,10 @@
       document.getElementById('btn-next').disabled = currentSlide === total - 1;
 
       document.getElementById('ui-notes-label').textContent = `${ui.notesPrefix} ${active.id}`;
-      document.getElementById('ui-notes-text').textContent = active.notes;
+      const notesEl = document.getElementById('ui-notes-text');
+      notesEl.textContent = active.notes;
+      if (isEditMode) notesEl.setAttribute('contenteditable', 'true');
+      else notesEl.removeAttribute('contenteditable');
 
       document.getElementById('lang-vi').classList.toggle('is-active', currentLang === 'vi');
       document.getElementById('lang-en').classList.toggle('is-active', currentLang === 'en');
@@ -2441,6 +2838,39 @@
       }).join('');
     }
 
+    function renderChartEditor() {
+      const metricsSlide = DECK_DATA[currentLang].slides[4];
+      const wrap = document.getElementById('chart-editor-rows');
+      if (!metricsSlide || !wrap) return;
+      wrap.innerHTML = `
+        <div style="font-weight:700;color:var(--pd-muted);">${currentLang === 'vi' ? 'Nhãn' : 'Label'}</div>
+        <div style="font-weight:700;color:var(--pd-cobalt);">${metricsSlide.seriesNew.slice(0, 10)}</div>
+        <div style="font-weight:700;color:var(--pd-red);">${metricsSlide.seriesOld.slice(0, 10)}</div>
+        ${metricsSlide.labels.map((lbl, i) => `
+          <input type="text" value="${lbl}" data-chart-field="labels" data-chart-idx="${i}">
+          <input type="number" min="0" max="100" value="${metricsSlide.valuesNew[i]}" data-chart-field="valuesNew" data-chart-idx="${i}">
+          <input type="number" min="0" max="100" value="${metricsSlide.valuesOld[i]}" data-chart-field="valuesOld" data-chart-idx="${i}">
+        `).join('')}
+      `;
+    }
+
+    function syncCustomizerControls() {
+      document.getElementById('inp-bg').value = THEME_STATE.bg;
+      document.getElementById('inp-cobalt').value = THEME_STATE.cobalt;
+      document.getElementById('inp-red').value = THEME_STATE.red;
+      document.getElementById('inp-yellow').value = THEME_STATE.yellow;
+      document.getElementById('sel-font-hand').value = THEME_STATE.fontHand;
+      document.getElementById('sel-font-sans').value = THEME_STATE.fontSans;
+      document.getElementById('inp-bg-overlay').value = Math.round(THEME_STATE.bgOverlay * 100);
+      document.getElementById('ui-overlay-val').textContent = `${Math.round(THEME_STATE.bgOverlay * 100)}%`;
+      document.getElementById('chk-stickers').checked = Boolean(THEME_STATE.showStickers);
+      document.getElementById('chk-edit-inline').checked = isEditMode;
+
+      document.querySelectorAll('[data-preset]').forEach(b => b.classList.toggle('is-active', b.dataset.preset === THEME_STATE.preset));
+      document.querySelectorAll('[data-pattern]').forEach(b => b.classList.toggle('is-active', b.dataset.pattern === THEME_STATE.bgPattern));
+      document.querySelectorAll('[data-bgscope]').forEach(b => b.classList.toggle('is-active', b.dataset.bgscope === THEME_STATE.bgScope));
+    }
+
     function goToSlide(idx) {
       const total = DECK_DATA[currentLang].slides.length;
       currentSlide = Math.max(0, Math.min(total - 1, idx));
@@ -2459,6 +2889,29 @@
       const availH = Math.max(240, window.innerHeight - padH);
       const scale = Math.min(availW / 1280, availH / 720, 1.15);
       document.documentElement.style.setProperty('--stage-scale', scale.toFixed(4));
+    }
+
+    function toggleEditMode(force) {
+      isEditMode = typeof force === 'boolean' ? force : !isEditMode;
+      document.body.classList.toggle('is-edit-mode', isEditMode);
+      document.getElementById('btn-edit').classList.toggle('is-edit-on', isEditMode);
+      document.getElementById('chk-edit-inline').checked = isEditMode;
+
+      document.querySelectorAll('[data-edit-path]').forEach(el => {
+        if (isEditMode) el.setAttribute('contenteditable', 'true');
+        else el.removeAttribute('contenteditable');
+      });
+      const notesEl = document.getElementById('ui-notes-text');
+      if (isEditMode) notesEl.setAttribute('contenteditable', 'true');
+      else notesEl.removeAttribute('contenteditable');
+    }
+
+    function toggleCustomizer(force) {
+      const drawer = document.getElementById('custom-drawer');
+      const next = typeof force === 'boolean' ? force : !drawer.classList.contains('is-open');
+      drawer.classList.toggle('is-open', next);
+      document.getElementById('btn-customize').classList.toggle('is-active', next);
+      if (next) syncCustomizerControls();
     }
 
     function toggleOverview(force) {
@@ -2484,22 +2937,11 @@
     }
 
     /* =====================================================================
-       4. HYBRID .PPTX EXPORTER (NATIVE EDITABLE + 2X PNG STICKERS)
+       4. HYBRID .PPTX EXPORTER (THEME + CUSTOM BACKGROUND + EDITABLE OBJECTS)
        ===================================================================== */
     const PX_TO_IN = 13.3333 / 1280;
     const px = (v) => Number((v * PX_TO_IN).toFixed(3));
-    const C = {
-      bg: 'FBF9F4',
-      surface: 'FFFFFF',
-      ink: '131722',
-      muted: '4B5565',
-      cobalt: '1849D6',
-      red: 'D62828',
-      yellow: 'FFD43B',
-      grid: 'E6E1D6',
-      softRed: 'FEE2E2',
-      softYellow: 'FFFBEB'
-    };
+    const noHash = (hex) => (hex || '#FFFFFF').replace('#', '').toUpperCase();
 
     function svgStringToPngDataUrl(svgString, widthPx, heightPx) {
       return new Promise((resolve, reject) => {
@@ -2525,47 +2967,73 @@
       });
     }
 
-    function buildDotGridPng() {
+    function loadImageElement(src) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = src;
+      });
+    }
+
+    async function buildSlideBgPng(slideIdx) {
       const canvas = document.createElement('canvas');
       canvas.width = 1280;
       canvas.height = 720;
       const ctx = canvas.getContext('2d');
-      ctx.fillStyle = '#FBF9F4';
+      ctx.fillStyle = THEME_STATE.bg;
       ctx.fillRect(0, 0, 1280, 720);
-      ctx.fillStyle = '#E6E1D6';
-      for (let x = 12; x < 1280; x += 24) {
-        for (let y = 12; y < 720; y += 24) {
-          ctx.beginPath();
-          ctx.arc(x, y, 1.4, 0, Math.PI * 2);
-          ctx.fill();
+
+      const hasPhoto = Boolean(THEME_STATE.bgImage) && (THEME_STATE.bgScope === 'all' || THEME_STATE.bgSlideIndex === slideIdx);
+      if (hasPhoto) {
+        try {
+          const img = await loadImageElement(THEME_STATE.bgImage);
+          const scale = Math.max(1280 / img.width, 720 / img.height);
+          const w = img.width * scale;
+          const h = img.height * scale;
+          ctx.drawImage(img, (1280 - w) / 2, (720 - h) / 2, w, h);
+          ctx.fillStyle = hexToRgba(THEME_STATE.bg, THEME_STATE.bgOverlay);
+          ctx.fillRect(0, 0, 1280, 720);
+        } catch {}
+      }
+
+      if (THEME_STATE.bgPattern === 'dots') {
+        ctx.fillStyle = THEME_STATE.grid;
+        for (let x = 12; x < 1280; x += 24) {
+          for (let y = 12; y < 720; y += 24) {
+            ctx.beginPath();
+            ctx.arc(x, y, 1.4, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      } else if (THEME_STATE.bgPattern === 'grid') {
+        ctx.strokeStyle = THEME_STATE.grid;
+        ctx.lineWidth = 1;
+        for (let x = 0; x <= 1280; x += 28) {
+          ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 720); ctx.stroke();
+        }
+        for (let y = 0; y <= 720; y += 28) {
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(1280, y); ctx.stroke();
         }
       }
       return canvas.toDataURL('image/png');
     }
 
-    function addSketchCard(pptx, slide, xPx, yPx, wPx, hPx, opts = {}) {
+    function addSketchCard(pptx, slide, C, xPx, yPx, wPx, hPx, opts = {}) {
       const shadowColor = opts.shadowColor || C.ink;
       slide.addShape(pptx.ShapeType.roundRect, {
-        x: px(xPx + 5),
-        y: px(yPx + 5),
-        w: px(wPx),
-        h: px(hPx),
-        fill: { color: shadowColor },
-        line: { color: shadowColor, width: 0 },
-        rectRadius: 0.08
+        x: px(xPx + 5), y: px(yPx + 5), w: px(wPx), h: px(hPx),
+        fill: { color: shadowColor }, line: { color: shadowColor, width: 0 }, rectRadius: 0.08
       });
       slide.addShape(pptx.ShapeType.roundRect, {
-        x: px(xPx),
-        y: px(yPx),
-        w: px(wPx),
-        h: px(hPx),
+        x: px(xPx), y: px(yPx), w: px(wPx), h: px(hPx),
         fill: { color: opts.fill || C.surface },
         line: { color: opts.border || C.ink, width: 1.5, dashType: opts.dash ? 'dash' : 'solid' },
         rectRadius: 0.08
       });
     }
 
-    function addSlideChrome(pptx, slide, s, total, footBrand, fonts) {
+    function addSlideChrome(pptx, slide, C, s, total, footBrand, fonts) {
       const tagFill = s.tagTone === 'yellow' ? C.yellow : (s.tagTone === 'red' ? C.red : C.cobalt);
       const tagInk = s.tagTone === 'yellow' ? C.ink : C.surface;
       slide.addShape(pptx.ShapeType.roundRect, {
@@ -2606,7 +3074,19 @@
       showToast(data.ui.exportingMsg, 4000);
       const fonts = fontMode === 'safe'
         ? { hand: 'Segoe Print', sans: 'Arial', mono: 'Courier New' }
-        : { hand: 'Shantell Sans', sans: 'Plus Jakarta Sans', mono: 'JetBrains Mono' };
+        : { hand: THEME_STATE.fontHand, sans: THEME_STATE.fontSans, mono: 'JetBrains Mono' };
+
+      const C = {
+        bg: noHash(THEME_STATE.bg),
+        surface: noHash(THEME_STATE.surface),
+        ink: noHash(THEME_STATE.ink),
+        muted: noHash(THEME_STATE.muted),
+        cobalt: noHash(THEME_STATE.cobalt),
+        red: noHash(THEME_STATE.red),
+        yellow: noHash(THEME_STATE.yellow),
+        grid: noHash(THEME_STATE.grid),
+        softYellow: 'FFFBEB'
+      };
 
       try {
         const pptx = new PptxGenJS();
@@ -2615,7 +3095,6 @@
         pptx.title = `${data.ui.brand} — Primary Doodle Deck`;
 
         const [
-          dotGridPng,
           tapeYellowPng,
           tapeCobaltPng,
           tapeRedPng,
@@ -2624,327 +3103,163 @@
           arrowPng,
           redLoopPng
         ] = await Promise.all([
-          Promise.resolve(buildDotGridPng()),
-          svgStringToPngDataUrl(washiTapeSVG('#FFD43B', 136, 34), 136, 34),
-          svgStringToPngDataUrl(washiTapeSVG('#1849D6', 136, 34), 136, 34),
-          svgStringToPngDataUrl(washiTapeSVG('#D62828', 136, 34), 136, 34),
+          svgStringToPngDataUrl(washiTapeSVG(THEME_STATE.yellow, 136, 34), 136, 34),
+          svgStringToPngDataUrl(washiTapeSVG(THEME_STATE.cobalt, 136, 34), 136, 34),
+          svgStringToPngDataUrl(washiTapeSVG(THEME_STATE.red, 136, 34), 136, 34),
           svgStringToPngDataUrl(coverSketchSVG(), 380, 270),
           svgStringToPngDataUrl(paperclipSVG(), 38, 58),
           svgStringToPngDataUrl(doodleArrowSVG(), 66, 44),
-          svgStringToPngDataUrl(`<svg xmlns="http://www.w3.org/2000/svg" width="180" height="68" viewBox="0 0 180 68" fill="none"><path d="M16 38 C14 14, 154 6, 166 30 C176 52, 34 62, 12 42 C4 34, 24 14, 72 11" stroke="#D62828" stroke-width="3.8" stroke-linecap="round"/></svg>`, 180, 68)
+          svgStringToPngDataUrl(`<svg xmlns="http://www.w3.org/2000/svg" width="180" height="68" viewBox="0 0 180 68" fill="none"><path d="M16 38 C14 14, 154 6, 166 30 C176 52, 34 62, 12 42 C4 34, 24 14, 72 11" stroke="${THEME_STATE.red}" stroke-width="3.8" stroke-linecap="round"/></svg>`, 180, 68)
         ]);
 
         const total = data.slides.length;
+        let sharedBgPng = null;
+        if (THEME_STATE.bgScope === 'all' || !THEME_STATE.bgImage) {
+          sharedBgPng = await buildSlideBgPng(0);
+        }
 
-        data.slides.forEach((s) => {
+        for (let slideIdx = 0; slideIdx < total; slideIdx++) {
+          const s = data.slides[slideIdx];
           const slide = pptx.addSlide();
-          slide.background = { data: dotGridPng };
+          const bgData = sharedBgPng || await buildSlideBgPng(slideIdx);
+          slide.background = { data: bgData };
           slide.addNotes(s.notes);
-          addSlideChrome(pptx, slide, s, total, data.ui.footBrand, fonts);
+          addSlideChrome(pptx, slide, C, s, total, data.ui.footBrand, fonts);
 
           if (s.type === 'cover') {
-            slide.addImage({ data: tapeYellowPng, x: px(44), y: px(-4), w: px(136), h: px(34), rotate: 352 });
-            slide.addImage({ data: tapeCobaltPng, x: px(1090), y: px(-4), w: px(136), h: px(34), rotate: 7 });
-
-            slide.addShape(pptx.ShapeType.rect, {
-              x: px(56), y: px(228), w: px(420), h: px(32),
-              fill: { color: C.yellow }, line: { width: 0 }
-            });
+            if (THEME_STATE.showStickers) {
+              slide.addImage({ data: tapeYellowPng, x: px(44), y: px(-4), w: px(136), h: px(34), rotate: 352 });
+              slide.addImage({ data: tapeCobaltPng, x: px(1090), y: px(-4), w: px(136), h: px(34), rotate: 7 });
+            }
+            slide.addShape(pptx.ShapeType.rect, { x: px(56), y: px(228), w: px(420), h: px(32), fill: { color: C.yellow }, line: { width: 0 } });
             slide.addText([
               { text: s.titlePre + '\n', options: { fontFace: fonts.hand, fontSize: 34, bold: true, color: C.ink } },
               { text: s.titleHighlight + ' ', options: { fontFace: fonts.hand, fontSize: 34, bold: true, color: C.ink } },
               { text: s.titleUnderline, options: { fontFace: fonts.hand, fontSize: 34, bold: true, color: C.cobalt, underline: { style: 'sng', color: C.cobalt } } }
             ], { x: px(56), y: px(136), w: px(660), h: px(250), valign: 'middle' });
-
-            slide.addText(s.subtitle, {
-              x: px(56), y: px(396), w: px(620), h: px(100),
-              fontFace: fonts.sans, fontSize: 15, color: C.muted
-            });
-
-            addSketchCard(pptx, slide, 56, 514, 250, 52, { fill: C.cobalt });
-            slide.addText(s.cta, {
-              x: px(56), y: px(514), w: px(250), h: px(52),
-              fontFace: fonts.hand, fontSize: 14, bold: true, color: C.surface, align: 'center', valign: 'middle'
-            });
-            slide.addText(s.author, {
-              x: px(326), y: px(520), w: px(350), h: px(40),
-              fontFace: fonts.mono, fontSize: 11, bold: true, color: C.muted, valign: 'middle'
-            });
-
-            addSketchCard(pptx, slide, 748, 148, 476, 420, { shadowColor: C.cobalt });
+            slide.addText(s.subtitle, { x: px(56), y: px(396), w: px(620), h: px(100), fontFace: fonts.sans, fontSize: 15, color: C.muted });
+            addSketchCard(pptx, slide, C, 56, 514, 250, 52, { fill: C.cobalt });
+            slide.addText(s.cta, { x: px(56), y: px(514), w: px(250), h: px(52), fontFace: fonts.hand, fontSize: 14, bold: true, color: C.surface, align: 'center', valign: 'middle' });
+            slide.addText(s.author, { x: px(326), y: px(520), w: px(350), h: px(40), fontFace: fonts.mono, fontSize: 11, bold: true, color: C.muted, valign: 'middle' });
+            addSketchCard(pptx, slide, C, 748, 148, 476, 420, { shadowColor: C.cobalt });
             slide.addImage({ data: coverSketchPng, x: px(796), y: px(176), w: px(380), h: px(270) });
-            slide.addShape(pptx.ShapeType.roundRect, {
-              x: px(826), y: px(486), w: px(320), h: px(40),
-              fill: { color: C.yellow }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.5
-            });
-            slide.addText(s.artCaption, {
-              x: px(826), y: px(486), w: px(320), h: px(40),
-              fontFace: fonts.hand, fontSize: 12.5, bold: true, color: C.ink, align: 'center', valign: 'middle'
-            });
+            slide.addShape(pptx.ShapeType.roundRect, { x: px(826), y: px(486), w: px(320), h: px(40), fill: { color: C.yellow }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.5 });
+            slide.addText(s.artCaption, { x: px(826), y: px(486), w: px(320), h: px(40), fontFace: fonts.hand, fontSize: 12.5, bold: true, color: C.ink, align: 'center', valign: 'middle' });
           }
 
           if (s.type === 'agenda') {
-            addSketchCard(pptx, slide, 56, 148, 456, 420, { fill: C.yellow });
-            slide.addImage({ data: paperclipPng, x: px(88), y: px(124), w: px(38), h: px(58) });
-            slide.addText(s.stickyQuestion, {
-              x: px(88), y: px(198), w: px(390), h: px(180),
-              fontFace: fonts.hand, fontSize: 23, bold: true, color: C.ink
-            });
-            slide.addText(s.stickySub, {
-              x: px(88), y: px(404), w: px(390), h: px(110),
-              fontFace: fonts.sans, fontSize: 13.5, bold: true, color: C.ink
-            });
-
+            addSketchCard(pptx, slide, C, 56, 148, 456, 420, { fill: C.yellow });
+            if (THEME_STATE.showStickers) slide.addImage({ data: paperclipPng, x: px(88), y: px(124), w: px(38), h: px(58) });
+            slide.addText(s.stickyQuestion, { x: px(88), y: px(198), w: px(390), h: px(180), fontFace: fonts.hand, fontSize: 23, bold: true, color: C.ink });
+            slide.addText(s.stickySub, { x: px(88), y: px(404), w: px(390), h: px(110), fontFace: fonts.sans, fontSize: 13.5, bold: true, color: C.ink });
             s.items.forEach((it, idx) => {
               const y = 136 + idx * 116;
-              addSketchCard(pptx, slide, 554, y, 670, 98);
+              addSketchCard(pptx, slide, C, 554, y, 670, 98);
               const badgeColor = it.tone === 'red' ? C.red : (it.tone === 'yellow' ? C.yellow : C.cobalt);
               const badgeTxt = it.tone === 'yellow' ? C.ink : C.surface;
-              slide.addShape(pptx.ShapeType.ellipse, {
-                x: px(574), y: px(y + 24), w: px(48), h: px(48),
-                fill: { color: badgeColor }, line: { color: C.ink, width: 1.5 }
-              });
-              slide.addText(it.num, {
-                x: px(574), y: px(y + 24), w: px(48), h: px(48),
-                fontFace: fonts.mono, fontSize: 13, bold: true, color: badgeTxt, align: 'center', valign: 'middle'
-              });
-              slide.addText(it.title, {
-                x: px(638), y: px(y + 16), w: px(565), h: px(34),
-                fontFace: fonts.hand, fontSize: 16, bold: true, color: C.ink
-              });
-              slide.addText(it.desc, {
-                x: px(638), y: px(y + 52), w: px(565), h: px(34),
-                fontFace: fonts.sans, fontSize: 12, color: C.muted
-              });
+              slide.addShape(pptx.ShapeType.ellipse, { x: px(574), y: px(y + 24), w: px(48), h: px(48), fill: { color: badgeColor }, line: { color: C.ink, width: 1.5 } });
+              slide.addText(it.num, { x: px(574), y: px(y + 24), w: px(48), h: px(48), fontFace: fonts.mono, fontSize: 13, bold: true, color: badgeTxt, align: 'center', valign: 'middle' });
+              slide.addText(it.title, { x: px(638), y: px(y + 16), w: px(565), h: px(34), fontFace: fonts.hand, fontSize: 16, bold: true, color: C.ink });
+              slide.addText(it.desc, { x: px(638), y: px(y + 52), w: px(565), h: px(34), fontFace: fonts.sans, fontSize: 12, color: C.muted });
             });
           }
 
           if (s.type === 'problem') {
-            slide.addText([
-              { text: s.titlePre + ' ', options: { color: C.ink } },
-              { text: s.titleAccent, options: { color: C.red, underline: { style: 'sng', color: C.red } } }
-            ], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
-
+            slide.addText([{ text: s.titlePre + ' ', options: { color: C.ink } }, { text: s.titleAccent, options: { color: C.red, underline: { style: 'sng', color: C.red } } }], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
             s.cards.forEach((c, idx) => {
               const x = 56 + idx * 398;
               const y = c.raised ? 178 : 196;
-              addSketchCard(pptx, slide, x, y, 372, 410, { shadowColor: c.raised ? C.cobalt : C.ink });
-              const tapeImg = c.tape === 'red' ? tapeRedPng : (c.tape === 'cobalt' ? tapeCobaltPng : tapeYellowPng);
-              slide.addImage({ data: tapeImg, x: px(x + 118), y: px(y - 16), w: px(136), h: px(34), rotate: c.raised ? 2 : 357 });
-
-              const statColor = c.statTone === 'red' ? C.red : (c.statTone === 'cobalt' ? C.cobalt : C.ink);
-              if (c.statTone === 'ink') {
-                slide.addShape(pptx.ShapeType.roundRect, {
-                  x: px(x + 26), y: px(y + 38), w: px(150), h: px(64),
-                  fill: { color: C.yellow }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.1
-                });
+              addSketchCard(pptx, slide, C, x, y, 372, 410, { shadowColor: c.raised ? C.cobalt : C.ink });
+              if (THEME_STATE.showStickers) {
+                const tapeImg = c.tape === 'red' ? tapeRedPng : (c.tape === 'cobalt' ? tapeCobaltPng : tapeYellowPng);
+                slide.addImage({ data: tapeImg, x: px(x + 118), y: px(y - 16), w: px(136), h: px(34), rotate: c.raised ? 2 : 357 });
               }
-              slide.addText(c.stat, {
-                x: px(x + 26), y: px(y + 38), w: px(320), h: px(64),
-                fontFace: fonts.mono, fontSize: 34, bold: true, color: statColor
-              });
-              slide.addText(c.title, {
-                x: px(x + 26), y: px(y + 124), w: px(320), h: px(42),
-                fontFace: fonts.hand, fontSize: 17, bold: true, color: C.ink
-              });
-              slide.addText(c.desc, {
-                x: px(x + 26), y: px(y + 174), w: px(320), h: px(110),
-                fontFace: fonts.sans, fontSize: 13.5, color: C.muted
-              });
-              slide.addShape(pptx.ShapeType.roundRect, {
-                x: px(x + 26), y: px(y + 344), w: px(190), h: px(32),
-                fill: { color: C.bg }, line: { color: C.ink, width: 1 }, rectRadius: 0.08
-              });
-              slide.addText(c.tag, {
-                x: px(x + 26), y: px(y + 344), w: px(190), h: px(32),
-                fontFace: fonts.mono, fontSize: 9.5, bold: true, color: C.ink, align: 'center', valign: 'middle'
-              });
+              const statColor = c.statTone === 'red' ? C.red : (c.statTone === 'cobalt' ? C.cobalt : C.ink);
+              if (c.statTone === 'ink') slide.addShape(pptx.ShapeType.roundRect, { x: px(x + 26), y: px(y + 38), w: px(150), h: px(64), fill: { color: C.yellow }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.1 });
+              slide.addText(c.stat, { x: px(x + 26), y: px(y + 38), w: px(320), h: px(64), fontFace: fonts.mono, fontSize: 34, bold: true, color: statColor });
+              slide.addText(c.title, { x: px(x + 26), y: px(y + 124), w: px(320), h: px(42), fontFace: fonts.hand, fontSize: 17, bold: true, color: C.ink });
+              slide.addText(c.desc, { x: px(x + 26), y: px(y + 174), w: px(320), h: px(110), fontFace: fonts.sans, fontSize: 13.5, color: C.muted });
+              slide.addShape(pptx.ShapeType.roundRect, { x: px(x + 26), y: px(y + 344), w: px(190), h: px(32), fill: { color: C.bg }, line: { color: C.ink, width: 1 }, rectRadius: 0.08 });
+              slide.addText(c.tag, { x: px(x + 26), y: px(y + 344), w: px(190), h: px(32), fontFace: fonts.mono, fontSize: 9.5, bold: true, color: C.ink, align: 'center', valign: 'middle' });
             });
           }
 
           if (s.type === 'flow') {
-            slide.addText([
-              { text: s.titlePre + ' → ', options: { color: C.ink } },
-              { text: s.titleAccent, options: { color: C.cobalt } }
-            ], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
-
+            slide.addText([{ text: s.titlePre + ' → ', options: { color: C.ink } }, { text: s.titleAccent, options: { color: C.cobalt } }], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
             s.steps.forEach((st, idx) => {
               const x = 56 + idx * 414;
-              addSketchCard(pptx, slide, x, 190, 340, 310);
+              addSketchCard(pptx, slide, C, x, 190, 340, 310);
               const pillFill = st.tone === 'cobalt' ? C.cobalt : (st.tone === 'red' ? C.red : C.yellow);
               const pillInk = st.tone === 'yellow' ? C.ink : C.surface;
-              slide.addShape(pptx.ShapeType.roundRect, {
-                x: px(x + 24), y: px(218), w: px(112), h: px(32),
-                fill: { color: pillFill }, line: { color: C.ink, width: 1.25 }, rectRadius: 0.5
-              });
-              slide.addText(st.badge, {
-                x: px(x + 24), y: px(218), w: px(112), h: px(32),
-                fontFace: fonts.mono, fontSize: 10, bold: true, color: pillInk, align: 'center', valign: 'middle'
-              });
-              slide.addText(st.title, {
-                x: px(x + 24), y: px(272), w: px(292), h: px(54),
-                fontFace: fonts.hand, fontSize: 17, bold: true, color: C.ink
-              });
-              slide.addText(st.desc, {
-                x: px(x + 24), y: px(338), w: px(292), h: px(120),
-                fontFace: fonts.sans, fontSize: 13.5, color: C.muted
-              });
-              if (idx < 2) {
-                slide.addImage({ data: arrowPng, x: px(x + 344), y: px(322), w: px(66), h: px(44) });
-              }
+              slide.addShape(pptx.ShapeType.roundRect, { x: px(x + 24), y: px(218), w: px(112), h: px(32), fill: { color: pillFill }, line: { color: C.ink, width: 1.25 }, rectRadius: 0.5 });
+              slide.addText(st.badge, { x: px(x + 24), y: px(218), w: px(112), h: px(32), fontFace: fonts.mono, fontSize: 10, bold: true, color: pillInk, align: 'center', valign: 'middle' });
+              slide.addText(st.title, { x: px(x + 24), y: px(272), w: px(292), h: px(54), fontFace: fonts.hand, fontSize: 17, bold: true, color: C.ink });
+              slide.addText(st.desc, { x: px(x + 24), y: px(338), w: px(292), h: px(120), fontFace: fonts.sans, fontSize: 13.5, color: C.muted });
+              if (idx < 2) slide.addImage({ data: arrowPng, x: px(x + 344), y: px(322), w: px(66), h: px(44) });
             });
-
-            addSketchCard(pptx, slide, 56, 540, 1168, 76, { fill: C.yellow });
-            slide.addText(s.bannerText, {
-              x: px(80), y: px(548), w: px(820), h: px(60),
-              fontFace: fonts.hand, fontSize: 15, bold: true, color: C.ink, valign: 'middle'
-            });
-            slide.addShape(pptx.ShapeType.roundRect, {
-              x: px(930), y: px(556), w: px(270), h: px(44),
-              fill: { color: C.surface }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.1
-            });
-            slide.addText(s.bannerBadge, {
-              x: px(930), y: px(556), w: px(270), h: px(44),
-              fontFace: fonts.mono, fontSize: 11, bold: true, color: C.ink, align: 'center', valign: 'middle'
-            });
+            addSketchCard(pptx, slide, C, 56, 540, 1168, 76, { fill: C.yellow });
+            slide.addText(s.bannerText, { x: px(80), y: px(548), w: px(820), h: px(60), fontFace: fonts.hand, fontSize: 15, bold: true, color: C.ink, valign: 'middle' });
+            slide.addShape(pptx.ShapeType.roundRect, { x: px(930), y: px(556), w: px(270), h: px(44), fill: { color: C.surface }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.1 });
+            slide.addText(s.bannerBadge, { x: px(930), y: px(556), w: px(270), h: px(44), fontFace: fonts.mono, fontSize: 11, bold: true, color: C.ink, align: 'center', valign: 'middle' });
           }
 
           if (s.type === 'metrics') {
-            slide.addText([
-              { text: s.titlePre + ' ', options: { color: C.ink } },
-              { text: s.titleAccent, options: { color: C.cobalt, underline: { style: 'sng', color: C.cobalt } } }
-            ], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
-
-            addSketchCard(pptx, slide, 56, 178, 690, 444);
-            slide.addText(s.chartTitle, {
-              x: px(80), y: px(194), w: px(640), h: px(34),
-              fontFace: fonts.hand, fontSize: 16, bold: true, color: C.ink
-            });
+            slide.addText([{ text: s.titlePre + ' ', options: { color: C.ink } }, { text: s.titleAccent, options: { color: C.cobalt, underline: { style: 'sng', color: C.cobalt } } }], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
+            addSketchCard(pptx, slide, C, 56, 178, 690, 444);
+            slide.addText(s.chartTitle, { x: px(80), y: px(194), w: px(640), h: px(34), fontFace: fonts.hand, fontSize: 16, bold: true, color: C.ink });
             slide.addChart(pptx.ChartType.bar, [
-              { name: s.seriesNew, labels: s.labels, values: s.valuesNew },
-              { name: s.seriesOld, labels: s.labels, values: s.valuesOld }
+              { name: s.seriesNew, labels: s.labels, values: s.valuesNew.map(Number) },
+              { name: s.seriesOld, labels: s.labels, values: s.valuesOld.map(Number) }
             ], {
               x: px(76), y: px(236), w: px(650), h: px(370),
-              barDir: 'col',
-              barGrouping: 'clustered',
-              chartColors: [C.cobalt, C.red],
-              showLegend: true,
-              legendPos: 'b',
-              showValue: true,
-              dataLabelPosition: 'outEnd',
-              valAxisMaxVal: 100,
-              valAxisMinVal: 0,
-              catAxisLabelFontFace: fonts.sans,
-              valAxisLabelFontFace: fonts.mono,
-              catAxisLabelFontSize: 10,
-              valAxisLabelFontSize: 9
+              barDir: 'col', barGrouping: 'clustered', chartColors: [C.cobalt, C.red],
+              showLegend: true, legendPos: 'b', showValue: true, dataLabelPosition: 'outEnd',
+              valAxisMaxVal: 100, valAxisMinVal: 0,
+              catAxisLabelFontFace: fonts.sans, valAxisLabelFontFace: fonts.mono,
+              catAxisLabelFontSize: 10, valAxisLabelFontSize: 9
             });
-
             s.kpis.forEach((k, idx) => {
               const y = 178 + idx * 154;
-              addSketchCard(pptx, slide, 774, y, 450, 136, { fill: k.circled ? 'FFFDF5' : C.surface });
+              addSketchCard(pptx, slide, C, 774, y, 450, 136, { fill: k.circled ? 'FFFDF5' : C.surface });
               const numColor = k.tone === 'red' ? C.red : (k.tone === 'cobalt' ? C.cobalt : C.ink);
-              slide.addText(k.num, {
-                x: px(798), y: px(y + 14), w: px(220), h: px(48),
-                fontFace: fonts.mono, fontSize: 27, bold: true, color: numColor
-              });
-              if (k.circled) {
-                slide.addImage({ data: redLoopPng, x: px(784), y: px(y + 6), w: px(165), h: px(62) });
-              }
-              slide.addText(k.title, {
-                x: px(798), y: px(y + 66), w: px(402), h: px(28),
-                fontFace: fonts.hand, fontSize: 15, bold: true, color: C.ink
-              });
-              slide.addText(k.desc, {
-                x: px(798), y: px(y + 96), w: px(402), h: px(32),
-                fontFace: fonts.sans, fontSize: 11.5, color: C.muted
-              });
+              slide.addText(k.num, { x: px(798), y: px(y + 14), w: px(220), h: px(48), fontFace: fonts.mono, fontSize: 27, bold: true, color: numColor });
+              if (k.circled && THEME_STATE.showStickers) slide.addImage({ data: redLoopPng, x: px(784), y: px(y + 6), w: px(165), h: px(62) });
+              slide.addText(k.title, { x: px(798), y: px(y + 66), w: px(402), h: px(28), fontFace: fonts.hand, fontSize: 15, bold: true, color: C.ink });
+              slide.addText(k.desc, { x: px(798), y: px(y + 96), w: px(402), h: px(32), fontFace: fonts.sans, fontSize: 11.5, color: C.muted });
             });
           }
 
           if (s.type === 'compare') {
-            slide.addText([
-              { text: s.titlePre + ' ', options: { color: C.ink } },
-              { text: s.titleAccent, options: { color: C.cobalt } }
-            ], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
-
-            addSketchCard(pptx, slide, 56, 178, 566, 444, { border: C.red, dash: true, shadowColor: C.red });
-            slide.addText('×  ' + s.beforeTitle, {
-              x: px(84), y: px(198), w: px(510), h: px(42),
-              fontFace: fonts.hand, fontSize: 18, bold: true, color: C.red
-            });
-            s.beforeItems.forEach((item, ii) => {
-              slide.addText(`×  ${item}`, {
-                x: px(84), y: px(258 + ii * 82), w: px(510), h: px(66),
-                fontFace: fonts.sans, fontSize: 13.5, color: C.ink
-              });
-            });
-
-            addSketchCard(pptx, slide, 658, 178, 566, 444, { border: C.cobalt, shadowColor: C.cobalt });
-            slide.addText('✓  ' + s.afterTitle, {
-              x: px(686), y: px(198), w: px(510), h: px(42),
-              fontFace: fonts.hand, fontSize: 18, bold: true, color: C.cobalt
-            });
-            s.afterItems.forEach((item, ii) => {
-              slide.addText(`✓  ${item}`, {
-                x: px(686), y: px(258 + ii * 82), w: px(510), h: px(66),
-                fontFace: fonts.sans, fontSize: 13.5, color: C.ink
-              });
-            });
+            slide.addText([{ text: s.titlePre + ' ', options: { color: C.ink } }, { text: s.titleAccent, options: { color: C.cobalt } }], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
+            addSketchCard(pptx, slide, C, 56, 178, 566, 444, { border: C.red, dash: true, shadowColor: C.red });
+            slide.addText('×  ' + s.beforeTitle, { x: px(84), y: px(198), w: px(510), h: px(42), fontFace: fonts.hand, fontSize: 18, bold: true, color: C.red });
+            s.beforeItems.forEach((item, ii) => slide.addText(`×  ${item}`, { x: px(84), y: px(258 + ii * 82), w: px(510), h: px(66), fontFace: fonts.sans, fontSize: 13.5, color: C.ink }));
+            addSketchCard(pptx, slide, C, 658, 178, 566, 444, { border: C.cobalt, shadowColor: C.cobalt });
+            slide.addText('✓  ' + s.afterTitle, { x: px(686), y: px(198), w: px(510), h: px(42), fontFace: fonts.hand, fontSize: 18, bold: true, color: C.cobalt });
+            s.afterItems.forEach((item, ii) => slide.addText(`✓  ${item}`, { x: px(686), y: px(258 + ii * 82), w: px(510), h: px(66), fontFace: fonts.sans, fontSize: 13.5, color: C.ink }));
           }
 
           if (s.type === 'roadmap') {
-            slide.addText([
-              { text: s.titlePre + ' ', options: { color: C.ink } },
-              { text: s.titleAccent, options: { color: C.cobalt, underline: { style: 'sng', color: C.cobalt } } }
-            ], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
-
-            slide.addShape(pptx.ShapeType.line, {
-              x: px(70), y: px(400), w: px(1140), h: 0,
-              line: { color: C.ink, width: 3, endArrowType: 'triangle' }
-            });
-
+            slide.addText([{ text: s.titlePre + ' ', options: { color: C.ink } }, { text: s.titleAccent, options: { color: C.cobalt, underline: { style: 'sng', color: C.cobalt } } }], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
+            slide.addShape(pptx.ShapeType.line, { x: px(70), y: px(400), w: px(1140), h: 0, line: { color: C.ink, width: 3, endArrowType: 'triangle' } });
             s.milestones.forEach((m, idx) => {
               const x = 56 + idx * 298;
-              const isTop = idx % 2 === 0;
-              const y = isTop ? 180 : 434;
-              addSketchCard(pptx, slide, x, y, 276, 188);
+              const y = idx % 2 === 0 ? 180 : 434;
+              addSketchCard(pptx, slide, C, x, y, 276, 188);
               const qFill = m.tone === 'cobalt' ? C.cobalt : (m.tone === 'red' ? C.red : C.yellow);
               const qInk = m.tone === 'yellow' ? C.ink : C.surface;
-              slide.addShape(pptx.ShapeType.roundRect, {
-                x: px(x + 18), y: px(y + 16), w: px(142), h: px(28),
-                fill: { color: qFill }, line: { color: C.ink, width: 1.2 }, rectRadius: 0.08
-              });
-              slide.addText(m.q, {
-                x: px(x + 18), y: px(y + 16), w: px(142), h: px(28),
-                fontFace: fonts.mono, fontSize: 9.5, bold: true, color: qInk, align: 'center', valign: 'middle'
-              });
-              slide.addText(m.title, {
-                x: px(x + 18), y: px(y + 54), w: px(240), h: px(34),
-                fontFace: fonts.hand, fontSize: 15.5, bold: true, color: C.ink
-              });
-              slide.addText(m.desc, {
-                x: px(x + 18), y: px(y + 92), w: px(240), h: px(84),
-                fontFace: fonts.sans, fontSize: 11.5, color: C.muted
-              });
-              slide.addShape(pptx.ShapeType.ellipse, {
-                x: px(x + 126), y: px(388), w: px(24), h: px(24),
-                fill: { color: qFill }, line: { color: C.ink, width: 2 }
-              });
+              slide.addShape(pptx.ShapeType.roundRect, { x: px(x + 18), y: px(y + 16), w: px(142), h: px(28), fill: { color: qFill }, line: { color: C.ink, width: 1.2 }, rectRadius: 0.08 });
+              slide.addText(m.q, { x: px(x + 18), y: px(y + 16), w: px(142), h: px(28), fontFace: fonts.mono, fontSize: 9.5, bold: true, color: qInk, align: 'center', valign: 'middle' });
+              slide.addText(m.title, { x: px(x + 18), y: px(y + 54), w: px(240), h: px(34), fontFace: fonts.hand, fontSize: 15.5, bold: true, color: C.ink });
+              slide.addText(m.desc, { x: px(x + 18), y: px(y + 92), w: px(240), h: px(84), fontFace: fonts.sans, fontSize: 11.5, color: C.muted });
+              slide.addShape(pptx.ShapeType.ellipse, { x: px(x + 126), y: px(388), w: px(24), h: px(24), fill: { color: qFill }, line: { color: C.ink, width: 2 } });
             });
           }
 
           if (s.type === 'table') {
-            slide.addText([
-              { text: s.titlePre + ' ', options: { color: C.ink } },
-              { text: s.titleAccent, options: { color: C.cobalt } }
-            ], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
-
+            slide.addText([{ text: s.titlePre + ' ', options: { color: C.ink } }, { text: s.titleAccent, options: { color: C.cobalt } }], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
             const tableRows = [
-              s.headers.map(h => ({
-                text: h,
-                options: { fill: { color: C.cobalt }, color: C.surface, fontFace: fonts.hand, fontSize: 15, bold: true, valign: 'middle' }
-              })),
+              s.headers.map(h => ({ text: h, options: { fill: { color: C.cobalt }, color: C.surface, fontFace: fonts.hand, fontSize: 15, bold: true, valign: 'middle' } })),
               ...s.rows.map((r, ri) => r.map((cell, ci) => ({
                 text: cell,
                 options: {
@@ -2957,60 +3272,26 @@
                 }
               })))
             ];
-
-            slide.addTable(tableRows, {
-              x: px(56), y: px(194), w: px(1168), h: px(370),
-              colW: [px(210), px(220), px(518), px(220)],
-              border: { pt: 1.5, color: C.ink },
-              margin: [8, 12, 8, 12]
-            });
+            slide.addTable(tableRows, { x: px(56), y: px(194), w: px(1168), h: px(370), colW: [px(210), px(220), px(518), px(220)], border: { pt: 1.5, color: C.ink }, margin: [8, 12, 8, 12] });
           }
 
           if (s.type === 'closing') {
-            slide.addImage({ data: tapeCobaltPng, x: px(44), y: px(-4), w: px(136), h: px(34), rotate: 354 });
-
-            slide.addShape(pptx.ShapeType.roundRect, {
-              x: px(1060), y: px(104), w: px(150), h: px(50),
-              fill: { color: C.red }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.25, rotate: 7
-            });
-            slide.addText(s.qaTag, {
-              x: px(1060), y: px(104), w: px(150), h: px(50),
-              fontFace: fonts.hand, fontSize: 17, bold: true, color: C.surface, align: 'center', valign: 'middle', rotate: 7
-            });
-
-            slide.addText(s.quote, {
-              x: px(140), y: px(146), w: px(1000), h: px(148),
-              fontFace: fonts.hand, fontSize: 32, bold: true, color: C.ink, align: 'center', valign: 'middle'
-            });
-
+            if (THEME_STATE.showStickers) slide.addImage({ data: tapeCobaltPng, x: px(44), y: px(-4), w: px(136), h: px(34), rotate: 354 });
+            slide.addShape(pptx.ShapeType.roundRect, { x: px(1060), y: px(104), w: px(150), h: px(50), fill: { color: C.red }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.25, rotate: 7 });
+            slide.addText(s.qaTag, { x: px(1060), y: px(104), w: px(150), h: px(50), fontFace: fonts.hand, fontSize: 17, bold: true, color: C.surface, align: 'center', valign: 'middle', rotate: 7 });
+            slide.addText(s.quote, { x: px(140), y: px(146), w: px(1000), h: px(148), fontFace: fonts.hand, fontSize: 32, bold: true, color: C.ink, align: 'center', valign: 'middle' });
             s.steps.forEach((st, idx) => {
               const x = 140 + idx * 340;
-              addSketchCard(pptx, slide, x, 336, 316, 118);
-              slide.addShape(pptx.ShapeType.roundRect, {
-                x: px(x + 18), y: px(368), w: px(42), h: px(42),
-                fill: { color: C.yellow }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.1
-              });
-              slide.addText(st.num, {
-                x: px(x + 18), y: px(368), w: px(42), h: px(42),
-                fontFace: fonts.mono, fontSize: 13, bold: true, color: C.ink, align: 'center', valign: 'middle'
-              });
-              slide.addText(st.title, {
-                x: px(x + 74), y: px(356), w: px(226), h: px(34),
-                fontFace: fonts.hand, fontSize: 14, bold: true, color: C.ink
-              });
-              slide.addText(st.desc, {
-                x: px(x + 74), y: px(394), w: px(226), h: px(40),
-                fontFace: fonts.sans, fontSize: 11.5, color: C.muted
-              });
+              addSketchCard(pptx, slide, C, x, 336, 316, 118);
+              slide.addShape(pptx.ShapeType.roundRect, { x: px(x + 18), y: px(368), w: px(42), h: px(42), fill: { color: C.yellow }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.1 });
+              slide.addText(st.num, { x: px(x + 18), y: px(368), w: px(42), h: px(42), fontFace: fonts.mono, fontSize: 13, bold: true, color: C.ink, align: 'center', valign: 'middle' });
+              slide.addText(st.title, { x: px(x + 74), y: px(356), w: px(226), h: px(34), fontFace: fonts.hand, fontSize: 14, bold: true, color: C.ink });
+              slide.addText(st.desc, { x: px(x + 74), y: px(394), w: px(226), h: px(40), fontFace: fonts.sans, fontSize: 11.5, color: C.muted });
             });
-
-            addSketchCard(pptx, slide, 260, 514, 760, 56, { fill: C.cobalt });
-            slide.addText(s.contacts.join('   ·   '), {
-              x: px(260), y: px(514), w: px(760), h: px(56),
-              fontFace: fonts.mono, fontSize: 12, bold: true, color: C.surface, align: 'center', valign: 'middle'
-            });
+            addSketchCard(pptx, slide, C, 260, 514, 760, 56, { fill: C.cobalt });
+            slide.addText(s.contacts.join('   ·   '), { x: px(260), y: px(514), w: px(760), h: px(56), fontFace: fonts.mono, fontSize: 12, bold: true, color: C.surface, align: 'center', valign: 'middle' });
           }
-        });
+        }
 
         const slug = (data.ui.exportSlug || data.ui.brand || 'Primary-Doodle-Deck')
           .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -3026,10 +3307,63 @@
     }
 
     /* =====================================================================
-       5. EVENT LISTENERS & KEYBOARD SHORTCUTS
+       5. SAVE STANDALONE HTML / EXPORT JSON / RESET
+       ===================================================================== */
+    function downloadTextFile(filename, content, mime) {
+      const blob = new Blob([content], { type: mime });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function saveStandaloneHtml() {
+      const clone = document.documentElement.cloneNode(true);
+      clone.className = '';
+      const cloneBody = clone.querySelector('body');
+      cloneBody.className = '';
+      const stageEl = clone.querySelector('#deck-stage');
+      if (stageEl) stageEl.innerHTML = '';
+      const ovGrid = clone.querySelector('#overview-grid');
+      if (ovGrid) ovGrid.innerHTML = '';
+      const chartEd = clone.querySelector('#chart-editor-rows');
+      if (chartEd) chartEd.innerHTML = '';
+      ['#custom-drawer', '#notes-drawer', '#overview-modal', '#export-menu'].forEach(sel => {
+        clone.querySelector(sel)?.classList.remove('is-open');
+      });
+      clone.querySelector('#toast')?.classList.remove('is-show');
+
+      let htmlOut = '<!DOCTYPE html>\n' + clone.outerHTML;
+      const safeDeck = JSON.stringify(DECK_DATA, null, 2).replace(/<\/script>/gi, '<\\/script>');
+      const safeTheme = JSON.stringify(THEME_STATE, null, 2).replace(/<\/script>/gi, '<\\/script>');
+
+      htmlOut = htmlOut.replace(
+        /\/\* __DECK_DATA_START__ \*\/[\s\S]*?\/\* __DECK_DATA_END__ \*\//,
+        `/* __DECK_DATA_START__ */\n    const DECK_DATA = ${safeDeck};\n    /* __DECK_DATA_END__ */`
+      );
+      htmlOut = htmlOut.replace(
+        /\/\* __THEME_STATE_START__ \*\/[\s\S]*?\/\* __THEME_STATE_END__ \*\//,
+        `/* __THEME_STATE_START__ */\n    const INITIAL_THEME = ${safeTheme};\n    /* __THEME_STATE_END__ */`
+      );
+
+      const slug = (DECK_DATA[currentLang].ui.exportSlug || 'Primary-Doodle-Deck')
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9-]+/g, '-');
+      downloadTextFile(`${slug}-Custom.html`, htmlOut, 'text/html;charset=utf-8');
+      showToast(currentLang === 'vi' ? 'Đã lưu file HTML tự chứa mới!' : 'Saved standalone custom HTML!');
+    }
+
+    /* =====================================================================
+       6. EVENT LISTENERS & KEYBOARD SHORTCUTS
        ===================================================================== */
     document.getElementById('btn-prev').addEventListener('click', () => goToSlide(currentSlide - 1));
     document.getElementById('btn-next').addEventListener('click', () => goToSlide(currentSlide + 1));
+    document.getElementById('btn-edit').addEventListener('click', () => toggleEditMode());
+    document.getElementById('btn-customize').addEventListener('click', () => toggleCustomizer());
+    document.getElementById('btn-close-custom').addEventListener('click', () => toggleCustomizer(false));
     document.getElementById('btn-grid').addEventListener('click', () => toggleOverview());
     document.getElementById('btn-close-grid').addEventListener('click', () => toggleOverview(false));
     document.getElementById('btn-notes').addEventListener('click', () => toggleNotes());
@@ -3037,11 +3371,8 @@
     document.getElementById('btn-pdf').addEventListener('click', () => window.print());
 
     document.getElementById('btn-full').addEventListener('click', () => {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen?.();
-      } else {
-        document.exitFullscreen?.();
-      }
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+      else document.exitFullscreen?.();
     });
 
     document.querySelectorAll('.lang-opt').forEach(btn => {
@@ -3054,6 +3385,169 @@
       });
     });
 
+    // Inline text editing sync
+    document.getElementById('deck-stage').addEventListener('input', (e) => {
+      const target = e.target.closest('[data-edit-path]');
+      if (!target) return;
+      const sIdx = Number(target.dataset.editSlide);
+      const path = target.dataset.editPath;
+      setByPath(DECK_DATA[currentLang].slides[sIdx], path, target.innerText.replace(/\n+/g, ' ').trim());
+      saveDraftToStorage();
+    });
+
+    document.getElementById('deck-stage').addEventListener('focusout', (e) => {
+      if (e.target.closest('[data-edit-path]')) renderOverview();
+    });
+
+    document.getElementById('ui-notes-text').addEventListener('input', (e) => {
+      DECK_DATA[currentLang].slides[currentSlide].notes = e.target.innerText.trim();
+      saveDraftToStorage();
+    });
+
+    // Customizer Controls
+    document.querySelectorAll('[data-preset]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const p = PRESETS[btn.dataset.preset];
+        if (!p) return;
+        THEME_STATE = { ...THEME_STATE, preset: btn.dataset.preset, ...p };
+        applyThemeToCSS();
+        renderDeck();
+        saveDraftToStorage();
+      });
+    });
+
+    [['inp-bg', 'bg'], ['inp-cobalt', 'cobalt'], ['inp-red', 'red'], ['inp-yellow', 'yellow']].forEach(([id, key]) => {
+      document.getElementById(id).addEventListener('input', (e) => {
+        THEME_STATE.preset = 'custom';
+        THEME_STATE[key] = e.target.value;
+        applyThemeToCSS();
+        renderDeck();
+        saveDraftToStorage();
+      });
+    });
+
+    document.getElementById('sel-font-hand').addEventListener('change', (e) => {
+      THEME_STATE.fontHand = e.target.value;
+      applyThemeToCSS();
+      saveDraftToStorage();
+    });
+
+    document.getElementById('sel-font-sans').addEventListener('change', (e) => {
+      THEME_STATE.fontSans = e.target.value;
+      applyThemeToCSS();
+      renderDeck();
+      saveDraftToStorage();
+    });
+
+    document.querySelectorAll('[data-pattern]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        THEME_STATE.bgPattern = btn.dataset.pattern;
+        applyThemeToCSS();
+        renderDeck();
+        saveDraftToStorage();
+      });
+    });
+
+    document.querySelectorAll('[data-bgscope]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        THEME_STATE.bgScope = btn.dataset.bgscope;
+        THEME_STATE.bgSlideIndex = currentSlide;
+        applyThemeToCSS();
+        renderDeck();
+        saveDraftToStorage();
+      });
+    });
+
+    document.getElementById('inp-bg-overlay').addEventListener('input', (e) => {
+      THEME_STATE.bgOverlay = Number(e.target.value) / 100;
+      document.getElementById('ui-overlay-val').textContent = `${e.target.value}%`;
+      renderDeck();
+      saveDraftToStorage();
+    });
+
+    document.getElementById('inp-bg-image').addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        THEME_STATE.bgImage = String(reader.result || '');
+        THEME_STATE.bgSlideIndex = currentSlide;
+        renderDeck();
+        saveDraftToStorage();
+        showToast(currentLang === 'vi' ? 'Đã áp dụng ảnh nền!' : 'Background image applied!');
+      };
+      reader.readAsDataURL(file);
+    });
+
+    document.getElementById('btn-clear-bg').addEventListener('click', () => {
+      THEME_STATE.bgImage = '';
+      document.getElementById('inp-bg-image').value = '';
+      renderDeck();
+      saveDraftToStorage();
+    });
+
+    document.getElementById('chk-stickers').addEventListener('change', (e) => {
+      THEME_STATE.showStickers = e.target.checked;
+      applyThemeToCSS();
+      saveDraftToStorage();
+    });
+
+    document.getElementById('chk-edit-inline').addEventListener('change', (e) => {
+      toggleEditMode(e.target.checked);
+    });
+
+    document.getElementById('chart-editor-rows').addEventListener('input', (e) => {
+      const inp = e.target.closest('[data-chart-field]');
+      if (!inp) return;
+      const field = inp.dataset.chartField;
+      const idx = Number(inp.dataset.chartIdx);
+      const metricsSlide = DECK_DATA[currentLang].slides[4];
+      metricsSlide[field][idx] = field === 'labels' ? inp.value : Math.max(0, Math.min(100, Number(inp.value) || 0));
+      const chartContainer = document.querySelectorAll('#metrics-chart-svg');
+      chartContainer.forEach(el => { el.innerHTML = buildChartSVG(metricsSlide); });
+      saveDraftToStorage();
+    });
+
+    document.getElementById('btn-save-html').addEventListener('click', saveStandaloneHtml);
+
+    document.getElementById('btn-export-json').addEventListener('click', () => {
+      downloadTextFile('primary-doodle-custom.json', JSON.stringify({ deck: DECK_DATA, theme: THEME_STATE }, null, 2), 'application/json');
+      showToast(currentLang === 'vi' ? 'Đã tải file JSON cấu hình!' : 'Exported JSON config!');
+    });
+
+    document.getElementById('inp-import-json').addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(String(reader.result || '{}'));
+          const nextDeck = parsed.deck || parsed;
+          if (nextDeck.vi?.slides?.length === 9 && nextDeck.en?.slides?.length === 9) {
+            Object.assign(DECK_DATA, nextDeck);
+          }
+          if (parsed.theme) THEME_STATE = { ...THEME_STATE, ...parsed.theme };
+          applyThemeToCSS();
+          renderDeck();
+          saveDraftToStorage();
+          showToast(currentLang === 'vi' ? 'Đã nạp cấu hình JSON!' : 'Imported JSON config!');
+        } catch {
+          showToast(currentLang === 'vi' ? 'File JSON không hợp lệ!' : 'Invalid JSON file!');
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    document.getElementById('btn-reset-all').addEventListener('click', () => {
+      localStorage.removeItem(STORAGE_KEY);
+      Object.assign(DECK_DATA, JSON.parse(JSON.stringify(DEFAULT_DECK_SNAPSHOT)));
+      THEME_STATE = JSON.parse(JSON.stringify(DEFAULT_THEME_SNAPSHOT));
+      applyThemeToCSS();
+      renderDeck();
+      showToast(currentLang === 'vi' ? 'Đã khôi phục mặc định!' : 'Restored defaults!');
+    });
+
+    // Export .pptx dropdown
     const exportToggle = document.getElementById('btn-pptx-toggle');
     const exportMenu = document.getElementById('export-menu');
     exportToggle.addEventListener('click', (e) => {
@@ -3085,21 +3579,17 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT' || e.target.isContentEditable) return;
       if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
-        if (window.innerWidth >= 768) {
-          e.preventDefault();
-          goToSlide(currentSlide + 1);
-        }
+        if (window.innerWidth >= 768) { e.preventDefault(); goToSlide(currentSlide + 1); }
       } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-        if (window.innerWidth >= 768) {
-          e.preventDefault();
-          goToSlide(currentSlide - 1);
-        }
+        if (window.innerWidth >= 768) { e.preventDefault(); goToSlide(currentSlide - 1); }
       } else if (e.key === 'Home') {
         goToSlide(0);
       } else if (e.key === 'End') {
         goToSlide(DECK_DATA[currentLang].slides.length - 1);
+      } else if (e.key === 'e' || e.key === 'E') {
+        toggleEditMode();
       } else if (e.key === 'g' || e.key === 'G') {
         toggleOverview();
       } else if (e.key === 'n' || e.key === 'N') {
@@ -3109,11 +3599,14 @@
       } else if (e.key === 'Escape') {
         toggleOverview(false);
         toggleNotes(false);
+        toggleCustomizer(false);
         exportMenu.classList.remove('is-open');
       }
     });
 
     window.addEventListener('resize', resizeStage);
+    loadDraftFromStorage();
+    applyThemeToCSS();
     renderDeck();
   </script>
 </body>

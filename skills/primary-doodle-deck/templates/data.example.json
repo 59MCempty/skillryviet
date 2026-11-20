@@ -2,13 +2,17 @@
   "vi": {
     "ui": {
       "brand": "BútChìMàu",
+      "exportSlug": "ButChiMau-Primary-Doodle",
+      "editBtn": "Sửa chữ (E)",
+      "customBtn": "Tuỳ chỉnh",
       "gridBtn": "Lưới (G)",
       "notesBtn": "Ghi chú (N)",
       "fullBtn": "Toàn màn hình",
       "pdfBtn": "In PDF",
       "pptxBtn": "Xuất .pptx ▾",
+      "editBanner": "Đang bật Sửa chữ · Bấm trực tiếp vào chữ trên slide để chỉnh sửa",
       "exportTitle": "CHỌN CHẾ ĐỘ FONT .PPTX",
-      "expOpt1T": "Chuẩn thiết kế (Shantell Sans)",
+      "expOpt1T": "Chuẩn thiết kế (theo font đang chọn)",
       "expOpt1D": "Giữ trọn nét viết tay khi mở trên máy đã cài font.",
       "expOpt2T": "An toàn đa máy (Segoe Print / Arial)",
       "expOpt2D": "Hiển thị chuẩn dấu tiếng Việt trên mọi Windows/macOS.",
@@ -17,7 +21,7 @@
       "notesPrefix": "GHI CHÚ DIỄN GIẢ · SLIDE",
       "footBrand": "BútChìMàu · ButChiMau.vn · 2026",
       "exportingMsg": "Đang tạo file .pptx editable + sticker 2x...",
-      "exportDoneMsg": "Đã tải xong ButChiMau-Primary-Doodle-VI.pptx!",
+      "exportDoneMsg": "Đã tải xong file .pptx!",
       "exportErrMsg": "Chưa tải được thư viện PptxGenJS (cần mạng hoặc dùng In PDF)."
     },
     "slides": [
@@ -317,13 +321,17 @@
   "en": {
     "ui": {
       "brand": "CrayonLab",
+      "exportSlug": "CrayonLab-Primary-Doodle",
+      "editBtn": "Edit Text (E)",
+      "customBtn": "Customize",
       "gridBtn": "Grid (G)",
       "notesBtn": "Notes (N)",
       "fullBtn": "Fullscreen",
       "pdfBtn": "Print PDF",
       "pptxBtn": "Export .pptx ▾",
+      "editBanner": "Text Edit Mode ON · Click any text on a slide to edit inline",
       "exportTitle": "SELECT .PPTX FONT MODE",
-      "expOpt1T": "Design Match (Shantell Sans)",
+      "expOpt1T": "Design Match (selected font)",
       "expOpt1D": "Preserves handwritten marker style when fonts are installed.",
       "expOpt2T": "Universal Safe (Segoe Print / Arial)",
       "expOpt2D": "Clean diacritics and spacing across any Windows/macOS.",
@@ -332,7 +340,7 @@
       "notesPrefix": "SPEAKER NOTES · SLIDE",
       "footBrand": "CrayonLab · ButChiMau.vn · 2026",
       "exportingMsg": "Building editable .pptx + 2x SVG stickers...",
-      "exportDoneMsg": "Downloaded CrayonLab-Primary-Doodle-EN.pptx!",
+      "exportDoneMsg": "Downloaded .pptx file!",
       "exportErrMsg": "PptxGenJS library unavailable offline (use Print PDF)."
     },
     "slides": [
