@@ -1,0 +1,632 @@
+{
+  "vi": {
+    "ui": {
+      "brand": "BútChìMàu",
+      "gridBtn": "Lưới (G)",
+      "notesBtn": "Ghi chú (N)",
+      "fullBtn": "Toàn màn hình",
+      "pdfBtn": "In PDF",
+      "pptxBtn": "Xuất .pptx ▾",
+      "exportTitle": "CHỌN CHẾ ĐỘ FONT .PPTX",
+      "expOpt1T": "Chuẩn thiết kế (Shantell Sans)",
+      "expOpt1D": "Giữ trọn nét viết tay khi mở trên máy đã cài font.",
+      "expOpt2T": "An toàn đa máy (Segoe Print / Arial)",
+      "expOpt2D": "Hiển thị chuẩn dấu tiếng Việt trên mọi Windows/macOS.",
+      "overviewTitle": "Tổng quan 9 Slide · Bấm để nhảy nhanh",
+      "closeBtn": "Đóng (Esc)",
+      "notesPrefix": "GHI CHÚ DIỄN GIẢ · SLIDE",
+      "footBrand": "BútChìMàu · ButChiMau.vn · 2026",
+      "exportingMsg": "Đang tạo file .pptx editable + sticker 2x...",
+      "exportDoneMsg": "Đã tải xong ButChiMau-Primary-Doodle-VI.pptx!",
+      "exportErrMsg": "Chưa tải được thư viện PptxGenJS (cần mạng hoặc dùng In PDF)."
+    },
+    "slides": [
+      {
+        "id": "01",
+        "type": "cover",
+        "chapter": "Bản giới thiệu 2026",
+        "tagTone": "cobalt",
+        "titlePre": "Biến giáo án khô khan thành",
+        "titleHighlight": "trò chơi lớp học",
+        "titleUnderline": "trong 4 phút",
+        "subtitle": "Trợ lý AI giúp giáo viên Việt Nam soạn thẻ kiến thức trực quan, câu hỏi tương tác và xuất bài giảng PowerPoint 1 chạm.",
+        "cta": "Bắt đầu xem lộ trình",
+        "author": "Nhóm BútChìMàu · Hà Nội & TP.HCM",
+        "artCaption": "Vẽ tay ý tưởng · Dạy ngay trên lớp",
+        "notes": "Mở đầu bằng câu chuyện thực tế: 7/10 giáo viên mất cả buổi tối cắt ghép slide. BútChìMàu rút ngắn quy trình đó xuống còn 4 phút với phong cách trực quan gần gũi."
+      },
+      {
+        "id": "02",
+        "type": "agenda",
+        "chapter": "Chặng 01 · Tổng quan",
+        "tagTone": "yellow",
+        "stickyQuestion": "Hôm nay chúng ta giải quyết bài toán gì cho lớp học?",
+        "stickySub": "4 chặng trình bày ngắn gọn trong 8 phút — kèm số liệu thử nghiệm tại 42 trường.",
+        "items": [
+          {
+            "num": "01",
+            "tone": "cobalt",
+            "title": "Nỗi đau soạn bài thủ công",
+            "desc": "Vì sao giáo án chữ dày đặc khiến học sinh mất tập trung sau 10 phút?"
+          },
+          {
+            "num": "02",
+            "tone": "red",
+            "title": "Quy trình 3 chạm của BútChìMàu",
+            "desc": "Từ ảnh chụp sách giáo khoa đến bộ thẻ tương tác & mini-game."
+          },
+          {
+            "num": "03",
+            "tone": "yellow",
+            "title": "Kết quả thực tế tại 42 trường",
+            "desc": "Tỷ lệ giơ tay phát biểu tăng +74% sau 4 tuần áp dụng."
+          },
+          {
+            "num": "04",
+            "tone": "cobalt",
+            "title": "Lộ trình & Gói triển khai 2026",
+            "desc": "Chi phí minh bạch cho cá nhân, tổ bộ môn và toàn trường."
+          }
+        ],
+        "notes": "Đi nhanh qua 4 phần để người nghe nắm khung thời gian. Nhấn mạnh phần 3 là số liệu thực nghiệm trong lớp học Việt Nam."
+      },
+      {
+        "id": "03",
+        "type": "problem",
+        "chapter": "Chặng 01 · Vấn đề",
+        "tagTone": "red",
+        "titlePre": "Vì sao giáo viên tâm huyết vẫn",
+        "titleAccent": "kiệt sức mỗi tối?",
+        "cards": [
+          {
+            "tape": "red",
+            "stat": "3.5 giờ",
+            "statTone": "red",
+            "title": "Soạn slide thủ công",
+            "desc": "Cắt ghép ảnh, căn lề từng trang PowerPoint sau giờ dạy chính khoá.",
+            "tag": "LÃNG PHÍ THỜI GIAN"
+          },
+          {
+            "tape": "yellow",
+            "stat": "68%",
+            "statTone": "ink",
+            "title": "Học sinh mất tập trung",
+            "desc": "Trang chiếu toàn chữ khiến cả lớp ngán ngẩm ngay từ phút thứ 12.",
+            "tag": "THIẾU TƯƠNG TÁC",
+            "raised": true
+          },
+          {
+            "tape": "cobalt",
+            "stat": "4 công cụ",
+            "statTone": "cobalt",
+            "title": "Phải mở rời rạc",
+            "desc": "Vừa chiếu slide, vừa chuyển tab sang app quiz và bảng điểm riêng.",
+            "tag": "ĐỨT MẠCH BÀI GIẢNG"
+          }
+        ],
+        "notes": "Chỉ ra 3 nút thắt thật: mất thời gian chuẩn bị, học sinh thụ động và phải nhảy qua lại giữa nhiều công cụ."
+      },
+      {
+        "id": "04",
+        "type": "flow",
+        "chapter": "Chặng 02 · Giải pháp",
+        "tagTone": "cobalt",
+        "titlePre": "Một ý tưởng",
+        "titleAccent": "trọn bộ tiết học 45 phút",
+        "steps": [
+          {
+            "badge": "BƯỚC 01",
+            "tone": "yellow",
+            "title": "Dán đề bài hoặc ảnh SGK",
+            "desc": "Tải lên trang sách, ghi chú tay hoặc gõ chủ đề bài học bằng tiếng Việt tự nhiên."
+          },
+          {
+            "badge": "BƯỚC 02",
+            "tone": "cobalt",
+            "title": "AI vẽ thẻ & mini-game",
+            "desc": "Tự tách ý chính thành 8–10 thẻ trực quan kèm câu hỏi trắc nghiệm lật thẻ."
+          },
+          {
+            "badge": "BƯỚC 03",
+            "tone": "red",
+            "title": "Mở lớp chiếu ngay lập tức",
+            "desc": "Trình chiếu thẳng trên trình duyệt hoặc bấm xuất file .pptx chỉnh sửa tự do."
+          }
+        ],
+        "bannerText": "Dữ liệu đồng bộ 2 chiều: chỉnh một chữ trên web, tải lại .pptx chuẩn từng khung.",
+        "bannerBadge": "4 phút 10 giây / giáo án",
+        "notes": "Giải thích luồng khép kín 3 bước: đầu vào cực dễ (chụp ảnh trang sách), AI dựng khung sư phạm chuẩn, đầu ra dùng được cả online lẫn offline."
+      },
+      {
+        "id": "05",
+        "type": "metrics",
+        "chapter": "Chặng 03 · Hiệu quả",
+        "tagTone": "cobalt",
+        "titlePre": "Thử nghiệm thực tế tại",
+        "titleAccent": "42 trường phổ thông",
+        "chartTitle": "Tỷ lệ học sinh tham gia phát biểu (%)",
+        "seriesNew": "Dùng BútChìMàu",
+        "seriesOld": "Slide chữ truyền thống",
+        "labels": [
+          "Tháng 1",
+          "Tháng 2",
+          "Tháng 3",
+          "Tháng 4"
+        ],
+        "valuesNew": [
+          62,
+          74,
+          83,
+          91
+        ],
+        "valuesOld": [
+          38,
+          40,
+          41,
+          43
+        ],
+        "kpis": [
+          {
+            "num": "+74%",
+            "tone": "red",
+            "circled": true,
+            "title": "Mức tăng tương tác lớp học",
+            "desc": "So với tiết học chỉ dùng slide văn bản thuần tuý."
+          },
+          {
+            "num": "4p 10s",
+            "tone": "cobalt",
+            "title": "Thời gian hoàn thành giáo án",
+            "desc": "Giảm 88% thời lượng chuẩn bị bài vào buổi tối."
+          },
+          {
+            "num": "12.400+",
+            "tone": "ink",
+            "title": "Tiết học đã giảng dạy",
+            "desc": "Trên cả môn Toán, Văn, Tiếng Anh và Khoa học tự nhiên."
+          }
+        ],
+        "notes": "Số liệu đo từ 186 giáo viên thí điểm học kỳ vừa qua. Biểu đồ này khi xuất sang .pptx là Native Chart, có thể bấm Edit Data để cập nhật số liệu mới."
+      },
+      {
+        "id": "06",
+        "type": "compare",
+        "chapter": "Chặng 03 · Đối chiếu",
+        "tagTone": "yellow",
+        "titlePre": "Khác biệt rõ ràng sau",
+        "titleAccent": "1 tuần áp dụng",
+        "beforeTitle": "Cách soạn bài truyền thống",
+        "beforeItems": [
+          "Tốn 3 buổi tối tìm hình minh hoạ không dính watermark.",
+          "Chữ dày đặc trên trang chiếu, học sinh ngại chép và ngại hỏi.",
+          "Đổi giáo án giữa chừng phải căn tay lại toàn bộ khung hình.",
+          "Thiếu trò chơi kiểm tra nhanh 3 phút cuối tiết."
+        ],
+        "afterTitle": "Khi đồng hành cùng BútChìMàu",
+        "afterItems": [
+          "Kho sticker vẽ tay & minh hoạ sư phạm đồng bộ sẵn 1 chạm.",
+          "Mỗi thẻ chỉ 1 ý trọng tâm, có điểm nhấn màu sắc rõ ràng.",
+          "Tự động cân bằng tỷ lệ 16:9 và xuất ngay sang PowerPoint.",
+          "Tích hợp sẵn mini-game ôn bài theo đội ngay trong bộ slide."
+        ],
+        "notes": "Đặt hai cột cạnh nhau giúp ban giám hiệu hoặc nhà đầu tư thấy ngay giá trị tiết kiệm công sức cho giáo viên."
+      },
+      {
+        "id": "07",
+        "type": "roadmap",
+        "chapter": "Chặng 04 · Lộ trình",
+        "tagTone": "cobalt",
+        "titlePre": "Kế hoạch nhân rộng",
+        "titleAccent": "4 quý năm 2026",
+        "milestones": [
+          {
+            "q": "QUÝ 1 · ĐÃ XONG",
+            "tone": "cobalt",
+            "title": "Thí điểm 42 trường",
+            "desc": "Khoá bộ mẫu giáo án Tiểu học & THCS, chuẩn hoá font viết tay tiếng Việt."
+          },
+          {
+            "q": "QUÝ 2 · ĐANG CHẠY",
+            "tone": "yellow",
+            "title": "Thư viện 500+ mẫu",
+            "desc": "Mở kho hoạt động tương tác theo từng chương sách giáo khoa mới."
+          },
+          {
+            "q": "QUÝ 3 · SẮP TỚI",
+            "tone": "red",
+            "title": "Gói chuyên đề STEM",
+            "desc": "Bổ sung mô phỏng thí nghiệm trực quan và phiếu bài tập in PDF."
+          },
+          {
+            "q": "QUÝ 4 · MỤC TIÊU",
+            "tone": "cobalt",
+            "title": "Phủ 63 tỉnh thành",
+            "desc": "Đạt 25.000 giáo viên dùng hàng tuần và kết nối LMS nhà trường."
+          }
+        ],
+        "notes": "Nhấn mạnh Quý 1 đã hoàn thành đúng tiến độ và Quý 2 đang mở rộng thư viện mẫu dùng chung cho tổ bộ môn."
+      },
+      {
+        "id": "08",
+        "type": "table",
+        "chapter": "Chặng 04 · Gói dùng",
+        "tagTone": "cobalt",
+        "titlePre": "Chi phí minh bạch cho",
+        "titleAccent": "từng quy mô lớp học",
+        "headers": [
+          "Gói triển khai",
+          "Quy mô phù hợp",
+          "Quyền lợi cốt lõi",
+          "Mức phí"
+        ],
+        "rows": [
+          [
+            "Cá nhân",
+            "1 giáo viên",
+            "20 bộ giáo án/tháng, trình chiếu web không giới hạn",
+            "Miễn phí"
+          ],
+          [
+            "Tổ bộ môn",
+            "Tối đa 15 giáo viên",
+            "Kho 500+ sticker, mini-game lớp học, xuất .pptx không giới hạn",
+            "490.000đ / tháng"
+          ],
+          [
+            "Toàn trường",
+            "Không giới hạn GV",
+            "Thư viện riêng theo thương hiệu trường, kết nối LMS & đào tạo",
+            "Liên hệ báo giá"
+          ]
+        ],
+        "notes": "Gói Tổ bộ môn là gói phổ biến nhất vì chi phí chia bình quân chỉ khoảng 33.000đ/giáo viên/tháng. Bảng này trong .pptx xuất ra là Native Table chỉnh sửa từng ô được."
+      },
+      {
+        "id": "09",
+        "type": "closing",
+        "chapter": "Kết thúc · Hành động",
+        "tagTone": "red",
+        "qaTag": "Hỏi & Đáp?",
+        "quote": "“Giờ học đáng nhớ bắt đầu từ 4 phút chuẩn bị đầy cảm hứng.”",
+        "steps": [
+          {
+            "num": "01",
+            "title": "Mở bản dùng thử",
+            "desc": "Chọn sẵn 1 bài học tuần tới"
+          },
+          {
+            "num": "02",
+            "title": "Nhập đề bài 30 giây",
+            "desc": "Nhận ngay 9 thẻ minh hoạ"
+          },
+          {
+            "num": "03",
+            "title": "Mang lên lớp ngay",
+            "desc": "Chiếu web hoặc tải .pptx"
+          }
+        ],
+        "contacts": [
+          "hello@butchimau.vn",
+          "butchimau.vn",
+          "Cảm ơn đã lắng nghe!"
+        ],
+        "notes": "Kết lại bằng lời mời trải nghiệm trực tiếp 4 phút ngay sau buổi họp. Bật phần Q&A để trả lời câu hỏi về bảo mật dữ liệu giáo án."
+      }
+    ]
+  },
+  "en": {
+    "ui": {
+      "brand": "CrayonLab",
+      "gridBtn": "Grid (G)",
+      "notesBtn": "Notes (N)",
+      "fullBtn": "Fullscreen",
+      "pdfBtn": "Print PDF",
+      "pptxBtn": "Export .pptx ▾",
+      "exportTitle": "SELECT .PPTX FONT MODE",
+      "expOpt1T": "Design Match (Shantell Sans)",
+      "expOpt1D": "Preserves handwritten marker style when fonts are installed.",
+      "expOpt2T": "Universal Safe (Segoe Print / Arial)",
+      "expOpt2D": "Clean diacritics and spacing across any Windows/macOS.",
+      "overviewTitle": "9-Slide Overview · Click to jump",
+      "closeBtn": "Close (Esc)",
+      "notesPrefix": "SPEAKER NOTES · SLIDE",
+      "footBrand": "CrayonLab · ButChiMau.vn · 2026",
+      "exportingMsg": "Building editable .pptx + 2x SVG stickers...",
+      "exportDoneMsg": "Downloaded CrayonLab-Primary-Doodle-EN.pptx!",
+      "exportErrMsg": "PptxGenJS library unavailable offline (use Print PDF)."
+    },
+    "slides": [
+      {
+        "id": "01",
+        "type": "cover",
+        "chapter": "Product Pitch 2026",
+        "tagTone": "cobalt",
+        "titlePre": "Turn dense lesson plans into",
+        "titleHighlight": "playful class decks",
+        "titleUnderline": "in 4 minutes",
+        "subtitle": "An AI teaching copilot helping K–12 educators craft visual flashcards, classroom mini-games, and one-click editable PowerPoint decks.",
+        "cta": "Explore the deck",
+        "author": "CrayonLab Team · Hanoi & HCMC",
+        "artCaption": "Sketch ideas fast · Teach live today",
+        "notes": "Open with the core teacher insight: 7 out of 10 teachers spend late nights formatting slides. CrayonLab cuts prep time to 4 minutes."
+      },
+      {
+        "id": "02",
+        "type": "agenda",
+        "chapter": "Part 01 · Overview",
+        "tagTone": "yellow",
+        "stickyQuestion": "What classroom bottleneck are we solving today?",
+        "stickySub": "4 concise chapters in 8 minutes — backed by pilot metrics from 42 schools.",
+        "items": [
+          {
+            "num": "01",
+            "tone": "cobalt",
+            "title": "The late-night prep trap",
+            "desc": "Why text-heavy slides lose student attention within 10 minutes."
+          },
+          {
+            "num": "02",
+            "tone": "red",
+            "title": "3-step CrayonLab workflow",
+            "desc": "From textbook photo to visual cards & interactive quiz games."
+          },
+          {
+            "num": "03",
+            "tone": "yellow",
+            "title": "Pilot results across 42 schools",
+            "desc": "Student participation jumped +74% after 4 weeks in class."
+          },
+          {
+            "num": "04",
+            "tone": "cobalt",
+            "title": "2026 Rollout & Pricing",
+            "desc": "Transparent plans for solo teachers, departments, and schools."
+          }
+        ],
+        "notes": "Walk through the four milestones quickly. Highlight Part 3 as verified classroom telemetry rather than synthetic benchmarks."
+      },
+      {
+        "id": "03",
+        "type": "problem",
+        "chapter": "Part 01 · Problem",
+        "tagTone": "red",
+        "titlePre": "Why passionate teachers still",
+        "titleAccent": "burn out every week",
+        "cards": [
+          {
+            "tape": "red",
+            "stat": "3.5 hrs",
+            "statTone": "red",
+            "title": "Manual slide formatting",
+            "desc": "Cropping graphics and aligning text boxes late after school hours.",
+            "tag": "LOST EVENINGS"
+          },
+          {
+            "tape": "yellow",
+            "stat": "68%",
+            "statTone": "ink",
+            "title": "Students tune out",
+            "desc": "Wall-of-text decks drain classroom energy before minute 12.",
+            "tag": "LOW ENGAGEMENT",
+            "raised": true
+          },
+          {
+            "tape": "cobalt",
+            "stat": "4 tools",
+            "statTone": "cobalt",
+            "title": "Disconnected tabs",
+            "desc": "Juggling slides, external quiz apps, and separate scoreboards.",
+            "tag": "BROKEN FLOW"
+          }
+        ],
+        "notes": "Frame the three pains clearly: wasted prep hours, passive learners, and fragmented classroom tools."
+      },
+      {
+        "id": "04",
+        "type": "flow",
+        "chapter": "Part 02 · Solution",
+        "tagTone": "cobalt",
+        "titlePre": "One rough prompt",
+        "titleAccent": "a complete 45-minute lesson",
+        "steps": [
+          {
+            "badge": "STEP 01",
+            "tone": "yellow",
+            "title": "Paste topic or textbook photo",
+            "desc": "Snap a curriculum page, upload notes, or type a plain lesson prompt."
+          },
+          {
+            "badge": "STEP 02",
+            "tone": "cobalt",
+            "title": "AI sketches cards & games",
+            "desc": "Structures key concepts into 8–10 doodle cards plus flip-card checks."
+          },
+          {
+            "badge": "STEP 03",
+            "tone": "red",
+            "title": "Present live or export .pptx",
+            "desc": "Run directly in browser or download an editable PowerPoint file."
+          }
+        ],
+        "bannerText": "Single source of truth: edit once on the web, export pixel-aligned .pptx anytime.",
+        "bannerBadge": "4m 10s avg prep time",
+        "notes": "Demonstrate how input friction drops to zero while teachers keep full ownership via editable .pptx output."
+      },
+      {
+        "id": "05",
+        "type": "metrics",
+        "chapter": "Part 03 · Traction",
+        "tagTone": "cobalt",
+        "titlePre": "Measured impact across",
+        "titleAccent": "42 partner schools",
+        "chartTitle": "Active hand-raise & participation rate (%)",
+        "seriesNew": "With CrayonLab",
+        "seriesOld": "Text-only slides",
+        "labels": [
+          "Month 1",
+          "Month 2",
+          "Month 3",
+          "Month 4"
+        ],
+        "valuesNew": [
+          62,
+          74,
+          83,
+          91
+        ],
+        "valuesOld": [
+          38,
+          40,
+          41,
+          43
+        ],
+        "kpis": [
+          {
+            "num": "+74%",
+            "tone": "red",
+            "circled": true,
+            "title": "Higher student participation",
+            "desc": "Measured against traditional text-heavy lesson decks."
+          },
+          {
+            "num": "4m 10s",
+            "tone": "cobalt",
+            "title": "Average deck creation time",
+            "desc": "Cuts evening lesson preparation effort by 88%."
+          },
+          {
+            "num": "12,400+",
+            "tone": "ink",
+            "title": "Live lessons delivered",
+            "desc": "Across Math, Literature, English, and Natural Sciences."
+          }
+        ],
+        "notes": "Data collected from 186 pilot teachers last semester. In the exported .pptx, this chart becomes a native PowerPoint bar chart."
+      },
+      {
+        "id": "06",
+        "type": "compare",
+        "chapter": "Part 03 · Before & After",
+        "tagTone": "yellow",
+        "titlePre": "Visible shift after just",
+        "titleAccent": "one teaching week",
+        "beforeTitle": "Traditional manual workflow",
+        "beforeItems": [
+          "Hours hunting for watermark-free classroom illustrations.",
+          "Dense bullet walls that students hesitate to read or copy.",
+          "Re-aligning every box manually whenever content changes.",
+          "No built-in 3-minute recap game at the end of class."
+        ],
+        "afterTitle": "Teaching with CrayonLab",
+        "afterItems": [
+          "Consistent hand-drawn sticker library applied automatically.",
+          "One focused idea per card with crisp cobalt–red–yellow cues.",
+          "Auto-balanced 16:9 layouts with instant .pptx export.",
+          "Team recap quiz woven directly into the final slides."
+        ],
+        "notes": "Side-by-side contrast makes the workflow upgrade unmistakable for school principals and investors."
+      },
+      {
+        "id": "07",
+        "type": "roadmap",
+        "chapter": "Part 04 · Roadmap",
+        "tagTone": "cobalt",
+        "titlePre": "2026 Rollout Plan",
+        "titleAccent": "across four quarters",
+        "milestones": [
+          {
+            "q": "Q1 · SHIPPED",
+            "tone": "cobalt",
+            "title": "42-school pilot",
+            "desc": "Validated K–9 templates and Vietnamese handwritten typography."
+          },
+          {
+            "q": "Q2 · ACTIVE",
+            "tone": "yellow",
+            "title": "500+ curriculum templates",
+            "desc": "Expanding interactive activity packs mapped to national textbooks."
+          },
+          {
+            "q": "Q3 · NEXT",
+            "tone": "red",
+            "title": "STEM Visual Pack",
+            "desc": "Interactive lab diagrams and printable PDF student worksheets."
+          },
+          {
+            "q": "Q4 · TARGET",
+            "tone": "cobalt",
+            "title": "Nationwide scale",
+            "desc": "25,000 weekly active teachers and school LMS integrations."
+          }
+        ],
+        "notes": "Emphasize Q1 delivery discipline and current Q2 expansion into department-wide shared libraries."
+      },
+      {
+        "id": "08",
+        "type": "table",
+        "chapter": "Part 04 · Pricing",
+        "tagTone": "cobalt",
+        "titlePre": "Clear pricing for every",
+        "titleAccent": "teaching scale",
+        "headers": [
+          "Plan",
+          "Best for",
+          "Core capabilities",
+          "Pricing"
+        ],
+        "rows": [
+          [
+            "Solo Teacher",
+            "1 educator",
+            "20 AI decks/month, unlimited web presentation",
+            "Free"
+          ],
+          [
+            "Department",
+            "Up to 15 teachers",
+            "500+ doodle stickers, class mini-games, unlimited .pptx",
+            "$19 / month"
+          ],
+          [
+            "Whole School",
+            "Unlimited staff",
+            "Custom school branding, LMS sync & onboarding",
+            "Custom quote"
+          ]
+        ],
+        "notes": "Department is our flagship plan (~$1.30 per teacher/month). Exports as a native editable table in PowerPoint."
+      },
+      {
+        "id": "09",
+        "type": "closing",
+        "chapter": "Closing · Next Steps",
+        "tagTone": "red",
+        "qaTag": "Q&A?",
+        "quote": "“Memorable classes begin with four inspired minutes of prep.”",
+        "steps": [
+          {
+            "num": "01",
+            "title": "Pick next week’s topic",
+            "desc": "Start from any textbook page"
+          },
+          {
+            "num": "02",
+            "title": "Generate in 30 seconds",
+            "desc": "Review 9 visual doodle cards"
+          },
+          {
+            "num": "03",
+            "title": "Take it to class",
+            "desc": "Present live or export .pptx"
+          }
+        ],
+        "contacts": [
+          "hello@butchimau.vn",
+          "butchimau.vn",
+          "Thank you for listening!"
+        ],
+        "notes": "Close with a concrete invitation to build a live 4-minute sample deck right after Q&A."
+      }
+    ]
+  }
+}

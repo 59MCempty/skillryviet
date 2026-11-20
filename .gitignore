@@ -1,0 +1,27 @@
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dependencies & Package Managers
+node_modules/
+.pnpm-store/
+.venv/
+__pycache__/
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+
+# Build, Cloudflare & Test Artifacts
+dist/
+.output/
+.wrangler/
+.tanstack/
+coverage/
+playwright-report/
+test-results/
+web-articles/

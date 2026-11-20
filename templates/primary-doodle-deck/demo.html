@@ -1,0 +1,3120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BútChìMàu — Primary Doodle Deck (HTML 16:9 &amp; .pptx)</title>
+  <meta name="description" content="Slide Template Skill phong cách Primary Doodle Deck: tiêu đề viết tay tiếng Việt chuẩn dấu, bảng màu Cobalt–Đỏ–Vàng, sticker băng keo SVG thủ công, hỗ trợ VI | EN và xuất .pptx." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Shantell+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@4.0.1/dist/pptxgen.bundle.js" defer></script>
+  <style>
+    :root {
+      --pd-bg: #FBF9F4;
+      --pd-surface: #FFFFFF;
+      --pd-ink: #131722;
+      --pd-muted: #4B5565;
+      --pd-cobalt: #1849D6;
+      --pd-red: #D62828;
+      --pd-yellow: #FFD43B;
+      --pd-grid: #E6E1D6;
+      --pd-desk: #EDE9DF;
+
+      --font-hand: 'Shantell Sans', 'Segoe Print', cursive, sans-serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+      --stage-scale: 1;
+      --toolbar-h: 60px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background: var(--pd-desk);
+      color: var(--pd-ink);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--pd-cobalt);
+      outline-offset: 2px;
+    }
+
+    /* ================= STUDIO TOOLBAR ================= */
+    .studio-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--toolbar-h);
+      z-index: 50;
+      background: rgba(251, 249, 244, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--pd-ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      gap: 12px;
+    }
+
+    .bar-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      background: var(--pd-yellow);
+      border: 2px solid var(--pd-ink);
+      border-radius: 999px;
+      box-shadow: 2px 2px 0 var(--pd-ink);
+      font-family: var(--font-hand);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--pd-ink);
+      white-space: nowrap;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--pd-cobalt);
+      border: 1.5px solid var(--pd-ink);
+      flex-shrink: 0;
+    }
+
+    .nav-btn, .tool-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 36px;
+      padding: 0 12px;
+      background: var(--pd-surface);
+      border: 2px solid var(--pd-ink);
+      border-radius: 9px;
+      box-shadow: 2px 2px 0 var(--pd-ink);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--pd-ink);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .nav-btn:hover, .tool-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0 var(--pd-ink);
+    }
+
+    .nav-btn:active, .tool-btn:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 var(--pd-ink);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.42;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: 2px 2px 0 var(--pd-ink);
+    }
+
+    .tool-btn.is-active {
+      background: var(--pd-cobalt);
+      color: #FFFFFF;
+    }
+
+    .tool-btn.btn-primary {
+      background: var(--pd-cobalt);
+      color: #FFFFFF;
+    }
+
+    .slide-counter {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 0 8px;
+      min-width: 68px;
+      text-align: center;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      border: 2px solid var(--pd-ink);
+      border-radius: 9px;
+      overflow: hidden;
+      background: var(--pd-surface);
+      box-shadow: 2px 2px 0 var(--pd-ink);
+      height: 36px;
+    }
+
+    .lang-opt {
+      padding: 0 10px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--pd-ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lang-opt.is-active {
+      background: var(--pd-ink);
+      color: var(--pd-yellow);
+    }
+
+    .export-wrap {
+      position: relative;
+    }
+
+    .export-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      width: 280px;
+      background: var(--pd-surface);
+      border: 2px solid var(--pd-ink);
+      border-radius: 12px;
+      box-shadow: 4px 4px 0 var(--pd-ink);
+      padding: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 80;
+    }
+
+    .export-menu.is-open {
+      display: flex;
+    }
+
+    .export-menu-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--pd-muted);
+      padding: 2px 4px;
+    }
+
+    .export-choice {
+      text-align: left;
+      padding: 9px 11px;
+      border: 2px solid var(--pd-ink);
+      border-radius: 8px;
+      background: var(--pd-bg);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      transition: background 0.12s ease;
+    }
+
+    .export-choice:hover {
+      background: var(--pd-yellow);
+    }
+
+    .export-choice strong {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--pd-ink);
+    }
+
+    .export-choice span {
+      font-size: 11.5px;
+      color: var(--pd-muted);
+    }
+
+    /* ================= STAGE VIEWPORT (DESKTOP) ================= */
+    .stage-viewport {
+      padding-top: var(--toolbar-h);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 18px;
+    }
+
+    .stage-frame {
+      width: calc(1280px * var(--stage-scale));
+      height: calc(720px * var(--stage-scale));
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 14px auto;
+    }
+
+    .deck-stage {
+      width: 1280px;
+      height: 720px;
+      transform: scale(var(--stage-scale));
+      transform-origin: center center;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    /* ================= SLIDE CANVAS ================= */
+    .slide {
+      width: 1280px;
+      height: 720px;
+      background-color: var(--pd-bg);
+      background-image: radial-gradient(var(--pd-grid) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+      border: 3px solid var(--pd-ink);
+      border-radius: 18px;
+      box-shadow: 8px 8px 0 var(--pd-ink);
+      position: relative;
+      overflow: visible;
+      padding: 46px 56px 42px;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .slide.is-active {
+      display: flex;
+    }
+
+    .slide-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 4;
+      min-height: 34px;
+    }
+
+    .chapter-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      border: 2px solid var(--pd-ink);
+      background: var(--pd-cobalt);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 2px 2px 0 var(--pd-ink);
+    }
+
+    .chapter-tag.tag-yellow {
+      background: var(--pd-yellow);
+      color: var(--pd-ink);
+    }
+
+    .chapter-tag.tag-red {
+      background: var(--pd-red);
+      color: #FFFFFF;
+    }
+
+    .slide-num {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--pd-muted);
+      background: var(--pd-surface);
+      border: 2px solid var(--pd-ink);
+      border-radius: 8px;
+      padding: 4px 10px;
+    }
+
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 3;
+      padding: 16px 0 10px;
+    }
+
+    .slide-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 4;
+      padding-top: 10px;
+      border-top: 1.5px dashed #CFC9BC;
+      font-size: 13px;
+      color: var(--pd-muted);
+      font-family: var(--font-mono);
+    }
+
+    .foot-progress {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .foot-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1.5px solid var(--pd-ink);
+      background: var(--pd-surface);
+    }
+
+    .foot-dot.is-done {
+      background: var(--pd-cobalt);
+    }
+
+    .foot-dot.is-now {
+      width: 24px;
+      border-radius: 999px;
+      background: var(--pd-yellow);
+    }
+
+    /* ================= TYPOGRAPHY & SKETCH PRIMITIVES ================= */
+    .hand {
+      font-family: var(--font-hand);
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .h1-cover {
+      font-family: var(--font-hand);
+      font-weight: 800;
+      font-size: 54px;
+      line-height: 1.14;
+      margin: 0 0 18px;
+      color: var(--pd-ink);
+      letter-spacing: -0.01em;
+    }
+
+    .h2-slide {
+      font-family: var(--font-hand);
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 1.18;
+      margin: 0 0 22px;
+      color: var(--pd-ink);
+    }
+
+    .h3-card {
+      font-family: var(--font-hand);
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.25;
+      margin: 0 0 8px;
+      color: var(--pd-ink);
+    }
+
+    .lead-copy {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--pd-muted);
+      max-width: 56ch;
+      margin: 0;
+    }
+
+    .body-copy {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--pd-muted);
+      margin: 0;
+    }
+
+    .hl-yellow {
+      display: inline-block;
+      background: linear-gradient(180deg, transparent 36%, var(--pd-yellow) 36%, var(--pd-yellow) 92%, transparent 92%);
+      padding: 0 6px;
+      border-radius: 4px;
+    }
+
+    .ul-cobalt {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 4px;
+      border-bottom: 5px solid var(--pd-cobalt);
+    }
+
+    .ul-red {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 4px;
+      border-bottom: 5px solid var(--pd-red);
+    }
+
+    .sketch-card {
+      background: var(--pd-surface);
+      border: 2px solid var(--pd-ink);
+      border-radius: 14px;
+      box-shadow: 4px 4px 0 var(--pd-ink);
+      position: relative;
+    }
+
+    .sketch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 11px;
+      border: 2px solid var(--pd-ink);
+      background: var(--pd-cobalt);
+      color: #FFFFFF;
+      font-family: var(--font-hand);
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: 4px 4px 0 var(--pd-ink);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sketch-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0 var(--pd-ink);
+    }
+
+    /* ================= SVG STICKERS ================= */
+    .sticker-tape {
+      position: absolute;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    /* ================= SLIDE 01: COVER ================= */
+    .cover-grid {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .cover-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .cover-author {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--pd-muted);
+      padding: 8px 14px;
+      background: var(--pd-surface);
+      border: 2px solid var(--pd-ink);
+      border-radius: 10px;
+    }
+
+    .cover-art-box {
+      padding: 22px;
+      background: var(--pd-surface);
+      border: 2.5px solid var(--pd-ink);
+      border-radius: 16px;
+      box-shadow: 6px 6px 0 var(--pd-cobalt);
+      transform: rotate(1.5deg);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cover-art-caption {
+      font-family: var(--font-hand);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--pd-ink);
+      background: var(--pd-yellow);
+      border: 2px solid var(--pd-ink);
+      padding: 4px 14px;
+      border-radius: 999px;
+    }
+
+    /* ================= SLIDE 02: AGENDA ================= */
+    .agenda-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .sticky-note {
+      background: var(--pd-yellow);
+      border: 2.5px solid var(--pd-ink);
+      border-radius: 14px;
+      box-shadow: 6px 6px 0 var(--pd-ink);
+      padding: 44px 30px 32px;
+      transform: rotate(-2deg);
+      position: relative;
+    }
+
+    .sticky-note-clip {
+      position: absolute;
+      top: -22px;
+      left: 28px;
+    }
+
+    .sticky-q {
+      font-family: var(--font-hand);
+      font-weight: 800;
+      font-size: 30px;
+      line-height: 1.24;
+      color: var(--pd-ink);
+      margin: 0 0 14px;
+    }
+
+    .sticky-sub {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--pd-ink);
+      margin: 0;
+    }
+
+    .agenda-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .agenda-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 20px;
+      background: var(--pd-surface);
+      border: 2px solid var(--pd-ink);
+      border-radius: 14px;
+      box-shadow: 4px 4px 0 var(--pd-ink);
+    }
+
+    .agenda-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 2px solid var(--pd-ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .agenda-badge.c-cobalt { background: var(--pd-cobalt); color: #FFFFFF; }
+    .agenda-badge.c-red { background: var(--pd-red); color: #FFFFFF; }
+    .agenda-badge.c-yellow { background: var(--pd-yellow); color: var(--pd-ink); }
+
+    .agenda-item-title {
+      font-family: var(--font-hand);
+      font-weight: 700;
+      font-size: 21px;
+      color: var(--pd-ink);
+      margin: 0 0 2px;
+    }
+
+    .agenda-item-desc {
+      font-size: 15px;
+      color: var(--pd-muted);
+      margin: 0;
+    }
+
+    /* ================= SLIDE 03: PROBLEM (3 STAGGERED CARDS) ================= */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      align-items: stretch;
+      margin-top: 16px;
+    }
+
+    .problem-card {
+      padding: 36px 24px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 310px;
+    }
+
+    .problem-card.is-raised {
+      transform: translateY(-16px);
+      box-shadow: 6px 6px 0 var(--pd-cobalt);
+    }
+
+    .problem-stat {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 1.05;
+      margin: 0 0 12px;
+    }
+
+    .problem-stat.s-red { color: var(--pd-red); }
+    .problem-stat.s-cobalt { color: var(--pd-cobalt); }
+    .problem-stat.s-ink {
+      color: var(--pd-ink);
+      background: var(--pd-yellow);
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 8px;
+      border: 2px solid var(--pd-ink);
+    }
+
+    .problem-tag {
+      margin-top: 18px;
+      display: inline-block;
+      align-self: flex-start;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1.5px solid var(--pd-ink);
+      background: var(--pd-bg);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--pd-ink);
+    }
+
+    /* ================= SLIDE 04: SOLUTION FLOW ================= */
+    .flow-row {
+      display: grid;
+      grid-template-columns: 1fr 74px 1fr 74px 1fr;
+      align-items: center;
+      gap: 8px;
+      margin: 12px 0 26px;
+    }
+
+    .flow-station {
+      padding: 24px 22px;
+      min-height: 255px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .flow-step-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 2px solid var(--pd-ink);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 13px;
+      align-self: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .flow-arrow-slot {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flow-banner {
+      background: var(--pd-yellow);
+      border: 2.5px solid var(--pd-ink);
+      border-radius: 12px;
+      box-shadow: 4px 4px 0 var(--pd-ink);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .flow-banner-text {
+      font-family: var(--font-hand);
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--pd-ink);
+      margin: 0;
+    }
+
+    .flow-banner-badge {
+      background: var(--pd-surface);
+      border: 2px solid var(--pd-ink);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* ================= SLIDE 05: METRICS + CHART ================= */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .chart-card {
+      padding: 24px 26px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .chart-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .chart-legend {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      border: 1.5px solid var(--pd-ink);
+      flex-shrink: 0;
+    }
+
+    .kpi-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: space-between;
+    }
+
+    .kpi-card {
+      padding: 18px 22px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .kpi-card.is-circled {
+      background: #FFFDF5;
+      border-color: var(--pd-ink);
+    }
+
+    .kpi-num {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.1;
+      color: var(--pd-ink);
+      position: relative;
+      display: inline-block;
+      align-self: flex-start;
+    }
+
+    .kpi-num.is-cobalt { color: var(--pd-cobalt); }
+    .kpi-num.is-red { color: var(--pd-red); }
+
+    .kpi-loop-svg {
+      position: absolute;
+      left: -20px;
+      top: -11px;
+      width: 142px;
+      height: 64px;
+      pointer-events: none;
+    }
+
+    /* ================= SLIDE 06: BEFORE / AFTER SPLIT ================= */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .compare-col {
+      padding: 26px 28px;
+      border-radius: 16px;
+      background: var(--pd-surface);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .compare-col.is-before {
+      border: 2.5px dashed var(--pd-red);
+      box-shadow: 4px 4px 0 rgba(214, 40, 40, 0.28);
+    }
+
+    .compare-col.is-after {
+      border: 2.5px solid var(--pd-cobalt);
+      box-shadow: 6px 6px 0 var(--pd-cobalt);
+    }
+
+    .compare-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--pd-bg);
+    }
+
+    .compare-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .compare-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--pd-ink);
+    }
+
+    .compare-bullet {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      border: 1.5px solid var(--pd-ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .compare-bullet.b-red { background: #FEE2E2; color: var(--pd-red); border-color: var(--pd-red); }
+    .compare-bullet.b-cobalt { background: var(--pd-cobalt); color: #FFFFFF; }
+
+    /* ================= SLIDE 07: ROADMAP TIMELINE ================= */
+    .roadmap-wrap {
+      position: relative;
+      height: 410px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .roadmap-line-svg {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 60px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      position: relative;
+      z-index: 2;
+      height: 100%;
+    }
+
+    .roadmap-col {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .roadmap-col.is-top {
+      justify-content: flex-start;
+      padding-top: 8px;
+    }
+
+    .roadmap-col.is-bottom {
+      justify-content: flex-end;
+      padding-bottom: 8px;
+    }
+
+    .roadmap-card {
+      padding: 18px 18px 16px;
+    }
+
+    .roadmap-q {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1.5px solid var(--pd-ink);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    /* ================= SLIDE 08: NOTEBOOK TABLE ================= */
+    .table-card {
+      overflow: hidden;
+      border: 2.5px solid var(--pd-ink);
+      border-radius: 16px;
+      box-shadow: 6px 6px 0 var(--pd-ink);
+      background: var(--pd-surface);
+      position: relative;
+    }
+
+    .notebook-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .notebook-table th {
+      background: var(--pd-cobalt);
+      color: #FFFFFF;
+      font-family: var(--font-hand);
+      font-weight: 700;
+      font-size: 20px;
+      padding: 16px 20px;
+      border-bottom: 2.5px solid var(--pd-ink);
+      border-right: 2px solid var(--pd-ink);
+    }
+
+    .notebook-table th:last-child {
+      border-right: 0;
+    }
+
+    .notebook-table td {
+      padding: 18px 20px;
+      font-size: 17px;
+      font-weight: 500;
+      border-bottom: 1.5px solid var(--pd-grid);
+      border-right: 1.5px solid var(--pd-grid);
+      color: var(--pd-ink);
+      vertical-align: middle;
+    }
+
+    .notebook-table td:last-child {
+      border-right: 0;
+    }
+
+    .notebook-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .notebook-table tr.is-featured td {
+      background: #FFFBEB;
+    }
+
+    .price-pill {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 8px;
+      border: 2px solid var(--pd-ink);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 15px;
+      background: var(--pd-yellow);
+      color: var(--pd-ink);
+    }
+
+    /* ================= SLIDE 09: CLOSING CTA ================= */
+    .closing-center {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      position: relative;
+    }
+
+    .closing-quote {
+      font-family: var(--font-hand);
+      font-weight: 800;
+      font-size: 42px;
+      line-height: 1.2;
+      max-width: 27ch;
+      margin: 0;
+      color: var(--pd-ink);
+    }
+
+    .closing-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 100%;
+      max-width: 960px;
+    }
+
+    .closing-step {
+      padding: 18px 20px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .closing-step-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 2px solid var(--pd-ink);
+      background: var(--pd-yellow);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-strip {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      padding: 12px 24px;
+      background: var(--pd-cobalt);
+      color: #FFFFFF;
+      border: 2.5px solid var(--pd-ink);
+      border-radius: 14px;
+      box-shadow: 4px 4px 0 var(--pd-ink);
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .qa-bubble {
+      position: absolute;
+      right: 18px;
+      top: -12px;
+      background: var(--pd-red);
+      color: #FFFFFF;
+      border: 2.5px solid var(--pd-ink);
+      border-radius: 18px;
+      padding: 10px 18px;
+      font-family: var(--font-hand);
+      font-weight: 800;
+      font-size: 22px;
+      transform: rotate(7deg);
+      box-shadow: 4px 4px 0 var(--pd-ink);
+    }
+
+    /* ================= SPEAKER NOTES DRAWER ================= */
+    .notes-drawer {
+      position: fixed;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      width: min(840px, calc(100vw - 32px));
+      background: var(--pd-surface);
+      border: 2.5px solid var(--pd-ink);
+      border-radius: 14px;
+      box-shadow: 6px 6px 0 var(--pd-ink);
+      padding: 14px 18px;
+      z-index: 60;
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .notes-drawer.is-open {
+      display: flex;
+    }
+
+    .notes-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--pd-cobalt);
+    }
+
+    .notes-text {
+      font-size: 15px;
+      color: var(--pd-ink);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ================= OVERVIEW GRID MODAL ================= */
+    .overview-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(19, 23, 34, 0.72);
+      z-index: 70;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .overview-modal.is-open {
+      display: flex;
+    }
+
+    .overview-panel {
+      width: min(1040px, 100%);
+      max-height: 88vh;
+      overflow-y: auto;
+      background: var(--pd-bg);
+      border: 3px solid var(--pd-ink);
+      border-radius: 18px;
+      box-shadow: 8px 8px 0 var(--pd-ink);
+      padding: 22px;
+    }
+
+    .overview-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .thumb-card {
+      text-align: left;
+      padding: 14px 16px;
+      background: var(--pd-surface);
+      border: 2px solid var(--pd-ink);
+      border-radius: 12px;
+      box-shadow: 3px 3px 0 var(--pd-ink);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.12s ease, background 0.12s ease;
+    }
+
+    .thumb-card:hover {
+      transform: translate(-1px, -1px);
+      background: #FFFBEB;
+    }
+
+    .thumb-card.is-current {
+      border-color: var(--pd-cobalt);
+      box-shadow: 4px 4px 0 var(--pd-cobalt);
+      background: #EFF6FF;
+    }
+
+    .thumb-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--pd-cobalt);
+    }
+
+    .thumb-title {
+      font-family: var(--font-hand);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--pd-ink);
+      line-height: 1.3;
+    }
+
+    .thumb-sub {
+      font-size: 13px;
+      color: var(--pd-muted);
+      line-height: 1.4;
+    }
+
+    /* ================= TOAST ================= */
+    .toast {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 90;
+      background: var(--pd-ink);
+      color: var(--pd-yellow);
+      border: 2px solid var(--pd-yellow);
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 4px 4px 0 rgba(19, 23, 34, 0.3);
+      display: none;
+    }
+
+    .toast.is-show {
+      display: block;
+    }
+
+    /* ================= MOBILE READER (< 768px — GATE 2: 375px SAFE) ================= */
+    @media (max-width: 767px) {
+      body {
+        background: var(--pd-desk);
+        overflow-x: hidden;
+      }
+
+      .studio-bar {
+        padding: 0 10px;
+        gap: 6px;
+        height: 54px;
+      }
+
+      .brand-pill {
+        padding: 4px 9px;
+        font-size: 13px;
+      }
+
+      .hide-mobile {
+        display: none !important;
+      }
+
+      .nav-btn, .tool-btn {
+        height: 32px;
+        padding: 0 9px;
+        font-size: 12px;
+      }
+
+      .lang-switch {
+        height: 32px;
+      }
+
+      .lang-opt {
+        padding: 0 8px;
+        font-size: 11px;
+      }
+
+      .stage-viewport {
+        padding: 66px 12px 28px;
+        display: block;
+        min-height: auto;
+      }
+
+      .stage-frame {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        display: block;
+      }
+
+      .deck-stage {
+        width: 100%;
+        height: auto;
+        transform: none !important;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .slide {
+        display: flex !important;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 20px 16px 18px;
+        border-radius: 14px;
+        box-shadow: 4px 4px 0 var(--pd-ink);
+        overflow: hidden;
+      }
+
+      .slide > .sticker-tape {
+        display: none;
+      }
+
+      .cover-grid > *,
+      .agenda-grid > *,
+      .problem-grid > *,
+      .metrics-grid > *,
+      .compare-grid > *,
+      .roadmap-grid > *,
+      .closing-steps > * {
+        min-width: 0;
+      }
+
+      .cover-art-box svg {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .lead-copy {
+        max-width: 100%;
+      }
+
+      .slide-body {
+        padding: 14px 0 12px;
+      }
+
+      .h1-cover {
+        font-size: 30px;
+        line-height: 1.2;
+      }
+
+      .h2-slide {
+        font-size: 24px;
+        line-height: 1.24;
+        margin-bottom: 14px;
+      }
+
+      .h3-card {
+        font-size: 19px;
+      }
+
+      .lead-copy {
+        font-size: 16px;
+      }
+
+      .body-copy, .compare-list li, .notebook-table td {
+        font-size: 15px;
+      }
+
+      .cover-grid,
+      .agenda-grid,
+      .problem-grid,
+      .metrics-grid,
+      .compare-grid,
+      .roadmap-grid,
+      .closing-steps,
+      .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .cover-art-box {
+        transform: none;
+        padding: 16px;
+      }
+
+      .sticky-note {
+        transform: none;
+        padding: 32px 18px 20px;
+      }
+
+      .sticky-q {
+        font-size: 23px;
+      }
+
+      .problem-card {
+        min-height: 0;
+        padding: 28px 18px 18px;
+      }
+
+      .problem-card.is-raised {
+        transform: none;
+      }
+
+      .problem-stat {
+        font-size: 36px;
+      }
+
+      .flow-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .flow-station {
+        min-height: 0;
+        padding: 18px 16px;
+      }
+
+      .flow-arrow-slot {
+        transform: rotate(90deg);
+        height: 36px;
+      }
+
+      .flow-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 16px;
+      }
+
+      .flow-banner-text {
+        font-size: 17px;
+      }
+
+      .kpi-loop-svg {
+        width: 145px;
+        height: 54px;
+        left: -10px;
+        top: -8px;
+      }
+
+      .roadmap-wrap {
+        height: auto;
+      }
+
+      .roadmap-line-svg {
+        display: none;
+      }
+
+      .roadmap-col.is-top,
+      .roadmap-col.is-bottom {
+        padding: 0;
+      }
+
+      .table-card {
+        overflow-x: auto;
+      }
+
+      .notebook-table th {
+        font-size: 15px;
+        padding: 11px 12px;
+      }
+
+      .notebook-table td {
+        padding: 11px 12px;
+        white-space: nowrap;
+      }
+
+      .closing-quote {
+        font-size: 26px;
+      }
+
+      .qa-bubble {
+        position: static;
+        transform: rotate(0deg);
+        align-self: flex-end;
+        font-size: 17px;
+        padding: 6px 14px;
+      }
+
+      .contact-strip {
+        font-size: 13px;
+        padding: 10px 14px;
+        gap: 10px;
+      }
+
+      .sticker-tape {
+        transform: scale(0.75);
+        top: 6px !important;
+      }
+
+      .problem-card .sticker-tape {
+        top: -14px !important;
+      }
+
+      .export-menu {
+        width: 248px;
+        right: -4px;
+      }
+    }
+
+    /* ================= PRINT / PDF 16:9 ================= */
+    @media print {
+      @page {
+        size: 13.333in 7.5in;
+        margin: 0;
+      }
+
+      html, body {
+        background: var(--pd-bg);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .studio-bar,
+      .notes-drawer,
+      .overview-modal,
+      .toast {
+        display: none !important;
+      }
+
+      .stage-viewport,
+      .stage-frame,
+      .deck-stage {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 1280px !important;
+        height: auto !important;
+        transform: none !important;
+        display: block !important;
+      }
+
+      .slide {
+        display: flex !important;
+        width: 1280px !important;
+        height: 720px !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP FLOATING TOOLBAR -->
+  <header class="studio-bar" role="banner">
+    <div class="bar-group">
+      <div class="brand-pill">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span id="ui-brand">BútChìMàu</span>
+      </div>
+      <div class="bar-group hide-mobile" aria-label="Điều hướng slide">
+        <button class="nav-btn" id="btn-prev" type="button" title="Slide trước (←)">◄</button>
+        <span class="slide-counter" id="ui-counter">01 / 09</span>
+        <button class="nav-btn" id="btn-next" type="button" title="Slide kế (→)">►</button>
+      </div>
+    </div>
+
+    <div class="bar-group">
+      <button class="tool-btn hide-mobile" id="btn-grid" type="button">Lưới (G)</button>
+      <button class="tool-btn hide-mobile" id="btn-notes" type="button">Ghi chú (N)</button>
+      <button class="tool-btn hide-mobile" id="btn-full" type="button">Toàn màn hình</button>
+
+      <div class="lang-switch" role="group" aria-label="Ngôn ngữ">
+        <button class="lang-opt is-active" id="lang-vi" type="button" data-lang="vi">VI</button>
+        <button class="lang-opt" id="lang-en" type="button" data-lang="en">EN</button>
+      </div>
+
+      <button class="tool-btn hide-mobile" id="btn-pdf" type="button">In PDF</button>
+
+      <div class="export-wrap">
+        <button class="tool-btn btn-primary" id="btn-pptx-toggle" type="button" aria-expanded="false">Xuất .pptx ▾</button>
+        <div class="export-menu" id="export-menu" role="menu">
+          <div class="export-menu-title" id="ui-export-title">CHỌN CHẾ ĐỘ FONT .PPTX</div>
+          <button class="export-choice" id="export-design-font" type="button" role="menuitem">
+            <strong id="ui-exp-opt1-t">Chuẩn thiết kế (Shantell Sans)</strong>
+            <span id="ui-exp-opt1-d">Giữ trọn nét chữ viết tay khi mở trên máy đã cài font.</span>
+          </button>
+          <button class="export-choice" id="export-safe-font" type="button" role="menuitem">
+            <strong id="ui-exp-opt2-t">An toàn đa máy (Segoe Print / Arial)</strong>
+            <span id="ui-exp-opt2-d">Không lỗi dấu hay nhảy dòng trên mọi Windows/macOS.</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 16:9 DECK STAGE -->
+  <main class="stage-viewport">
+    <div class="stage-frame" id="stage-frame">
+      <div class="deck-stage" id="deck-stage"></div>
+    </div>
+  </main>
+
+  <!-- SPEAKER NOTES DRAWER -->
+  <aside class="notes-drawer" id="notes-drawer" aria-live="polite">
+    <div class="notes-head">
+      <span id="ui-notes-label">GHI CHÚ DIỄN GIẢ · SLIDE 01</span>
+      <button type="button" id="btn-close-notes">✕</button>
+    </div>
+    <p class="notes-text" id="ui-notes-text"></p>
+  </aside>
+
+  <!-- OVERVIEW 9-SLIDE GRID MODAL -->
+  <div class="overview-modal" id="overview-modal" role="dialog" aria-modal="true" aria-labelledby="ui-overview-title">
+    <div class="overview-panel">
+      <div class="overview-head">
+        <h2 class="h3-card" id="ui-overview-title" style="margin:0;">Tổng quan 9 Slide · Bấm để nhảy nhanh</h2>
+        <button class="nav-btn" id="btn-close-grid" type="button">Đóng (Esc)</button>
+      </div>
+      <div class="overview-grid" id="overview-grid"></div>
+    </div>
+  </div>
+
+  <!-- STATUS TOAST -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    /* =====================================================================
+       1. SINGLE-SOURCE BILINGUAL DECK DATA (VI | EN)
+       ===================================================================== */
+    /* __DECK_DATA_START__ */
+    const DECK_DATA = {
+      vi: {
+        ui: {
+          brand: 'BútChìMàu',
+          gridBtn: 'Lưới (G)',
+          notesBtn: 'Ghi chú (N)',
+          fullBtn: 'Toàn màn hình',
+          pdfBtn: 'In PDF',
+          pptxBtn: 'Xuất .pptx ▾',
+          exportTitle: 'CHỌN CHẾ ĐỘ FONT .PPTX',
+          expOpt1T: 'Chuẩn thiết kế (Shantell Sans)',
+          expOpt1D: 'Giữ trọn nét viết tay khi mở trên máy đã cài font.',
+          expOpt2T: 'An toàn đa máy (Segoe Print / Arial)',
+          expOpt2D: 'Hiển thị chuẩn dấu tiếng Việt trên mọi Windows/macOS.',
+          overviewTitle: 'Tổng quan 9 Slide · Bấm để nhảy nhanh',
+          closeBtn: 'Đóng (Esc)',
+          notesPrefix: 'GHI CHÚ DIỄN GIẢ · SLIDE',
+          footBrand: 'BútChìMàu · ButChiMau.vn · 2026',
+          exportingMsg: 'Đang tạo file .pptx editable + sticker 2x...',
+          exportDoneMsg: 'Đã tải xong ButChiMau-Primary-Doodle-VI.pptx!',
+          exportErrMsg: 'Chưa tải được thư viện PptxGenJS (cần mạng hoặc dùng In PDF).'
+        },
+        slides: [
+          {
+            id: '01',
+            type: 'cover',
+            chapter: 'Bản giới thiệu 2026',
+            tagTone: 'cobalt',
+            titlePre: 'Biến giáo án khô khan thành',
+            titleHighlight: 'trò chơi lớp học',
+            titleUnderline: 'trong 4 phút',
+            subtitle: 'Trợ lý AI giúp giáo viên Việt Nam soạn thẻ kiến thức trực quan, câu hỏi tương tác và xuất bài giảng PowerPoint 1 chạm.',
+            cta: 'Bắt đầu xem lộ trình',
+            author: 'Nhóm BútChìMàu · Hà Nội & TP.HCM',
+            artCaption: 'Vẽ tay ý tưởng · Dạy ngay trên lớp',
+            notes: 'Mở đầu bằng câu chuyện thực tế: 7/10 giáo viên mất cả buổi tối cắt ghép slide. BútChìMàu rút ngắn quy trình đó xuống còn 4 phút với phong cách trực quan gần gũi.'
+          },
+          {
+            id: '02',
+            type: 'agenda',
+            chapter: 'Chặng 01 · Tổng quan',
+            tagTone: 'yellow',
+            stickyQuestion: 'Hôm nay chúng ta giải quyết bài toán gì cho lớp học?',
+            stickySub: '4 chặng trình bày ngắn gọn trong 8 phút — kèm số liệu thử nghiệm tại 42 trường.',
+            items: [
+              { num: '01', tone: 'cobalt', title: 'Nỗi đau soạn bài thủ công', desc: 'Vì sao giáo án chữ dày đặc khiến học sinh mất tập trung sau 10 phút?' },
+              { num: '02', tone: 'red', title: 'Quy trình 3 chạm của BútChìMàu', desc: 'Từ ảnh chụp sách giáo khoa đến bộ thẻ tương tác & mini-game.' },
+              { num: '03', tone: 'yellow', title: 'Kết quả thực tế tại 42 trường', desc: 'Tỷ lệ giơ tay phát biểu tăng +74% sau 4 tuần áp dụng.' },
+              { num: '04', tone: 'cobalt', title: 'Lộ trình & Gói triển khai 2026', desc: 'Chi phí minh bạch cho cá nhân, tổ bộ môn và toàn trường.' }
+            ],
+            notes: 'Đi nhanh qua 4 phần để người nghe nắm khung thời gian. Nhấn mạnh phần 3 là số liệu thực nghiệm trong lớp học Việt Nam.'
+          },
+          {
+            id: '03',
+            type: 'problem',
+            chapter: 'Chặng 01 · Vấn đề',
+            tagTone: 'red',
+            titlePre: 'Vì sao giáo viên tâm huyết vẫn',
+            titleAccent: 'kiệt sức mỗi tối?',
+            cards: [
+              { tape: 'red', stat: '3.5 giờ', statTone: 'red', title: 'Soạn slide thủ công', desc: 'Cắt ghép ảnh, căn lề từng trang PowerPoint sau giờ dạy chính khoá.', tag: 'LÃNG PHÍ THỜI GIAN' },
+              { tape: 'yellow', stat: '68%', statTone: 'ink', title: 'Học sinh mất tập trung', desc: 'Trang chiếu toàn chữ khiến cả lớp ngán ngẩm ngay từ phút thứ 12.', tag: 'THIẾU TƯƠNG TÁC', raised: true },
+              { tape: 'cobalt', stat: '4 công cụ', statTone: 'cobalt', title: 'Phải mở rời rạc', desc: 'Vừa chiếu slide, vừa chuyển tab sang app quiz và bảng điểm riêng.', tag: 'ĐỨT MẠCH BÀI GIẢNG' }
+            ],
+            notes: 'Chỉ ra 3 nút thắt thật: mất thời gian chuẩn bị, học sinh thụ động và phải nhảy qua lại giữa nhiều công cụ.'
+          },
+          {
+            id: '04',
+            type: 'flow',
+            chapter: 'Chặng 02 · Giải pháp',
+            tagTone: 'cobalt',
+            titlePre: 'Một ý tưởng',
+            titleAccent: 'trọn bộ tiết học 45 phút',
+            steps: [
+              { badge: 'BƯỚC 01', tone: 'yellow', title: 'Dán đề bài hoặc ảnh SGK', desc: 'Tải lên trang sách, ghi chú tay hoặc gõ chủ đề bài học bằng tiếng Việt tự nhiên.' },
+              { badge: 'BƯỚC 02', tone: 'cobalt', title: 'AI vẽ thẻ & mini-game', desc: 'Tự tách ý chính thành 8–10 thẻ trực quan kèm câu hỏi trắc nghiệm lật thẻ.' },
+              { badge: 'BƯỚC 03', tone: 'red', title: 'Mở lớp chiếu ngay lập tức', desc: 'Trình chiếu thẳng trên trình duyệt hoặc bấm xuất file .pptx chỉnh sửa tự do.' }
+            ],
+            bannerText: 'Dữ liệu đồng bộ 2 chiều: chỉnh một chữ trên web, tải lại .pptx chuẩn từng khung.',
+            bannerBadge: '4 phút 10 giây / giáo án',
+            notes: 'Giải thích luồng khép kín 3 bước: đầu vào cực dễ (chụp ảnh trang sách), AI dựng khung sư phạm chuẩn, đầu ra dùng được cả online lẫn offline.'
+          },
+          {
+            id: '05',
+            type: 'metrics',
+            chapter: 'Chặng 03 · Hiệu quả',
+            tagTone: 'cobalt',
+            titlePre: 'Thử nghiệm thực tế tại',
+            titleAccent: '42 trường phổ thông',
+            chartTitle: 'Tỷ lệ học sinh tham gia phát biểu (%)',
+            seriesNew: 'Dùng BútChìMàu',
+            seriesOld: 'Slide chữ truyền thống',
+            labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4'],
+            valuesNew: [62, 74, 83, 91],
+            valuesOld: [38, 40, 41, 43],
+            kpis: [
+              { num: '+74%', tone: 'red', circled: true, title: 'Mức tăng tương tác lớp học', desc: 'So với tiết học chỉ dùng slide văn bản thuần tuý.' },
+              { num: '4p 10s', tone: 'cobalt', title: 'Thời gian hoàn thành giáo án', desc: 'Giảm 88% thời lượng chuẩn bị bài vào buổi tối.' },
+              { num: '12.400+', tone: 'ink', title: 'Tiết học đã giảng dạy', desc: 'Trên cả môn Toán, Văn, Tiếng Anh và Khoa học tự nhiên.' }
+            ],
+            notes: 'Số liệu đo từ 186 giáo viên thí điểm học kỳ vừa qua. Biểu đồ này khi xuất sang .pptx là Native Chart, có thể bấm Edit Data để cập nhật số liệu mới.'
+          },
+          {
+            id: '06',
+            type: 'compare',
+            chapter: 'Chặng 03 · Đối chiếu',
+            tagTone: 'yellow',
+            titlePre: 'Khác biệt rõ ràng sau',
+            titleAccent: '1 tuần áp dụng',
+            beforeTitle: 'Cách soạn bài truyền thống',
+            beforeItems: [
+              'Tốn 3 buổi tối tìm hình minh hoạ không dính watermark.',
+              'Chữ dày đặc trên trang chiếu, học sinh ngại chép và ngại hỏi.',
+              'Đổi giáo án giữa chừng phải căn tay lại toàn bộ khung hình.',
+              'Thiếu trò chơi kiểm tra nhanh 3 phút cuối tiết.'
+            ],
+            afterTitle: 'Khi đồng hành cùng BútChìMàu',
+            afterItems: [
+              'Kho sticker vẽ tay & minh hoạ sư phạm đồng bộ sẵn 1 chạm.',
+              'Mỗi thẻ chỉ 1 ý trọng tâm, có điểm nhấn màu sắc rõ ràng.',
+              'Tự động cân bằng tỷ lệ 16:9 và xuất ngay sang PowerPoint.',
+              'Tích hợp sẵn mini-game ôn bài theo đội ngay trong bộ slide.'
+            ],
+            notes: 'Đặt hai cột cạnh nhau giúp ban giám hiệu hoặc nhà đầu tư thấy ngay giá trị tiết kiệm công sức cho giáo viên.'
+          },
+          {
+            id: '07',
+            type: 'roadmap',
+            chapter: 'Chặng 04 · Lộ trình',
+            tagTone: 'cobalt',
+            titlePre: 'Kế hoạch nhân rộng',
+            titleAccent: '4 quý năm 2026',
+            milestones: [
+              { q: 'QUÝ 1 · ĐÃ XONG', tone: 'cobalt', title: 'Thí điểm 42 trường', desc: 'Khoá bộ mẫu giáo án Tiểu học & THCS, chuẩn hoá font viết tay tiếng Việt.' },
+              { q: 'QUÝ 2 · ĐANG CHẠY', tone: 'yellow', title: 'Thư viện 500+ mẫu', desc: 'Mở kho hoạt động tương tác theo từng chương sách giáo khoa mới.' },
+              { q: 'QUÝ 3 · SẮP TỚI', tone: 'red', title: 'Gói chuyên đề STEM', desc: 'Bổ sung mô phỏng thí nghiệm trực quan và phiếu bài tập in PDF.' },
+              { q: 'QUÝ 4 · MỤC TIÊU', tone: 'cobalt', title: 'Phủ 63 tỉnh thành', desc: 'Đạt 25.000 giáo viên dùng hàng tuần và kết nối LMS nhà trường.' }
+            ],
+            notes: 'Nhấn mạnh Quý 1 đã hoàn thành đúng tiến độ và Quý 2 đang mở rộng thư viện mẫu dùng chung cho tổ bộ môn.'
+          },
+          {
+            id: '08',
+            type: 'table',
+            chapter: 'Chặng 04 · Gói dùng',
+            tagTone: 'cobalt',
+            titlePre: 'Chi phí minh bạch cho',
+            titleAccent: 'từng quy mô lớp học',
+            headers: ['Gói triển khai', 'Quy mô phù hợp', 'Quyền lợi cốt lõi', 'Mức phí'],
+            rows: [
+              ['Cá nhân', '1 giáo viên', '20 bộ giáo án/tháng, trình chiếu web không giới hạn', 'Miễn phí'],
+              ['Tổ bộ môn', 'Tối đa 15 giáo viên', 'Kho 500+ sticker, mini-game lớp học, xuất .pptx không giới hạn', '490.000đ / tháng'],
+              ['Toàn trường', 'Không giới hạn GV', 'Thư viện riêng theo thương hiệu trường, kết nối LMS & đào tạo', 'Liên hệ báo giá']
+            ],
+            notes: 'Gói Tổ bộ môn là gói phổ biến nhất vì chi phí chia bình quân chỉ khoảng 33.000đ/giáo viên/tháng. Bảng này trong .pptx xuất ra là Native Table chỉnh sửa từng ô được.'
+          },
+          {
+            id: '09',
+            type: 'closing',
+            chapter: 'Kết thúc · Hành động',
+            tagTone: 'red',
+            qaTag: 'Hỏi & Đáp?',
+            quote: '“Giờ học đáng nhớ bắt đầu từ 4 phút chuẩn bị đầy cảm hứng.”',
+            steps: [
+              { num: '01', title: 'Mở bản dùng thử', desc: 'Chọn sẵn 1 bài học tuần tới' },
+              { num: '02', title: 'Nhập đề bài 30 giây', desc: 'Nhận ngay 9 thẻ minh hoạ' },
+              { num: '03', title: 'Mang lên lớp ngay', desc: 'Chiếu web hoặc tải .pptx' }
+            ],
+            contacts: ['hello@butchimau.vn', 'butchimau.vn', 'Cảm ơn đã lắng nghe!'],
+            notes: 'Kết lại bằng lời mời trải nghiệm trực tiếp 4 phút ngay sau buổi họp. Bật phần Q&A để trả lời câu hỏi về bảo mật dữ liệu giáo án.'
+          }
+        ]
+      },
+      en: {
+        ui: {
+          brand: 'CrayonLab',
+          gridBtn: 'Grid (G)',
+          notesBtn: 'Notes (N)',
+          fullBtn: 'Fullscreen',
+          pdfBtn: 'Print PDF',
+          pptxBtn: 'Export .pptx ▾',
+          exportTitle: 'SELECT .PPTX FONT MODE',
+          expOpt1T: 'Design Match (Shantell Sans)',
+          expOpt1D: 'Preserves handwritten marker style when fonts are installed.',
+          expOpt2T: 'Universal Safe (Segoe Print / Arial)',
+          expOpt2D: 'Clean diacritics and spacing across any Windows/macOS.',
+          overviewTitle: '9-Slide Overview · Click to jump',
+          closeBtn: 'Close (Esc)',
+          notesPrefix: 'SPEAKER NOTES · SLIDE',
+          footBrand: 'CrayonLab · ButChiMau.vn · 2026',
+          exportingMsg: 'Building editable .pptx + 2x SVG stickers...',
+          exportDoneMsg: 'Downloaded CrayonLab-Primary-Doodle-EN.pptx!',
+          exportErrMsg: 'PptxGenJS library unavailable offline (use Print PDF).'
+        },
+        slides: [
+          {
+            id: '01',
+            type: 'cover',
+            chapter: 'Product Pitch 2026',
+            tagTone: 'cobalt',
+            titlePre: 'Turn dense lesson plans into',
+            titleHighlight: 'playful class decks',
+            titleUnderline: 'in 4 minutes',
+            subtitle: 'An AI teaching copilot helping K–12 educators craft visual flashcards, classroom mini-games, and one-click editable PowerPoint decks.',
+            cta: 'Explore the deck',
+            author: 'CrayonLab Team · Hanoi & HCMC',
+            artCaption: 'Sketch ideas fast · Teach live today',
+            notes: 'Open with the core teacher insight: 7 out of 10 teachers spend late nights formatting slides. CrayonLab cuts prep time to 4 minutes.'
+          },
+          {
+            id: '02',
+            type: 'agenda',
+            chapter: 'Part 01 · Overview',
+            tagTone: 'yellow',
+            stickyQuestion: 'What classroom bottleneck are we solving today?',
+            stickySub: '4 concise chapters in 8 minutes — backed by pilot metrics from 42 schools.',
+            items: [
+              { num: '01', tone: 'cobalt', title: 'The late-night prep trap', desc: 'Why text-heavy slides lose student attention within 10 minutes.' },
+              { num: '02', tone: 'red', title: '3-step CrayonLab workflow', desc: 'From textbook photo to visual cards & interactive quiz games.' },
+              { num: '03', tone: 'yellow', title: 'Pilot results across 42 schools', desc: 'Student participation jumped +74% after 4 weeks in class.' },
+              { num: '04', tone: 'cobalt', title: '2026 Rollout & Pricing', desc: 'Transparent plans for solo teachers, departments, and schools.' }
+            ],
+            notes: 'Walk through the four milestones quickly. Highlight Part 3 as verified classroom telemetry rather than synthetic benchmarks.'
+          },
+          {
+            id: '03',
+            type: 'problem',
+            chapter: 'Part 01 · Problem',
+            tagTone: 'red',
+            titlePre: 'Why passionate teachers still',
+            titleAccent: 'burn out every week',
+            cards: [
+              { tape: 'red', stat: '3.5 hrs', statTone: 'red', title: 'Manual slide formatting', desc: 'Cropping graphics and aligning text boxes late after school hours.', tag: 'LOST EVENINGS' },
+              { tape: 'yellow', stat: '68%', statTone: 'ink', title: 'Students tune out', desc: 'Wall-of-text decks drain classroom energy before minute 12.', tag: 'LOW ENGAGEMENT', raised: true },
+              { tape: 'cobalt', stat: '4 tools', statTone: 'cobalt', title: 'Disconnected tabs', desc: 'Juggling slides, external quiz apps, and separate scoreboards.', tag: 'BROKEN FLOW' }
+            ],
+            notes: 'Frame the three pains clearly: wasted prep hours, passive learners, and fragmented classroom tools.'
+          },
+          {
+            id: '04',
+            type: 'flow',
+            chapter: 'Part 02 · Solution',
+            tagTone: 'cobalt',
+            titlePre: 'One rough prompt',
+            titleAccent: 'a complete 45-minute lesson',
+            steps: [
+              { badge: 'STEP 01', tone: 'yellow', title: 'Paste topic or textbook photo', desc: 'Snap a curriculum page, upload notes, or type a plain lesson prompt.' },
+              { badge: 'STEP 02', tone: 'cobalt', title: 'AI sketches cards & games', desc: 'Structures key concepts into 8–10 doodle cards plus flip-card checks.' },
+              { badge: 'STEP 03', tone: 'red', title: 'Present live or export .pptx', desc: 'Run directly in browser or download an editable PowerPoint file.' }
+            ],
+            bannerText: 'Single source of truth: edit once on the web, export pixel-aligned .pptx anytime.',
+            bannerBadge: '4m 10s avg prep time',
+            notes: 'Demonstrate how input friction drops to zero while teachers keep full ownership via editable .pptx output.'
+          },
+          {
+            id: '05',
+            type: 'metrics',
+            chapter: 'Part 03 · Traction',
+            tagTone: 'cobalt',
+            titlePre: 'Measured impact across',
+            titleAccent: '42 partner schools',
+            chartTitle: 'Active hand-raise & participation rate (%)',
+            seriesNew: 'With CrayonLab',
+            seriesOld: 'Text-only slides',
+            labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4'],
+            valuesNew: [62, 74, 83, 91],
+            valuesOld: [38, 40, 41, 43],
+            kpis: [
+              { num: '+74%', tone: 'red', circled: true, title: 'Higher student participation', desc: 'Measured against traditional text-heavy lesson decks.' },
+              { num: '4m 10s', tone: 'cobalt', title: 'Average deck creation time', desc: 'Cuts evening lesson preparation effort by 88%.' },
+              { num: '12,400+', tone: 'ink', title: 'Live lessons delivered', desc: 'Across Math, Literature, English, and Natural Sciences.' }
+            ],
+            notes: 'Data collected from 186 pilot teachers last semester. In the exported .pptx, this chart becomes a native PowerPoint bar chart.'
+          },
+          {
+            id: '06',
+            type: 'compare',
+            chapter: 'Part 03 · Before & After',
+            tagTone: 'yellow',
+            titlePre: 'Visible shift after just',
+            titleAccent: 'one teaching week',
+            beforeTitle: 'Traditional manual workflow',
+            beforeItems: [
+              'Hours hunting for watermark-free classroom illustrations.',
+              'Dense bullet walls that students hesitate to read or copy.',
+              'Re-aligning every box manually whenever content changes.',
+              'No built-in 3-minute recap game at the end of class.'
+            ],
+            afterTitle: 'Teaching with CrayonLab',
+            afterItems: [
+              'Consistent hand-drawn sticker library applied automatically.',
+              'One focused idea per card with crisp cobalt–red–yellow cues.',
+              'Auto-balanced 16:9 layouts with instant .pptx export.',
+              'Team recap quiz woven directly into the final slides.'
+            ],
+            notes: 'Side-by-side contrast makes the workflow upgrade unmistakable for school principals and investors.'
+          },
+          {
+            id: '07',
+            type: 'roadmap',
+            chapter: 'Part 04 · Roadmap',
+            tagTone: 'cobalt',
+            titlePre: '2026 Rollout Plan',
+            titleAccent: 'across four quarters',
+            milestones: [
+              { q: 'Q1 · SHIPPED', tone: 'cobalt', title: '42-school pilot', desc: 'Validated K–9 templates and Vietnamese handwritten typography.' },
+              { q: 'Q2 · ACTIVE', tone: 'yellow', title: '500+ curriculum templates', desc: 'Expanding interactive activity packs mapped to national textbooks.' },
+              { q: 'Q3 · NEXT', tone: 'red', title: 'STEM Visual Pack', desc: 'Interactive lab diagrams and printable PDF student worksheets.' },
+              { q: 'Q4 · TARGET', tone: 'cobalt', title: 'Nationwide scale', desc: '25,000 weekly active teachers and school LMS integrations.' }
+            ],
+            notes: 'Emphasize Q1 delivery discipline and current Q2 expansion into department-wide shared libraries.'
+          },
+          {
+            id: '08',
+            type: 'table',
+            chapter: 'Part 04 · Pricing',
+            tagTone: 'cobalt',
+            titlePre: 'Clear pricing for every',
+            titleAccent: 'teaching scale',
+            headers: ['Plan', 'Best for', 'Core capabilities', 'Pricing'],
+            rows: [
+              ['Solo Teacher', '1 educator', '20 AI decks/month, unlimited web presentation', 'Free'],
+              ['Department', 'Up to 15 teachers', '500+ doodle stickers, class mini-games, unlimited .pptx', '$19 / month'],
+              ['Whole School', 'Unlimited staff', 'Custom school branding, LMS sync & onboarding', 'Custom quote']
+            ],
+            notes: 'Department is our flagship plan (~$1.30 per teacher/month). Exports as a native editable table in PowerPoint.'
+          },
+          {
+            id: '09',
+            type: 'closing',
+            chapter: 'Closing · Next Steps',
+            tagTone: 'red',
+            qaTag: 'Q&A?',
+            quote: '“Memorable classes begin with four inspired minutes of prep.”',
+            steps: [
+              { num: '01', title: 'Pick next week’s topic', desc: 'Start from any textbook page' },
+              { num: '02', title: 'Generate in 30 seconds', desc: 'Review 9 visual doodle cards' },
+              { num: '03', title: 'Take it to class', desc: 'Present live or export .pptx' }
+            ],
+            contacts: ['hello@butchimau.vn', 'butchimau.vn', 'Thank you for listening!'],
+            notes: 'Close with a concrete invitation to build a live 4-minute sample deck right after Q&A.'
+          }
+        ]
+      }
+    };
+    /* __DECK_DATA_END__ */
+
+    /* =====================================================================
+       2. INLINE SVG STICKERS & DOODLE PRIMITIVES (EXPLICIT HEX FOR 2X PNG)
+       ===================================================================== */
+    function washiTapeSVG(colorHex, w = 136, h = 34) {
+      return `
+        <svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 136 34" fill="none">
+          <path d="M5 4 L129 2 L134 9 L128 16 L133 23 L128 31 L6 32 L1 24 L7 17 L2 10 Z" fill="${colorHex}" fill-opacity="0.88" stroke="#131722" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M18 8 L26 26 M38 7 L46 26 M90 6 L98 25 M110 7 L118 25" stroke="#131722" stroke-opacity="0.18" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>`;
+    }
+
+    function coverSketchSVG() {
+      return `
+        <svg xmlns="http://www.w3.org/2000/svg" width="380" height="270" viewBox="0 0 380 270" fill="none">
+          <!-- Soft yellow backing blob -->
+          <rect x="28" y="34" width="320" height="206" rx="18" fill="#FFD43B" stroke="#131722" stroke-width="3"/>
+          <!-- Open Sketchbook -->
+          <rect x="50" y="54" width="236" height="168" rx="12" fill="#FFFFFF" stroke="#131722" stroke-width="3"/>
+          <line x1="168" y1="54" x2="168" y2="222" stroke="#131722" stroke-width="2.5" stroke-dasharray="6 5"/>
+          <!-- Left page mini chart -->
+          <rect x="74" y="144" width="18" height="48" rx="3" fill="#1849D6" stroke="#131722" stroke-width="2"/>
+          <rect x="100" y="122" width="18" height="70" rx="3" fill="#D62828" stroke="#131722" stroke-width="2"/>
+          <rect x="126" y="102" width="18" height="90" rx="3" fill="#FFD43B" stroke="#131722" stroke-width="2"/>
+          <path d="M70 96 C92 84, 122 86, 148 76" stroke="#1849D6" stroke-width="3.5" stroke-linecap="round"/>
+          <!-- Right page checklist & star -->
+          <circle cx="198" cy="96" r="11" fill="#FFD43B" stroke="#131722" stroke-width="2.2"/>
+          <path d="M194 96 L197 100 L204 92" stroke="#131722" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="218" y1="96" x2="264" y2="96" stroke="#131722" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="198" cy="134" r="11" fill="#1849D6" stroke="#131722" stroke-width="2.2"/>
+          <line x1="218" y1="134" x2="258" y2="134" stroke="#131722" stroke-width="3" stroke-linecap="round"/>
+          <rect x="188" y="164" width="76" height="34" rx="8" fill="#D62828" stroke="#131722" stroke-width="2.2"/>
+          <line x1="202" y1="181" x2="250" y2="181" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+          <!-- Cobalt Marker Pen -->
+          <g transform="translate(292 64) rotate(18)">
+            <rect x="0" y="22" width="26" height="122" rx="6" fill="#1849D6" stroke="#131722" stroke-width="3"/>
+            <rect x="0" y="22" width="26" height="24" rx="4" fill="#FFFFFF" stroke="#131722" stroke-width="3"/>
+            <path d="M6 22 L13 2 L20 22 Z" fill="#FFD43B" stroke="#131722" stroke-width="2.5" stroke-linejoin="round"/>
+          </g>
+          <!-- Sparkles -->
+          <path d="M36 22 L39 32 L49 35 L39 38 L36 48 L33 38 L23 35 L33 32 Z" fill="#D62828" stroke="#131722" stroke-width="1.8"/>
+          <path d="M342 204 L345 213 L354 216 L345 219 L342 228 L339 219 L330 216 L339 213 Z" fill="#1849D6" stroke="#131722" stroke-width="1.8"/>
+        </svg>`;
+    }
+
+    function paperclipSVG() {
+      return `
+        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="58" viewBox="0 0 38 58" fill="none">
+          <path d="M12 20 V42 C12 48.5 26 48.5 26 42 V13 C26 5.5 8 5.5 8 13 V44 C8 54 30 54 30 44 V18" stroke="#1849D6" stroke-width="4.2" stroke-linecap="round"/>
+          <path d="M12 20 V42 C12 48.5 26 48.5 26 42 V13 C26 5.5 8 5.5 8 13 V44 C8 54 30 54 30 44 V18" stroke="#131722" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>`;
+    }
+
+    function doodleArrowSVG() {
+      return `
+        <svg xmlns="http://www.w3.org/2000/svg" width="66" height="44" viewBox="0 0 66 44" fill="none">
+          <path d="M4 25 C18 10, 38 34, 57 18" stroke="#131722" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M47 12 L60 17 L53 30" stroke="#1849D6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`;
+    }
+
+    function redLoopSVG() {
+      return `
+        <svg class="kpi-loop-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 68" fill="none">
+          <path d="M16 38 C14 14, 154 6, 166 30 C176 52, 34 62, 12 42 C4 34, 24 14, 72 11" stroke="#D62828" stroke-width="3.8" stroke-linecap="round"/>
+        </svg>`;
+    }
+
+    function roadmapLineSVG() {
+      return `
+        <svg class="roadmap-line-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 60" fill="none" preserveAspectRatio="none">
+          <path d="M20 30 Q 180 12, 310 30 T 600 30 T 890 30 T 1138 30" stroke="#131722" stroke-width="4" stroke-linecap="round"/>
+          <path d="M1122 18 L1144 30 L1122 42" stroke="#1849D6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="145" cy="24" r="11" fill="#1849D6" stroke="#131722" stroke-width="3"/>
+          <circle cx="445" cy="34" r="11" fill="#FFD43B" stroke="#131722" stroke-width="3"/>
+          <circle cx="745" cy="24" r="11" fill="#D62828" stroke="#131722" stroke-width="3"/>
+          <circle cx="1040" cy="34" r="11" fill="#1849D6" stroke="#131722" stroke-width="3"/>
+        </svg>`;
+    }
+
+    function buildChartSVG(s) {
+      const W = 610, H = 295, padL = 44, padB = 38, padT = 18, padR = 16;
+      const chartW = W - padL - padR;
+      const chartH = H - padT - padB;
+      let bars = '';
+      // Horizontal grid lines 0, 25, 50, 75, 100
+      for (let v = 0; v <= 100; v += 25) {
+        const y = padT + chartH - (v / 100) * chartH;
+        bars += `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="#E6E1D6" stroke-width="1.5" stroke-dasharray="4 4"/>`;
+        bars += `<text x="${padL - 10}" y="${y + 4}" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#4B5565">${v}%</text>`;
+      }
+      const groupW = chartW / s.labels.length;
+      s.labels.forEach((lbl, idx) => {
+        const cx = padL + idx * groupW + groupW / 2;
+        const v1 = s.valuesNew[idx];
+        const v2 = s.valuesOld[idx];
+        const h1 = (v1 / 100) * chartH;
+        const h2 = (v2 / 100) * chartH;
+        const y1 = padT + chartH - h1;
+        const y2 = padT + chartH - h2;
+        // New series (Cobalt)
+        bars += `<rect x="${cx - 34}" y="${y1}" width="30" height="${h1}" rx="6" fill="#1849D6" stroke="#131722" stroke-width="2"/>`;
+        bars += `<text x="${cx - 19}" y="${y1 - 6}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#1849D6">${v1}%</text>`;
+        // Old series (Red)
+        bars += `<rect x="${cx + 4}" y="${y2}" width="30" height="${h2}" rx="6" fill="#D62828" stroke="#131722" stroke-width="2"/>`;
+        bars += `<text x="${cx + 19}" y="${y2 - 6}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#D62828">${v2}%</text>`;
+        // X-axis label
+        bars += `<text x="${cx}" y="${H - 12}" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#131722">${lbl}</text>`;
+      });
+      return `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;display:block;">
+          <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${padT + chartH}" stroke="#131722" stroke-width="2"/>
+          <line x1="${padL}" y1="${padT + chartH}" x2="${W - padR}" y2="${padT + chartH}" stroke="#131722" stroke-width="2"/>
+          ${bars}
+        </svg>`;
+    }
+
+    /* =====================================================================
+       3. RENDERING 9 DISTINCT SLIDE LAYOUTS
+       ===================================================================== */
+    let currentLang = 'vi';
+    let currentSlide = 0;
+
+    function tagClass(tone) {
+      if (tone === 'yellow') return 'chapter-tag tag-yellow';
+      if (tone === 'red') return 'chapter-tag tag-red';
+      return 'chapter-tag';
+    }
+
+    function renderFooter(index, total, brandText) {
+      let dots = '';
+      for (let i = 0; i < total; i++) {
+        const cls = i < index ? 'foot-dot is-done' : (i === index ? 'foot-dot is-now' : 'foot-dot');
+        dots += `<span class="${cls}"></span>`;
+      }
+      return `
+        <footer class="slide-foot">
+          <span>${brandText}</span>
+          <div class="foot-progress" aria-hidden="true">${dots}</div>
+        </footer>`;
+    }
+
+    function renderSlideBody(s, idx) {
+      switch (s.type) {
+        case 'cover':
+          return `
+            <div class="cover-grid">
+              <div>
+                <h1 class="h1-cover">
+                  ${s.titlePre}<br/>
+                  <span class="hl-yellow">${s.titleHighlight}</span>
+                  <span class="ul-cobalt">${s.titleUnderline}</span>
+                </h1>
+                <p class="lead-copy">${s.subtitle}</p>
+                <div class="cover-meta">
+                  <button class="sketch-btn" type="button" onclick="goToSlide(1)">${s.cta}</button>
+                  <span class="cover-author">${s.author}</span>
+                </div>
+              </div>
+              <div class="cover-art-box">
+                ${coverSketchSVG()}
+                <span class="cover-art-caption">${s.artCaption}</span>
+              </div>
+            </div>`;
+
+        case 'agenda':
+          return `
+            <div class="agenda-grid">
+              <div class="sticky-note">
+                <div class="sticky-note-clip">${paperclipSVG()}</div>
+                <p class="sticky-q">${s.stickyQuestion}</p>
+                <p class="sticky-sub">${s.stickySub}</p>
+              </div>
+              <div class="agenda-list">
+                ${s.items.map(it => `
+                  <div class="agenda-item">
+                    <div class="agenda-badge c-${it.tone}">${it.num}</div>
+                    <div>
+                      <h3 class="agenda-item-title">${it.title}</h3>
+                      <p class="agenda-item-desc">${it.desc}</p>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>`;
+
+        case 'problem':
+          return `
+            <h2 class="h2-slide">${s.titlePre} <span class="ul-red">${s.titleAccent}</span></h2>
+            <div class="problem-grid">
+              ${s.cards.map(c => {
+                const tapeColor = c.tape === 'red' ? '#D62828' : (c.tape === 'cobalt' ? '#1849D6' : '#FFD43B');
+                return `
+                  <article class="sketch-card problem-card ${c.raised ? 'is-raised' : ''}">
+                    <div class="sticker-tape" style="top:-16px;left:50%;transform:translateX(-50%) rotate(${c.raised ? '2deg' : '-3deg'});">
+                      ${washiTapeSVG(tapeColor, 128, 32)}
+                    </div>
+                    <div>
+                      <div class="problem-stat s-${c.statTone}">${c.stat}</div>
+                      <h3 class="h3-card">${c.title}</h3>
+                      <p class="body-copy">${c.desc}</p>
+                    </div>
+                    <span class="problem-tag">${c.tag}</span>
+                  </article>`;
+              }).join('')}
+            </div>`;
+
+        case 'flow':
+          return `
+            <h2 class="h2-slide">${s.titlePre} &rarr; <span class="hl-yellow">${s.titleAccent}</span></h2>
+            <div class="flow-row">
+              ${s.steps.map((st, i) => {
+                const pillBg = st.tone === 'cobalt' ? '#1849D6' : (st.tone === 'red' ? '#D62828' : '#FFD43B');
+                const pillFg = st.tone === 'yellow' ? '#131722' : '#FFFFFF';
+                const card = `
+                  <article class="sketch-card flow-station">
+                    <div>
+                      <span class="flow-step-pill" style="background:${pillBg};color:${pillFg};">${st.badge}</span>
+                      <h3 class="h3-card">${st.title}</h3>
+                      <p class="body-copy">${st.desc}</p>
+                    </div>
+                  </article>`;
+                return i < s.steps.length - 1
+                  ? card + `<div class="flow-arrow-slot" aria-hidden="true">${doodleArrowSVG()}</div>`
+                  : card;
+              }).join('')}
+            </div>
+            <div class="flow-banner">
+              <p class="flow-banner-text">${s.bannerText}</p>
+              <span class="flow-banner-badge">${s.bannerBadge}</span>
+            </div>`;
+
+        case 'metrics':
+          return `
+            <h2 class="h2-slide">${s.titlePre} <span class="ul-cobalt">${s.titleAccent}</span></h2>
+            <div class="metrics-grid">
+              <div class="sketch-card chart-card">
+                <div class="chart-head">
+                  <h3 class="h3-card" style="margin:0;">${s.chartTitle}</h3>
+                  <div class="chart-legend">
+                    <span class="legend-item"><span class="legend-swatch" style="background:#1849D6;"></span>${s.seriesNew}</span>
+                    <span class="legend-item"><span class="legend-swatch" style="background:#D62828;"></span>${s.seriesOld}</span>
+                  </div>
+                </div>
+                ${buildChartSVG(s)}
+              </div>
+              <div class="kpi-stack">
+                ${s.kpis.map(k => `
+                  <div class="sketch-card kpi-card ${k.circled ? 'is-circled' : ''}">
+                    <div class="kpi-num is-${k.tone}">
+                      ${k.num}
+                      ${k.circled ? redLoopSVG() : ''}
+                    </div>
+                    <h3 class="h3-card" style="margin-bottom:2px;">${k.title}</h3>
+                    <p class="body-copy" style="font-size:15px;">${k.desc}</p>
+                  </div>
+                `).join('')}
+              </div>
+            </div>`;
+
+        case 'compare':
+          return `
+            <h2 class="h2-slide">${s.titlePre} <span class="hl-yellow">${s.titleAccent}</span></h2>
+            <div class="compare-grid">
+              <div class="compare-col is-before">
+                <div class="compare-head">
+                  <span class="compare-bullet b-red">×</span>
+                  <h3 class="h3-card" style="margin:0;color:var(--pd-red);">${s.beforeTitle}</h3>
+                </div>
+                <ul class="compare-list">
+                  ${s.beforeItems.map(item => `<li><span class="compare-bullet b-red">×</span><span>${item}</span></li>`).join('')}
+                </ul>
+              </div>
+              <div class="compare-col is-after">
+                <div class="compare-head">
+                  <span class="compare-bullet b-cobalt">✓</span>
+                  <h3 class="h3-card" style="margin:0;color:var(--pd-cobalt);">${s.afterTitle}</h3>
+                </div>
+                <ul class="compare-list">
+                  ${s.afterItems.map(item => `<li><span class="compare-bullet b-cobalt">✓</span><span>${item}</span></li>`).join('')}
+                </ul>
+              </div>
+            </div>`;
+
+        case 'roadmap':
+          return `
+            <h2 class="h2-slide">${s.titlePre} <span class="ul-cobalt">${s.titleAccent}</span></h2>
+            <div class="roadmap-wrap">
+              ${roadmapLineSVG()}
+              <div class="roadmap-grid">
+                ${s.milestones.map((m, i) => {
+                  const pos = i % 2 === 0 ? 'is-top' : 'is-bottom';
+                  const bg = m.tone === 'cobalt' ? '#1849D6' : (m.tone === 'red' ? '#D62828' : '#FFD43B');
+                  const fg = m.tone === 'yellow' ? '#131722' : '#FFFFFF';
+                  return `
+                    <div class="roadmap-col ${pos}">
+                      <article class="sketch-card roadmap-card">
+                        <span class="roadmap-q" style="background:${bg};color:${fg};">${m.q}</span>
+                        <h3 class="h3-card">${m.title}</h3>
+                        <p class="body-copy" style="font-size:15px;">${m.desc}</p>
+                      </article>
+                    </div>`;
+                }).join('')}
+              </div>
+            </div>`;
+
+        case 'table':
+          return `
+            <h2 class="h2-slide">${s.titlePre} <span class="hl-yellow">${s.titleAccent}</span></h2>
+            <div class="table-card">
+              <table class="notebook-table">
+                <thead>
+                  <tr>${s.headers.map(h => `<th>${h}</th>`).join('')}</tr>
+                </thead>
+                <tbody>
+                  ${s.rows.map((r, ri) => `
+                    <tr class="${ri === 1 ? 'is-featured' : ''}">
+                      <td><strong class="hand" style="font-size:19px;">${r[0]}</strong></td>
+                      <td>${r[1]}</td>
+                      <td>${r[2]}</td>
+                      <td><span class="price-pill">${r[3]}</span></td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>`;
+
+        case 'closing':
+          return `
+            <div class="closing-center">
+              <div class="qa-bubble">${s.qaTag}</div>
+              <h2 class="closing-quote">${s.quote}</h2>
+              <div class="closing-steps">
+                ${s.steps.map(st => `
+                  <div class="sketch-card closing-step">
+                    <span class="closing-step-num">${st.num}</span>
+                    <div>
+                      <h3 class="h3-card" style="font-size:18px;margin-bottom:2px;">${st.title}</h3>
+                      <p class="body-copy" style="font-size:14.5px;">${st.desc}</p>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+              <div class="contact-strip">
+                ${s.contacts.map((c, ci) => ci > 0 ? `<span>·</span><span>${c}</span>` : `<span>${c}</span>`).join('')}
+              </div>
+            </div>`;
+      }
+    }
+
+    function renderDeck() {
+      const data = DECK_DATA[currentLang];
+      const stage = document.getElementById('deck-stage');
+      const total = data.slides.length;
+
+      stage.innerHTML = data.slides.map((s, i) => {
+        const coverTapes = s.type === 'cover' ? `
+          <div class="sticker-tape" style="top:-12px;left:36px;transform:rotate(-8deg);">${washiTapeSVG('#FFD43B', 136, 34)}</div>
+          <div class="sticker-tape" style="top:-12px;right:44px;transform:rotate(7deg);">${washiTapeSVG('#1849D6', 136, 34)}</div>` : '';
+        const closingTapes = s.type === 'closing' ? `
+          <div class="sticker-tape" style="top:-12px;left:42px;transform:rotate(-6deg);">${washiTapeSVG('#1849D6', 136, 34)}</div>` : '';
+        return `
+          <section class="slide ${i === currentSlide ? 'is-active' : ''}" data-slide-index="${i}" aria-label="Slide ${s.id}">
+            ${coverTapes}${closingTapes}
+            <header class="slide-top">
+              <span class="${tagClass(s.tagTone)}">${s.chapter}</span>
+              <span class="slide-num">${s.id} / 0${total}</span>
+            </header>
+            <div class="slide-body">${renderSlideBody(s, i)}</div>
+            ${renderFooter(i, total, data.ui.footBrand)}
+          </section>`;
+      }).join('');
+
+      updateUI();
+      renderOverview();
+      resizeStage();
+    }
+
+    function updateUI() {
+      const data = DECK_DATA[currentLang];
+      const ui = data.ui;
+      const total = data.slides.length;
+      const active = data.slides[currentSlide];
+
+      document.documentElement.lang = currentLang;
+      document.getElementById('ui-brand').textContent = ui.brand;
+      document.getElementById('btn-grid').textContent = ui.gridBtn;
+      document.getElementById('btn-notes').textContent = ui.notesBtn;
+      document.getElementById('btn-full').textContent = ui.fullBtn;
+      document.getElementById('btn-pdf').textContent = ui.pdfBtn;
+      document.getElementById('btn-pptx-toggle').textContent = ui.pptxBtn;
+      document.getElementById('ui-export-title').textContent = ui.exportTitle;
+      document.getElementById('ui-exp-opt1-t').textContent = ui.expOpt1T;
+      document.getElementById('ui-exp-opt1-d').textContent = ui.expOpt1D;
+      document.getElementById('ui-exp-opt2-t').textContent = ui.expOpt2T;
+      document.getElementById('ui-exp-opt2-d').textContent = ui.expOpt2D;
+      document.getElementById('ui-overview-title').textContent = ui.overviewTitle;
+      document.getElementById('btn-close-grid').textContent = ui.closeBtn;
+
+      document.getElementById('ui-counter').textContent = `${active.id} / 0${total}`;
+      document.getElementById('btn-prev').disabled = currentSlide === 0;
+      document.getElementById('btn-next').disabled = currentSlide === total - 1;
+
+      document.getElementById('ui-notes-label').textContent = `${ui.notesPrefix} ${active.id}`;
+      document.getElementById('ui-notes-text').textContent = active.notes;
+
+      document.getElementById('lang-vi').classList.toggle('is-active', currentLang === 'vi');
+      document.getElementById('lang-en').classList.toggle('is-active', currentLang === 'en');
+
+      document.querySelectorAll('.slide').forEach((el, idx) => {
+        el.classList.toggle('is-active', idx === currentSlide);
+      });
+    }
+
+    function renderOverview() {
+      const data = DECK_DATA[currentLang];
+      const grid = document.getElementById('overview-grid');
+      grid.innerHTML = data.slides.map((s, idx) => {
+        const headline = s.titlePre ? `${s.titlePre} ${s.titleHighlight || s.titleAccent || ''}` : (s.stickyQuestion || s.quote);
+        return `
+          <button type="button" class="thumb-card ${idx === currentSlide ? 'is-current' : ''}" onclick="goToSlide(${idx}); toggleOverview(false);">
+            <div class="thumb-meta">
+              <span>SLIDE ${s.id}</span>
+              <span>${s.chapter}</span>
+            </div>
+            <div class="thumb-title">${headline}</div>
+            <div class="thumb-sub">${s.notes.slice(0, 88)}...</div>
+          </button>`;
+      }).join('');
+    }
+
+    function goToSlide(idx) {
+      const total = DECK_DATA[currentLang].slides.length;
+      currentSlide = Math.max(0, Math.min(total - 1, idx));
+      updateUI();
+      renderOverview();
+    }
+
+    function resizeStage() {
+      if (window.innerWidth < 768) {
+        document.documentElement.style.setProperty('--stage-scale', '1');
+        return;
+      }
+      const padW = 48;
+      const padH = 92;
+      const availW = Math.max(320, window.innerWidth - padW);
+      const availH = Math.max(240, window.innerHeight - padH);
+      const scale = Math.min(availW / 1280, availH / 720, 1.15);
+      document.documentElement.style.setProperty('--stage-scale', scale.toFixed(4));
+    }
+
+    function toggleOverview(force) {
+      const modal = document.getElementById('overview-modal');
+      const next = typeof force === 'boolean' ? force : !modal.classList.contains('is-open');
+      modal.classList.toggle('is-open', next);
+      document.getElementById('btn-grid').classList.toggle('is-active', next);
+    }
+
+    function toggleNotes(force) {
+      const drawer = document.getElementById('notes-drawer');
+      const next = typeof force === 'boolean' ? force : !drawer.classList.contains('is-open');
+      drawer.classList.toggle('is-open', next);
+      document.getElementById('btn-notes').classList.toggle('is-active', next);
+    }
+
+    function showToast(msg, ms = 3200) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('is-show');
+      clearTimeout(el._timer);
+      el._timer = setTimeout(() => el.classList.remove('is-show'), ms);
+    }
+
+    /* =====================================================================
+       4. HYBRID .PPTX EXPORTER (NATIVE EDITABLE + 2X PNG STICKERS)
+       ===================================================================== */
+    const PX_TO_IN = 13.3333 / 1280;
+    const px = (v) => Number((v * PX_TO_IN).toFixed(3));
+    const C = {
+      bg: 'FBF9F4',
+      surface: 'FFFFFF',
+      ink: '131722',
+      muted: '4B5565',
+      cobalt: '1849D6',
+      red: 'D62828',
+      yellow: 'FFD43B',
+      grid: 'E6E1D6',
+      softRed: 'FEE2E2',
+      softYellow: 'FFFBEB'
+    };
+
+    function svgStringToPngDataUrl(svgString, widthPx, heightPx) {
+      return new Promise((resolve, reject) => {
+        const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const img = new Image();
+        img.onload = () => {
+          const scale = 2;
+          const canvas = document.createElement('canvas');
+          canvas.width = widthPx * scale;
+          canvas.height = heightPx * scale;
+          const ctx = canvas.getContext('2d');
+          ctx.scale(scale, scale);
+          ctx.drawImage(img, 0, 0, widthPx, heightPx);
+          URL.revokeObjectURL(url);
+          resolve(canvas.toDataURL('image/png'));
+        };
+        img.onerror = (err) => {
+          URL.revokeObjectURL(url);
+          reject(err);
+        };
+        img.src = url;
+      });
+    }
+
+    function buildDotGridPng() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 1280;
+      canvas.height = 720;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#FBF9F4';
+      ctx.fillRect(0, 0, 1280, 720);
+      ctx.fillStyle = '#E6E1D6';
+      for (let x = 12; x < 1280; x += 24) {
+        for (let y = 12; y < 720; y += 24) {
+          ctx.beginPath();
+          ctx.arc(x, y, 1.4, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      return canvas.toDataURL('image/png');
+    }
+
+    function addSketchCard(pptx, slide, xPx, yPx, wPx, hPx, opts = {}) {
+      const shadowColor = opts.shadowColor || C.ink;
+      slide.addShape(pptx.ShapeType.roundRect, {
+        x: px(xPx + 5),
+        y: px(yPx + 5),
+        w: px(wPx),
+        h: px(hPx),
+        fill: { color: shadowColor },
+        line: { color: shadowColor, width: 0 },
+        rectRadius: 0.08
+      });
+      slide.addShape(pptx.ShapeType.roundRect, {
+        x: px(xPx),
+        y: px(yPx),
+        w: px(wPx),
+        h: px(hPx),
+        fill: { color: opts.fill || C.surface },
+        line: { color: opts.border || C.ink, width: 1.5, dashType: opts.dash ? 'dash' : 'solid' },
+        rectRadius: 0.08
+      });
+    }
+
+    function addSlideChrome(pptx, slide, s, total, footBrand, fonts) {
+      const tagFill = s.tagTone === 'yellow' ? C.yellow : (s.tagTone === 'red' ? C.red : C.cobalt);
+      const tagInk = s.tagTone === 'yellow' ? C.ink : C.surface;
+      slide.addShape(pptx.ShapeType.roundRect, {
+        x: px(56), y: px(32), w: px(240), h: px(32),
+        fill: { color: tagFill }, line: { color: C.ink, width: 1.25 }, rectRadius: 0.5
+      });
+      slide.addText(s.chapter, {
+        x: px(56), y: px(32), w: px(240), h: px(32),
+        fontFace: fonts.mono, fontSize: 10, bold: true, color: tagInk, align: 'center', valign: 'middle'
+      });
+
+      slide.addShape(pptx.ShapeType.roundRect, {
+        x: px(1140), y: px(32), w: px(84), h: px(32),
+        fill: { color: C.surface }, line: { color: C.ink, width: 1.25 }, rectRadius: 0.2
+      });
+      slide.addText(`${s.id} / 0${total}`, {
+        x: px(1140), y: px(32), w: px(84), h: px(32),
+        fontFace: fonts.mono, fontSize: 10, bold: true, color: C.muted, align: 'center', valign: 'middle'
+      });
+
+      slide.addShape(pptx.ShapeType.line, {
+        x: px(56), y: px(666), w: px(1168), h: 0,
+        line: { color: C.grid, width: 1, dashType: 'dash' }
+      });
+      slide.addText(footBrand, {
+        x: px(56), y: px(674), w: px(500), h: px(24),
+        fontFace: fonts.mono, fontSize: 9.5, color: C.muted, valign: 'middle'
+      });
+    }
+
+    async function exportToPptx(fontMode) {
+      const data = DECK_DATA[currentLang];
+      if (typeof PptxGenJS === 'undefined') {
+        showToast(data.ui.exportErrMsg, 4200);
+        return;
+      }
+
+      showToast(data.ui.exportingMsg, 4000);
+      const fonts = fontMode === 'safe'
+        ? { hand: 'Segoe Print', sans: 'Arial', mono: 'Courier New' }
+        : { hand: 'Shantell Sans', sans: 'Plus Jakarta Sans', mono: 'JetBrains Mono' };
+
+      try {
+        const pptx = new PptxGenJS();
+        pptx.layout = 'LAYOUT_WIDE';
+        pptx.author = data.ui.brand;
+        pptx.title = `${data.ui.brand} — Primary Doodle Deck`;
+
+        const [
+          dotGridPng,
+          tapeYellowPng,
+          tapeCobaltPng,
+          tapeRedPng,
+          coverSketchPng,
+          paperclipPng,
+          arrowPng,
+          redLoopPng
+        ] = await Promise.all([
+          Promise.resolve(buildDotGridPng()),
+          svgStringToPngDataUrl(washiTapeSVG('#FFD43B', 136, 34), 136, 34),
+          svgStringToPngDataUrl(washiTapeSVG('#1849D6', 136, 34), 136, 34),
+          svgStringToPngDataUrl(washiTapeSVG('#D62828', 136, 34), 136, 34),
+          svgStringToPngDataUrl(coverSketchSVG(), 380, 270),
+          svgStringToPngDataUrl(paperclipSVG(), 38, 58),
+          svgStringToPngDataUrl(doodleArrowSVG(), 66, 44),
+          svgStringToPngDataUrl(`<svg xmlns="http://www.w3.org/2000/svg" width="180" height="68" viewBox="0 0 180 68" fill="none"><path d="M16 38 C14 14, 154 6, 166 30 C176 52, 34 62, 12 42 C4 34, 24 14, 72 11" stroke="#D62828" stroke-width="3.8" stroke-linecap="round"/></svg>`, 180, 68)
+        ]);
+
+        const total = data.slides.length;
+
+        data.slides.forEach((s) => {
+          const slide = pptx.addSlide();
+          slide.background = { data: dotGridPng };
+          slide.addNotes(s.notes);
+          addSlideChrome(pptx, slide, s, total, data.ui.footBrand, fonts);
+
+          if (s.type === 'cover') {
+            slide.addImage({ data: tapeYellowPng, x: px(44), y: px(-4), w: px(136), h: px(34), rotate: 352 });
+            slide.addImage({ data: tapeCobaltPng, x: px(1090), y: px(-4), w: px(136), h: px(34), rotate: 7 });
+
+            slide.addShape(pptx.ShapeType.rect, {
+              x: px(56), y: px(228), w: px(420), h: px(32),
+              fill: { color: C.yellow }, line: { width: 0 }
+            });
+            slide.addText([
+              { text: s.titlePre + '\n', options: { fontFace: fonts.hand, fontSize: 34, bold: true, color: C.ink } },
+              { text: s.titleHighlight + ' ', options: { fontFace: fonts.hand, fontSize: 34, bold: true, color: C.ink } },
+              { text: s.titleUnderline, options: { fontFace: fonts.hand, fontSize: 34, bold: true, color: C.cobalt, underline: { style: 'sng', color: C.cobalt } } }
+            ], { x: px(56), y: px(136), w: px(660), h: px(250), valign: 'middle' });
+
+            slide.addText(s.subtitle, {
+              x: px(56), y: px(396), w: px(620), h: px(100),
+              fontFace: fonts.sans, fontSize: 15, color: C.muted
+            });
+
+            addSketchCard(pptx, slide, 56, 514, 250, 52, { fill: C.cobalt });
+            slide.addText(s.cta, {
+              x: px(56), y: px(514), w: px(250), h: px(52),
+              fontFace: fonts.hand, fontSize: 14, bold: true, color: C.surface, align: 'center', valign: 'middle'
+            });
+            slide.addText(s.author, {
+              x: px(326), y: px(520), w: px(350), h: px(40),
+              fontFace: fonts.mono, fontSize: 11, bold: true, color: C.muted, valign: 'middle'
+            });
+
+            addSketchCard(pptx, slide, 748, 148, 476, 420, { shadowColor: C.cobalt });
+            slide.addImage({ data: coverSketchPng, x: px(796), y: px(176), w: px(380), h: px(270) });
+            slide.addShape(pptx.ShapeType.roundRect, {
+              x: px(826), y: px(486), w: px(320), h: px(40),
+              fill: { color: C.yellow }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.5
+            });
+            slide.addText(s.artCaption, {
+              x: px(826), y: px(486), w: px(320), h: px(40),
+              fontFace: fonts.hand, fontSize: 12.5, bold: true, color: C.ink, align: 'center', valign: 'middle'
+            });
+          }
+
+          if (s.type === 'agenda') {
+            addSketchCard(pptx, slide, 56, 148, 456, 420, { fill: C.yellow });
+            slide.addImage({ data: paperclipPng, x: px(88), y: px(124), w: px(38), h: px(58) });
+            slide.addText(s.stickyQuestion, {
+              x: px(88), y: px(198), w: px(390), h: px(180),
+              fontFace: fonts.hand, fontSize: 23, bold: true, color: C.ink
+            });
+            slide.addText(s.stickySub, {
+              x: px(88), y: px(404), w: px(390), h: px(110),
+              fontFace: fonts.sans, fontSize: 13.5, bold: true, color: C.ink
+            });
+
+            s.items.forEach((it, idx) => {
+              const y = 136 + idx * 116;
+              addSketchCard(pptx, slide, 554, y, 670, 98);
+              const badgeColor = it.tone === 'red' ? C.red : (it.tone === 'yellow' ? C.yellow : C.cobalt);
+              const badgeTxt = it.tone === 'yellow' ? C.ink : C.surface;
+              slide.addShape(pptx.ShapeType.ellipse, {
+                x: px(574), y: px(y + 24), w: px(48), h: px(48),
+                fill: { color: badgeColor }, line: { color: C.ink, width: 1.5 }
+              });
+              slide.addText(it.num, {
+                x: px(574), y: px(y + 24), w: px(48), h: px(48),
+                fontFace: fonts.mono, fontSize: 13, bold: true, color: badgeTxt, align: 'center', valign: 'middle'
+              });
+              slide.addText(it.title, {
+                x: px(638), y: px(y + 16), w: px(565), h: px(34),
+                fontFace: fonts.hand, fontSize: 16, bold: true, color: C.ink
+              });
+              slide.addText(it.desc, {
+                x: px(638), y: px(y + 52), w: px(565), h: px(34),
+                fontFace: fonts.sans, fontSize: 12, color: C.muted
+              });
+            });
+          }
+
+          if (s.type === 'problem') {
+            slide.addText([
+              { text: s.titlePre + ' ', options: { color: C.ink } },
+              { text: s.titleAccent, options: { color: C.red, underline: { style: 'sng', color: C.red } } }
+            ], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
+
+            s.cards.forEach((c, idx) => {
+              const x = 56 + idx * 398;
+              const y = c.raised ? 178 : 196;
+              addSketchCard(pptx, slide, x, y, 372, 410, { shadowColor: c.raised ? C.cobalt : C.ink });
+              const tapeImg = c.tape === 'red' ? tapeRedPng : (c.tape === 'cobalt' ? tapeCobaltPng : tapeYellowPng);
+              slide.addImage({ data: tapeImg, x: px(x + 118), y: px(y - 16), w: px(136), h: px(34), rotate: c.raised ? 2 : 357 });
+
+              const statColor = c.statTone === 'red' ? C.red : (c.statTone === 'cobalt' ? C.cobalt : C.ink);
+              if (c.statTone === 'ink') {
+                slide.addShape(pptx.ShapeType.roundRect, {
+                  x: px(x + 26), y: px(y + 38), w: px(150), h: px(64),
+                  fill: { color: C.yellow }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.1
+                });
+              }
+              slide.addText(c.stat, {
+                x: px(x + 26), y: px(y + 38), w: px(320), h: px(64),
+                fontFace: fonts.mono, fontSize: 34, bold: true, color: statColor
+              });
+              slide.addText(c.title, {
+                x: px(x + 26), y: px(y + 124), w: px(320), h: px(42),
+                fontFace: fonts.hand, fontSize: 17, bold: true, color: C.ink
+              });
+              slide.addText(c.desc, {
+                x: px(x + 26), y: px(y + 174), w: px(320), h: px(110),
+                fontFace: fonts.sans, fontSize: 13.5, color: C.muted
+              });
+              slide.addShape(pptx.ShapeType.roundRect, {
+                x: px(x + 26), y: px(y + 344), w: px(190), h: px(32),
+                fill: { color: C.bg }, line: { color: C.ink, width: 1 }, rectRadius: 0.08
+              });
+              slide.addText(c.tag, {
+                x: px(x + 26), y: px(y + 344), w: px(190), h: px(32),
+                fontFace: fonts.mono, fontSize: 9.5, bold: true, color: C.ink, align: 'center', valign: 'middle'
+              });
+            });
+          }
+
+          if (s.type === 'flow') {
+            slide.addText([
+              { text: s.titlePre + ' → ', options: { color: C.ink } },
+              { text: s.titleAccent, options: { color: C.cobalt } }
+            ], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
+
+            s.steps.forEach((st, idx) => {
+              const x = 56 + idx * 414;
+              addSketchCard(pptx, slide, x, 190, 340, 310);
+              const pillFill = st.tone === 'cobalt' ? C.cobalt : (st.tone === 'red' ? C.red : C.yellow);
+              const pillInk = st.tone === 'yellow' ? C.ink : C.surface;
+              slide.addShape(pptx.ShapeType.roundRect, {
+                x: px(x + 24), y: px(218), w: px(112), h: px(32),
+                fill: { color: pillFill }, line: { color: C.ink, width: 1.25 }, rectRadius: 0.5
+              });
+              slide.addText(st.badge, {
+                x: px(x + 24), y: px(218), w: px(112), h: px(32),
+                fontFace: fonts.mono, fontSize: 10, bold: true, color: pillInk, align: 'center', valign: 'middle'
+              });
+              slide.addText(st.title, {
+                x: px(x + 24), y: px(272), w: px(292), h: px(54),
+                fontFace: fonts.hand, fontSize: 17, bold: true, color: C.ink
+              });
+              slide.addText(st.desc, {
+                x: px(x + 24), y: px(338), w: px(292), h: px(120),
+                fontFace: fonts.sans, fontSize: 13.5, color: C.muted
+              });
+              if (idx < 2) {
+                slide.addImage({ data: arrowPng, x: px(x + 344), y: px(322), w: px(66), h: px(44) });
+              }
+            });
+
+            addSketchCard(pptx, slide, 56, 540, 1168, 76, { fill: C.yellow });
+            slide.addText(s.bannerText, {
+              x: px(80), y: px(548), w: px(820), h: px(60),
+              fontFace: fonts.hand, fontSize: 15, bold: true, color: C.ink, valign: 'middle'
+            });
+            slide.addShape(pptx.ShapeType.roundRect, {
+              x: px(930), y: px(556), w: px(270), h: px(44),
+              fill: { color: C.surface }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.1
+            });
+            slide.addText(s.bannerBadge, {
+              x: px(930), y: px(556), w: px(270), h: px(44),
+              fontFace: fonts.mono, fontSize: 11, bold: true, color: C.ink, align: 'center', valign: 'middle'
+            });
+          }
+
+          if (s.type === 'metrics') {
+            slide.addText([
+              { text: s.titlePre + ' ', options: { color: C.ink } },
+              { text: s.titleAccent, options: { color: C.cobalt, underline: { style: 'sng', color: C.cobalt } } }
+            ], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
+
+            addSketchCard(pptx, slide, 56, 178, 690, 444);
+            slide.addText(s.chartTitle, {
+              x: px(80), y: px(194), w: px(640), h: px(34),
+              fontFace: fonts.hand, fontSize: 16, bold: true, color: C.ink
+            });
+            slide.addChart(pptx.ChartType.bar, [
+              { name: s.seriesNew, labels: s.labels, values: s.valuesNew },
+              { name: s.seriesOld, labels: s.labels, values: s.valuesOld }
+            ], {
+              x: px(76), y: px(236), w: px(650), h: px(370),
+              barDir: 'col',
+              barGrouping: 'clustered',
+              chartColors: [C.cobalt, C.red],
+              showLegend: true,
+              legendPos: 'b',
+              showValue: true,
+              dataLabelPosition: 'outEnd',
+              valAxisMaxVal: 100,
+              valAxisMinVal: 0,
+              catAxisLabelFontFace: fonts.sans,
+              valAxisLabelFontFace: fonts.mono,
+              catAxisLabelFontSize: 10,
+              valAxisLabelFontSize: 9
+            });
+
+            s.kpis.forEach((k, idx) => {
+              const y = 178 + idx * 154;
+              addSketchCard(pptx, slide, 774, y, 450, 136, { fill: k.circled ? 'FFFDF5' : C.surface });
+              const numColor = k.tone === 'red' ? C.red : (k.tone === 'cobalt' ? C.cobalt : C.ink);
+              slide.addText(k.num, {
+                x: px(798), y: px(y + 14), w: px(220), h: px(48),
+                fontFace: fonts.mono, fontSize: 27, bold: true, color: numColor
+              });
+              if (k.circled) {
+                slide.addImage({ data: redLoopPng, x: px(784), y: px(y + 6), w: px(165), h: px(62) });
+              }
+              slide.addText(k.title, {
+                x: px(798), y: px(y + 66), w: px(402), h: px(28),
+                fontFace: fonts.hand, fontSize: 15, bold: true, color: C.ink
+              });
+              slide.addText(k.desc, {
+                x: px(798), y: px(y + 96), w: px(402), h: px(32),
+                fontFace: fonts.sans, fontSize: 11.5, color: C.muted
+              });
+            });
+          }
+
+          if (s.type === 'compare') {
+            slide.addText([
+              { text: s.titlePre + ' ', options: { color: C.ink } },
+              { text: s.titleAccent, options: { color: C.cobalt } }
+            ], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
+
+            addSketchCard(pptx, slide, 56, 178, 566, 444, { border: C.red, dash: true, shadowColor: C.red });
+            slide.addText('×  ' + s.beforeTitle, {
+              x: px(84), y: px(198), w: px(510), h: px(42),
+              fontFace: fonts.hand, fontSize: 18, bold: true, color: C.red
+            });
+            s.beforeItems.forEach((item, ii) => {
+              slide.addText(`×  ${item}`, {
+                x: px(84), y: px(258 + ii * 82), w: px(510), h: px(66),
+                fontFace: fonts.sans, fontSize: 13.5, color: C.ink
+              });
+            });
+
+            addSketchCard(pptx, slide, 658, 178, 566, 444, { border: C.cobalt, shadowColor: C.cobalt });
+            slide.addText('✓  ' + s.afterTitle, {
+              x: px(686), y: px(198), w: px(510), h: px(42),
+              fontFace: fonts.hand, fontSize: 18, bold: true, color: C.cobalt
+            });
+            s.afterItems.forEach((item, ii) => {
+              slide.addText(`✓  ${item}`, {
+                x: px(686), y: px(258 + ii * 82), w: px(510), h: px(66),
+                fontFace: fonts.sans, fontSize: 13.5, color: C.ink
+              });
+            });
+          }
+
+          if (s.type === 'roadmap') {
+            slide.addText([
+              { text: s.titlePre + ' ', options: { color: C.ink } },
+              { text: s.titleAccent, options: { color: C.cobalt, underline: { style: 'sng', color: C.cobalt } } }
+            ], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
+
+            slide.addShape(pptx.ShapeType.line, {
+              x: px(70), y: px(400), w: px(1140), h: 0,
+              line: { color: C.ink, width: 3, endArrowType: 'triangle' }
+            });
+
+            s.milestones.forEach((m, idx) => {
+              const x = 56 + idx * 298;
+              const isTop = idx % 2 === 0;
+              const y = isTop ? 180 : 434;
+              addSketchCard(pptx, slide, x, y, 276, 188);
+              const qFill = m.tone === 'cobalt' ? C.cobalt : (m.tone === 'red' ? C.red : C.yellow);
+              const qInk = m.tone === 'yellow' ? C.ink : C.surface;
+              slide.addShape(pptx.ShapeType.roundRect, {
+                x: px(x + 18), y: px(y + 16), w: px(142), h: px(28),
+                fill: { color: qFill }, line: { color: C.ink, width: 1.2 }, rectRadius: 0.08
+              });
+              slide.addText(m.q, {
+                x: px(x + 18), y: px(y + 16), w: px(142), h: px(28),
+                fontFace: fonts.mono, fontSize: 9.5, bold: true, color: qInk, align: 'center', valign: 'middle'
+              });
+              slide.addText(m.title, {
+                x: px(x + 18), y: px(y + 54), w: px(240), h: px(34),
+                fontFace: fonts.hand, fontSize: 15.5, bold: true, color: C.ink
+              });
+              slide.addText(m.desc, {
+                x: px(x + 18), y: px(y + 92), w: px(240), h: px(84),
+                fontFace: fonts.sans, fontSize: 11.5, color: C.muted
+              });
+              slide.addShape(pptx.ShapeType.ellipse, {
+                x: px(x + 126), y: px(388), w: px(24), h: px(24),
+                fill: { color: qFill }, line: { color: C.ink, width: 2 }
+              });
+            });
+          }
+
+          if (s.type === 'table') {
+            slide.addText([
+              { text: s.titlePre + ' ', options: { color: C.ink } },
+              { text: s.titleAccent, options: { color: C.cobalt } }
+            ], { x: px(56), y: px(92), w: px(1168), h: px(64), fontFace: fonts.hand, fontSize: 27, bold: true });
+
+            const tableRows = [
+              s.headers.map(h => ({
+                text: h,
+                options: { fill: { color: C.cobalt }, color: C.surface, fontFace: fonts.hand, fontSize: 15, bold: true, valign: 'middle' }
+              })),
+              ...s.rows.map((r, ri) => r.map((cell, ci) => ({
+                text: cell,
+                options: {
+                  fill: { color: ri === 1 ? C.softYellow : C.surface },
+                  color: C.ink,
+                  fontFace: ci === 0 ? fonts.hand : (ci === 3 ? fonts.mono : fonts.sans),
+                  fontSize: ci === 0 ? 15 : 13,
+                  bold: ci === 0 || ci === 3,
+                  valign: 'middle'
+                }
+              })))
+            ];
+
+            slide.addTable(tableRows, {
+              x: px(56), y: px(194), w: px(1168), h: px(370),
+              colW: [px(210), px(220), px(518), px(220)],
+              border: { pt: 1.5, color: C.ink },
+              margin: [8, 12, 8, 12]
+            });
+          }
+
+          if (s.type === 'closing') {
+            slide.addImage({ data: tapeCobaltPng, x: px(44), y: px(-4), w: px(136), h: px(34), rotate: 354 });
+
+            slide.addShape(pptx.ShapeType.roundRect, {
+              x: px(1060), y: px(104), w: px(150), h: px(50),
+              fill: { color: C.red }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.25, rotate: 7
+            });
+            slide.addText(s.qaTag, {
+              x: px(1060), y: px(104), w: px(150), h: px(50),
+              fontFace: fonts.hand, fontSize: 17, bold: true, color: C.surface, align: 'center', valign: 'middle', rotate: 7
+            });
+
+            slide.addText(s.quote, {
+              x: px(140), y: px(146), w: px(1000), h: px(148),
+              fontFace: fonts.hand, fontSize: 32, bold: true, color: C.ink, align: 'center', valign: 'middle'
+            });
+
+            s.steps.forEach((st, idx) => {
+              const x = 140 + idx * 340;
+              addSketchCard(pptx, slide, x, 336, 316, 118);
+              slide.addShape(pptx.ShapeType.roundRect, {
+                x: px(x + 18), y: px(368), w: px(42), h: px(42),
+                fill: { color: C.yellow }, line: { color: C.ink, width: 1.5 }, rectRadius: 0.1
+              });
+              slide.addText(st.num, {
+                x: px(x + 18), y: px(368), w: px(42), h: px(42),
+                fontFace: fonts.mono, fontSize: 13, bold: true, color: C.ink, align: 'center', valign: 'middle'
+              });
+              slide.addText(st.title, {
+                x: px(x + 74), y: px(356), w: px(226), h: px(34),
+                fontFace: fonts.hand, fontSize: 14, bold: true, color: C.ink
+              });
+              slide.addText(st.desc, {
+                x: px(x + 74), y: px(394), w: px(226), h: px(40),
+                fontFace: fonts.sans, fontSize: 11.5, color: C.muted
+              });
+            });
+
+            addSketchCard(pptx, slide, 260, 514, 760, 56, { fill: C.cobalt });
+            slide.addText(s.contacts.join('   ·   '), {
+              x: px(260), y: px(514), w: px(760), h: px(56),
+              fontFace: fonts.mono, fontSize: 12, bold: true, color: C.surface, align: 'center', valign: 'middle'
+            });
+          }
+        });
+
+        const slug = (data.ui.exportSlug || data.ui.brand || 'Primary-Doodle-Deck')
+          .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+          .replace(/đ/g, 'd').replace(/Đ/g, 'D')
+          .replace(/[^a-zA-Z0-9-]+/g, '-').replace(/^-|-$/g, '');
+        const fileName = `${slug}-${currentLang.toUpperCase()}.pptx`;
+        await pptx.writeFile({ fileName });
+        showToast(data.ui.exportDoneMsg || `${fileName} downloaded!`, 3500);
+      } catch (err) {
+        console.error(err);
+        showToast(data.ui.exportErrMsg, 4000);
+      }
+    }
+
+    /* =====================================================================
+       5. EVENT LISTENERS & KEYBOARD SHORTCUTS
+       ===================================================================== */
+    document.getElementById('btn-prev').addEventListener('click', () => goToSlide(currentSlide - 1));
+    document.getElementById('btn-next').addEventListener('click', () => goToSlide(currentSlide + 1));
+    document.getElementById('btn-grid').addEventListener('click', () => toggleOverview());
+    document.getElementById('btn-close-grid').addEventListener('click', () => toggleOverview(false));
+    document.getElementById('btn-notes').addEventListener('click', () => toggleNotes());
+    document.getElementById('btn-close-notes').addEventListener('click', () => toggleNotes(false));
+    document.getElementById('btn-pdf').addEventListener('click', () => window.print());
+
+    document.getElementById('btn-full').addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen?.();
+      } else {
+        document.exitFullscreen?.();
+      }
+    });
+
+    document.querySelectorAll('.lang-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const nextLang = btn.dataset.lang;
+        if (nextLang !== currentLang) {
+          currentLang = nextLang;
+          renderDeck();
+        }
+      });
+    });
+
+    const exportToggle = document.getElementById('btn-pptx-toggle');
+    const exportMenu = document.getElementById('export-menu');
+    exportToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = !exportMenu.classList.contains('is-open');
+      exportMenu.classList.toggle('is-open', open);
+      exportToggle.setAttribute('aria-expanded', String(open));
+    });
+
+    document.getElementById('export-design-font').addEventListener('click', () => {
+      exportMenu.classList.remove('is-open');
+      exportToPptx('design');
+    });
+
+    document.getElementById('export-safe-font').addEventListener('click', () => {
+      exportMenu.classList.remove('is-open');
+      exportToPptx('safe');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.export-wrap')) {
+        exportMenu.classList.remove('is-open');
+        exportToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.getElementById('overview-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'overview-modal') toggleOverview(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        if (window.innerWidth >= 768) {
+          e.preventDefault();
+          goToSlide(currentSlide + 1);
+        }
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        if (window.innerWidth >= 768) {
+          e.preventDefault();
+          goToSlide(currentSlide - 1);
+        }
+      } else if (e.key === 'Home') {
+        goToSlide(0);
+      } else if (e.key === 'End') {
+        goToSlide(DECK_DATA[currentLang].slides.length - 1);
+      } else if (e.key === 'g' || e.key === 'G') {
+        toggleOverview();
+      } else if (e.key === 'n' || e.key === 'N') {
+        toggleNotes();
+      } else if (e.key === 'f' || e.key === 'F') {
+        document.getElementById('btn-full').click();
+      } else if (e.key === 'Escape') {
+        toggleOverview(false);
+        toggleNotes(false);
+        exportMenu.classList.remove('is-open');
+      }
+    });
+
+    window.addEventListener('resize', resizeStage);
+    renderDeck();
+  </script>
+</body>
+</html>
