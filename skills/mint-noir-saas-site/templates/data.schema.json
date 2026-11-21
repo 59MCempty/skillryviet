@@ -1,0 +1,370 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mint Noir SaaS Site",
+  "type": "object",
+  "required": [
+    "brand",
+    "recordPrefix",
+    "referenceDate",
+    "sources",
+    "records",
+    "annualMonths",
+    "plans",
+    "articleTopics",
+    "workshop",
+    "releases",
+    "content"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "brand": {"type": "string","minLength": 1,"maxLength": 24},
+    "recordPrefix": {"type": "string","minLength": 1,"maxLength": 6,"pattern": "^[A-Z0-9]{1,6}$"},
+    "referenceDate": {"$ref": "#/$defs/date"},
+    "sources": {
+      "type": "object",
+      "propertyNames": {"$ref": "#/$defs/key"},
+      "minProperties": 1,
+      "maxProperties": 5,
+      "additionalProperties": {"type": "string","minLength": 1,"maxLength": 28}
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 120,
+      "items": {
+        "type": "object",
+        "required": ["number","daysAgo","source","expected","cost"],
+        "additionalProperties": false,
+        "properties": {
+          "number": {"type": "integer","minimum": 1,"maximum": 99999999},
+          "daysAgo": {"type": "integer","minimum": 0,"maximum": 29},
+          "source": {"$ref": "#/$defs/key"},
+          "expected": {"type": "integer","minimum": 0,"maximum": 99999999},
+          "cost": {"type": "integer","minimum": 0,"maximum": 99999999},
+          "adjustments": {
+            "type": "object",
+            "propertyNames": {"$ref": "#/$defs/key"},
+            "minProperties": 1,
+            "maxProperties": 5,
+            "additionalProperties": {"type": "integer","minimum": 1,"maximum": 99999999}
+          }
+        }
+      }
+    },
+    "annualMonths": {"type": "integer","minimum": 1,"maximum": 12},
+    "plans": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["monthly"],
+        "additionalProperties": false,
+        "properties": {
+          "monthly": {
+            "type": "object",
+            "required": ["VND","USD"],
+            "additionalProperties": false,
+            "properties": {
+              "VND": {"type": "integer","minimum": 0,"maximum": 99000000},
+              "USD": {"type": "integer","minimum": 0,"maximum": 9999}
+            }
+          },
+          "featured": {"type": "boolean"}
+        }
+      }
+    },
+    "articleTopics": {"type": "array","minItems": 0,"maxItems": 24,"items": {"$ref": "#/$defs/key"}},
+    "workshop": {
+      "type": "object",
+      "required": ["weekday","hour","minute"],
+      "additionalProperties": false,
+      "properties": {
+        "weekday": {"type": "integer","minimum": 0,"maximum": 6},
+        "hour": {"type": "integer","minimum": 0,"maximum": 23},
+        "minute": {"type": "integer","minimum": 0,"maximum": 59}
+      }
+    },
+    "releases": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 36,
+      "items": {
+        "type": "object",
+        "required": ["date","version","type"],
+        "additionalProperties": false,
+        "properties": {
+          "date": {"$ref": "#/$defs/date"},
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 24,
+            "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[a-zA-Z0-9.-]+)?$"
+          },
+          "type": {"type": "string","enum": ["new","improved","fix"]}
+        }
+      }
+    },
+    "content": {
+      "type": "object",
+      "required": ["vi","en"],
+      "additionalProperties": false,
+      "properties": {"vi": {"$ref": "#/$defs/content"},"en": {"$ref": "#/$defs/content"}}
+    }
+  },
+  "$defs": {
+    "label": {"type": "string","minLength": 1,"maxLength": 96},
+    "paragraph": {"type": "string","minLength": 1,"maxLength": 750},
+    "key": {"type": "string","minLength": 1,"maxLength": 24,"pattern": "^[a-z][a-z0-9-]*$"},
+    "date": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 10,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "format": "date"
+    },
+    "entry": {
+      "type": "array",
+      "minItems": 2,
+      "prefixItems": [{"$ref": "#/$defs/label"},{"$ref": "#/$defs/paragraph"}],
+      "items": false
+    },
+    "heading": {
+      "type": "array",
+      "minItems": 3,
+      "prefixItems": [{"$ref": "#/$defs/label"},{"$ref": "#/$defs/label"},{"$ref": "#/$defs/paragraph"}],
+      "items": false
+    },
+    "route": {
+      "type": "string",
+      "enum": ["product","product/demo","product/faq","pricing","resources","events","changelog"]
+    },
+    "content": {
+      "type": "object",
+      "required": [
+        "category",
+        "receipt",
+        "sampleOrder",
+        "adjustment",
+        "hideFees",
+        "demoTitle",
+        "ledger",
+        "sampleData",
+        "expected",
+        "received",
+        "summary",
+        "ledgerOrders",
+        "profitTrend",
+        "allPlatforms",
+        "platform",
+        "period",
+        "mismatch",
+        "matched",
+        "inspect",
+        "collapse",
+        "biggest",
+        "total",
+        "process",
+        "marketTitle",
+        "productFaqTitle",
+        "band",
+        "seePricing",
+        "featured",
+        "faq",
+        "eventTitle",
+        "starts",
+        "agenda",
+        "intro",
+        "demoIntro",
+        "processIntro",
+        "pricingNote",
+        "eventText",
+        "headline",
+        "stats",
+        "chartTitles",
+        "periods",
+        "pricing",
+        "resources",
+        "events",
+        "changes",
+        "steps",
+        "eventCards",
+        "productFaq",
+        "questions",
+        "markets",
+        "fees",
+        "topics",
+        "footer",
+        "plans",
+        "articles",
+        "releases"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "category": {"$ref": "#/$defs/label"},
+        "receipt": {"$ref": "#/$defs/label"},
+        "sampleOrder": {"$ref": "#/$defs/label"},
+        "adjustment": {"$ref": "#/$defs/label"},
+        "hideFees": {"$ref": "#/$defs/label"},
+        "demoTitle": {"$ref": "#/$defs/label"},
+        "ledger": {"$ref": "#/$defs/label"},
+        "sampleData": {"$ref": "#/$defs/label"},
+        "expected": {"$ref": "#/$defs/label"},
+        "received": {"$ref": "#/$defs/label"},
+        "summary": {"$ref": "#/$defs/label"},
+        "ledgerOrders": {"$ref": "#/$defs/label"},
+        "profitTrend": {"$ref": "#/$defs/label"},
+        "allPlatforms": {"$ref": "#/$defs/label"},
+        "platform": {"$ref": "#/$defs/label"},
+        "period": {"$ref": "#/$defs/label"},
+        "mismatch": {"$ref": "#/$defs/label"},
+        "matched": {"$ref": "#/$defs/label"},
+        "inspect": {"$ref": "#/$defs/label"},
+        "collapse": {"$ref": "#/$defs/label"},
+        "biggest": {"$ref": "#/$defs/label"},
+        "total": {"$ref": "#/$defs/label"},
+        "process": {"$ref": "#/$defs/label"},
+        "marketTitle": {"$ref": "#/$defs/label"},
+        "productFaqTitle": {"$ref": "#/$defs/label"},
+        "band": {"$ref": "#/$defs/label"},
+        "seePricing": {"$ref": "#/$defs/label"},
+        "featured": {"$ref": "#/$defs/label"},
+        "faq": {"$ref": "#/$defs/label"},
+        "eventTitle": {"$ref": "#/$defs/label"},
+        "starts": {"$ref": "#/$defs/label"},
+        "agenda": {"$ref": "#/$defs/label"},
+        "intro": {"$ref": "#/$defs/paragraph"},
+        "demoIntro": {"$ref": "#/$defs/paragraph"},
+        "processIntro": {"$ref": "#/$defs/paragraph"},
+        "pricingNote": {"$ref": "#/$defs/paragraph"},
+        "eventText": {"$ref": "#/$defs/paragraph"},
+        "headline": {
+          "type": "array",
+          "minItems": 2,
+          "prefixItems": [{"$ref": "#/$defs/label"},{"$ref": "#/$defs/label"}],
+          "items": false
+        },
+        "stats": {
+          "type": "array",
+          "minItems": 3,
+          "prefixItems": [{"$ref": "#/$defs/label"},{"$ref": "#/$defs/label"},{"$ref": "#/$defs/label"}],
+          "items": false
+        },
+        "chartTitles": {
+          "type": "array",
+          "minItems": 2,
+          "prefixItems": [{"$ref": "#/$defs/label"},{"$ref": "#/$defs/label"}],
+          "items": false
+        },
+        "periods": {
+          "type": "array",
+          "minItems": 2,
+          "prefixItems": [{"$ref": "#/$defs/label"},{"$ref": "#/$defs/label"}],
+          "items": false
+        },
+        "pricing": {"$ref": "#/$defs/heading"},
+        "resources": {"$ref": "#/$defs/heading"},
+        "events": {"$ref": "#/$defs/heading"},
+        "changes": {"$ref": "#/$defs/heading"},
+        "steps": {"type": "array","minItems": 2,"maxItems": 4,"items": {"$ref": "#/$defs/entry"}},
+        "eventCards": {"type": "array","minItems": 2,"maxItems": 4,"items": {"$ref": "#/$defs/entry"}},
+        "productFaq": {"type": "array","minItems": 1,"maxItems": 6,"items": {"$ref": "#/$defs/entry"}},
+        "questions": {"type": "array","minItems": 1,"maxItems": 6,"items": {"$ref": "#/$defs/entry"}},
+        "markets": {
+          "type": "object",
+          "propertyNames": {"$ref": "#/$defs/key"},
+          "minProperties": 1,
+          "maxProperties": 5,
+          "additionalProperties": {"$ref": "#/$defs/paragraph"}
+        },
+        "fees": {
+          "type": "object",
+          "propertyNames": {"$ref": "#/$defs/key"},
+          "minProperties": 1,
+          "maxProperties": 5,
+          "additionalProperties": {"$ref": "#/$defs/label"}
+        },
+        "topics": {
+          "type": "object",
+          "propertyNames": {"$ref": "#/$defs/key"},
+          "minProperties": 1,
+          "maxProperties": 5,
+          "additionalProperties": {"$ref": "#/$defs/label"}
+        },
+        "footer": {
+          "type": "object",
+          "required": ["title","description","navigation","demo","credit","top","groups"],
+          "additionalProperties": false,
+          "properties": {
+            "title": {
+              "type": "array",
+              "minItems": 2,
+              "prefixItems": [{"$ref": "#/$defs/label"},{"$ref": "#/$defs/label"}],
+              "items": false
+            },
+            "description": {"$ref": "#/$defs/paragraph"},
+            "navigation": {"$ref": "#/$defs/label"},
+            "demo": {"type": "string","minLength": 1,"maxLength": 28},
+            "credit": {"$ref": "#/$defs/label"},
+            "top": {"$ref": "#/$defs/label"},
+            "groups": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 2,
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "prefixItems": [
+                  {"$ref": "#/$defs/label"},
+                  {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 4,
+                    "items": {
+                      "type": "array",
+                      "minItems": 2,
+                      "prefixItems": [{"$ref": "#/$defs/label"},{"$ref": "#/$defs/route"}],
+                      "items": false
+                    }
+                  }
+                ],
+                "items": false
+              }
+            }
+          }
+        },
+        "plans": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "array",
+            "minItems": 3,
+            "prefixItems": [
+              {"$ref": "#/$defs/label"},
+              {"$ref": "#/$defs/paragraph"},
+              {"type": "array","minItems": 1,"maxItems": 6,"items": {"$ref": "#/$defs/label"}}
+            ],
+            "items": false
+          }
+        },
+        "articles": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 24,
+          "items": {
+            "type": "array",
+            "minItems": 3,
+            "prefixItems": [
+              {"$ref": "#/$defs/label"},
+              {"$ref": "#/$defs/paragraph"},
+              {"type": "array","minItems": 1,"maxItems": 8,"items": {"$ref": "#/$defs/paragraph"}}
+            ],
+            "items": false
+          }
+        },
+        "releases": {"type": "array","minItems": 0,"maxItems": 36,"items": {"$ref": "#/$defs/entry"}}
+      }
+    }
+  }
+}

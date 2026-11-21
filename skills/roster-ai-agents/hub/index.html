@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Roster Hub</title>
+  <link rel="stylesheet" href="/hub.css">
+  <script defer src="/hub.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-text="skip"></a>
+  <header class="header shell">
+    <a id="home" class="brand" href="/"><span aria-hidden="true">×</span> roster.</a>
+    <nav aria-label="Roster Hub">
+      <a href="#catalog" data-text="catalog"></a>
+      <a href="#dispatch" data-text="dispatch"></a>
+      <a href="#artifacts" data-text="artifacts"></a>
+    </nav>
+    <div class="language" role="group" data-label="language">
+      <button data-locale="vi" lang="vi" aria-label="Tiếng Việt">VI</button>
+      <button data-locale="en" lang="en" aria-label="English">EN</button>
+    </div>
+  </header>
+  <main class="shell" id="main">
+    <section class="hero">
+      <div>
+        <h1>Roster Hub</h1>
+        <p data-text="intro"></p>
+      </div>
+      <p class="connection" id="connection" role="status"></p>
+    </section>
+    <div class="workspace">
+      <section id="catalog" class="catalog" aria-labelledby="catalog-title">
+        <div class="section-title"><h2 id="catalog-title" data-text="catalog"></h2></div>
+        <div class="sources" role="group" data-label="sources">
+          <button type="button" data-source="router" aria-pressed="true">OpenRouter</button>
+          <button type="button" data-source="github" aria-pressed="false">GitHub</button>
+          <button type="button" data-source="hf" aria-pressed="false">Hugging Face</button>
+        </div>
+        <form id="search" role="search">
+          <label class="sr" for="query" data-text="searchLabel"></label>
+          <input type="search" id="query" maxlength="120">
+          <button class="button dark" data-text="searchButton"></button>
+        </form>
+        <label id="runnable-filter" class="filter"><input type="checkbox" id="runnable"> <span data-text="runnableOnly"></span></label>
+        <p class="notice" id="catalog-status" role="status"></p>
+        <div class="catalog-grid" id="catalog-grid"></div>
+        <div class="pages">
+          <button type="button" class="button" id="prev" data-text="previous" disabled></button>
+          <button type="button" class="button" id="next" data-text="next" disabled></button>
+        </div>
+      </section>
+      <section id="dispatch" class="dispatch" aria-labelledby="dispatch-title">
+        <div class="section-title"><h2 id="dispatch-title" data-text="dispatch"></h2><span id="step-count"></span></div>
+        <form id="run">
+          <p class="notice" data-text="dispatchIntro"></p>
+          <ol id="steps"></ol>
+          <label for="mode" data-text="mode"></label>
+          <select id="mode">
+            <option value="sequence" data-text="sequence"></option>
+            <option value="parallel" data-text="parallel"></option>
+          </select>
+          <label for="prompt" data-text="prompt"></label>
+          <textarea id="prompt" rows="5" maxlength="8000" required></textarea>
+          <button class="button example" id="load-prompt" type="button" data-text="loadPrompt"></button>
+          <div class="run-actions">
+            <button class="button accent" id="run-button" data-text="run" disabled></button>
+            <button class="button" id="cancel-run" type="button" data-text="cancel" hidden></button>
+          </div>
+          <p class="notice run-status" id="run-status" role="status"></p>
+        </form>
+      </section>
+    </div>
+    <section id="artifacts" aria-labelledby="artifacts-title">
+      <div class="section-title"><h2 id="artifacts-title" data-text="artifacts"></h2></div>
+      <p class="notice" id="artifact-status"></p>
+      <div id="artifact-grid"></div>
+    </section>
+  </main>
+</body>
+</html>

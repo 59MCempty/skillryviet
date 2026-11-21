@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bản mẫu cửa hàng thời trang casual Nếp Studio.">
+  <title>Nếp Studio | Một ngày trong thành phố</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="catalog.css">
+  <script src="navbar.js" defer></script>
+  <script src="catalog.js" defer></script>
+  <script src="shop.js" defer></script>
+  <script src="hero-spin.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Đến nội dung chính</a>
+  <svg aria-hidden="true" class="symbols" xmlns="http://www.w3.org/2000/svg">
+
+
+
+    <symbol id="close-icon" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="plus-icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="send-icon" viewBox="0 0 24 24"><path d="m21 3-7 18-4-7-7-4 18-7ZM10 14 21 3"/></symbol>
+    <symbol id="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="moon-icon" viewBox="0 0 24 24"><path d="M20.5 15A9 9 0 0 1 9 3.5 9 9 0 1 0 20.5 15Z"/></symbol>
+    <symbol id="instagram-icon" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.5"/><path d="M17 7h.01"/></symbol>
+    <symbol id="facebook-icon" viewBox="0 0 24 24"><path d="M14 21v-8h3l.5-3H14V8c0-1 .5-2 2-2h2V3h-2c-3.5 0-5 2-5 5v2H8v3h3v8"/></symbol>
+    <symbol id="tiktok-icon" viewBox="0 0 24 24"><path d="M14 3v13a4 4 0 1 1-4-4m4-9c0 3.3 2.2 5.5 6 6"/></symbol>
+  </svg>
+  <storefront-navbar></storefront-navbar>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-photo hero-stage" id="hero-stage">
+        <div class="hero-photo-view" id="hero-photo-view">
+          <img id="hero-photo-frame" src="assets/spin-0.jpg" width="384" height="512" alt="Sơ mi poplin xanh nhìn từ phía trước" fetchpriority="high" draggable="false">
+        </div>
+        <div class="hero-viewer" hidden>
+          <p id="hero-spin-hint">Kéo ngang để xem áo 360°.</p>
+          <div class="hero-controls" role="group" aria-label="Điều khiển ảnh sản phẩm 360°">
+            <button type="button" data-rotate="-1" aria-label="Xem góc trước đó">↶</button>
+            <button type="button" data-spin aria-pressed="false">Tự xoay</button>
+            <button type="button" data-rotate="1" aria-label="Xem góc tiếp theo">↷</button>
+          </div>
+        </div>
+      </div>
+      <div class="hero-copy"><div class="hero-text">
+        <p class="season">Thu 2026</p>
+        <h1 id="hero-title">Một Ngày<br>Trong <em>Thành Phố</em></h1>
+        <p class="intro">Poplin nhẹ. Quần suông thẳng nếp. Những lớp áo cho một ngày dài ngoài phố.</p>
+        <a class="editorial-link" href="#hang-moi" data-nav="all">Khám phá bộ sưu tập</a></div><a class="hero-note" href="#phoi-do">Xem cách phối đồ</a>
+      </div>
+    </section>
+
+    <section class="rail-gallery" id="gia-treo" aria-labelledby="rail-title">
+      <div class="rail-heading shell">
+        <h2 id="rail-title">Trên Giá Treo</h2>
+        <p id="rail-hint"><span class="rail-swipe-hint">Lướt ngang để xem. </span>Chọn một món để xem chi tiết và chọn size.</p>
+      </div>
+      <div class="rail-scroll" id="rail-scroll">
+        <ul class="rail-items" id="rail-items" aria-describedby="rail-hint"></ul>
+      </div>
+      <div class="rail-controls" aria-label="Cuộn giá treo" hidden>
+        <button class="icon-button ds-neutral-control" type="button" data-rail-step="-1" aria-controls="rail-scroll" aria-label="Xem các món bên trái"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="icon-button ds-neutral-control" type="button" data-rail-step="1" aria-controls="rail-scroll" aria-label="Xem các món bên phải"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </section>
+
+    <product-listing id="hang-moi"></product-listing>
+
+    <section class="look shell" id="phoi-do" aria-labelledby="look-title">
+      <div class="look-image"><img src="assets/outfit.jpg" alt="Cách phối sơ mi poplin xanh với quần suông màu than" loading="lazy"></div>
+      <div class="look-content">
+        <p class="season">Mua Theo Set</p><h2 id="look-title">Sơ Mi Xanh,<br>Quần Màu Than</h2>
+        <p>Sơ mi rộng nhẹ ở vai, quần suông gọn ở eo. Hai món dễ mặc cùng nhau.</p>
+        <div id="look-products"></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="shell">
+      <div class="footer-columns">
+        <section class="footer-news" aria-labelledby="footer-news-title">
+          <h2 id="footer-news-title">Kết Nối Cùng Nếp</h2>
+          <p>Nhận tin về bộ sưu tập mới và gợi ý phối đồ.</p>
+          <form id="newsletter" class="newsletter">
+            <label class="visually-hidden" for="newsletter-email">Địa chỉ email</label>
+            <input id="newsletter-email" type="email" placeholder="Nhập địa chỉ email" autocomplete="email" required>
+            <button type="submit" aria-label="Đăng ký nhận tin"><svg aria-hidden="true"><use href="#send-icon"/></svg></button>
+          </form>
+          <p id="newsletter-status" class="newsletter-status" role="status"></p>
+        </section>
+        <section class="footer-links" aria-labelledby="footer-links-title">
+          <h2 id="footer-links-title">Khám Phá</h2>
+          <a href="#main">Trang chủ</a>
+          <a href="#gia-treo">Trên giá treo</a>
+          <a href="#hang-moi" data-nav="all">Hàng mới</a>
+          <a href="#phoi-do">Mua theo set</a>
+        </section>
+        <section class="footer-links" aria-labelledby="footer-support-title">
+          <h2 id="footer-support-title">Liên Hệ</h2>
+          <p>Nếp Studio</p>
+          <button type="button" class="text-button" id="open-help">Hướng dẫn chọn size</button>
+          <button type="button" class="text-button" data-footer-info="contact">Thông tin liên hệ</button>
+        </section>
+        <section aria-labelledby="footer-social-title">
+          <h2 id="footer-social-title">Theo Dõi Nếp</h2>
+          <div class="social-links">
+            <button type="button" data-social="Facebook" aria-label="Facebook"><svg aria-hidden="true"><use href="#facebook-icon"/></svg></button>
+            <button type="button" data-social="Instagram" aria-label="Instagram"><svg aria-hidden="true"><use href="#instagram-icon"/></svg></button>
+            <button type="button" data-social="TikTok" aria-label="TikTok"><svg aria-hidden="true"><use href="#tiktok-icon"/></svg></button>
+          </div>
+          <div class="theme-control">
+            <svg aria-hidden="true"><use href="#sun-icon"/></svg>
+            <button type="button" id="theme-switch" role="switch" aria-checked="false" aria-label="Chế độ tối"></button>
+            <svg aria-hidden="true"><use href="#moon-icon"/></svg>
+          </div>
+        </section>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Nếp Studio</p>
+        <div class="footer-policies">
+          <button type="button" class="text-button" data-footer-info="privacy">Quyền riêng tư</button>
+          <button type="button" class="text-button" data-footer-info="terms">Điều khoản</button>
+          <button type="button" class="text-button" data-footer-info="cookies">Cài đặt cookie</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="product-dialog" aria-labelledby="product-heading">
+    <div class="dialog-header"><span>Chi tiết sản phẩm</span><button class="icon-button close" type="button" aria-label="Đóng chi tiết sản phẩm"><svg aria-hidden="true"><use href="#close-icon"/></svg></button></div>
+    <div id="product-detail"></div>
+  </dialog>
+  <dialog id="search-dialog" aria-labelledby="search-heading">
+    <div class="dialog-header"><h2 id="search-heading">Tìm Kiếm</h2><button class="icon-button close" type="button" aria-label="Đóng tìm kiếm"><svg aria-hidden="true"><use href="#close-icon"/></svg></button></div>
+    <div class="dialog-body">
+      <label for="search-input">Tên sản phẩm</label>
+      <input id="search-input" type="search" placeholder="Ví dụ: sơ mi" autocomplete="off" autofocus>
+      <p id="search-status" class="visually-hidden" role="status"></p>
+      <div id="search-results"></div>
+    </div>
+  </dialog>
+  <dialog id="cart-dialog" aria-labelledby="cart-heading">
+    <div class="dialog-header"><h2 id="cart-heading">Thanh Toán</h2><button class="icon-button close" type="button" aria-label="Đóng thanh toán"><svg aria-hidden="true"><use href="#close-icon"/></svg></button></div>
+    <div class="dialog-body" id="cart-content"></div>
+  </dialog>
+  <dialog id="help-dialog" aria-labelledby="help-heading">
+    <div class="dialog-header"><h2 id="help-heading">Hướng Dẫn Chọn Size</h2><button class="icon-button close" type="button" aria-label="Đóng hướng dẫn chọn size"><svg aria-hidden="true"><use href="#close-icon"/></svg></button></div>
+    <div class="dialog-body"><p>Mở sản phẩm và xem bảng số đo theo size. Đặt món đồ bạn đang mặc vừa lên mặt phẳng rồi so số đo với bảng.</p><p>Với áo, đo ngang ngực rồi nhân đôi. Với quần, đo ngang cạp rồi nhân đôi.</p></div>
+  </dialog>
+  <dialog id="footer-dialog" aria-labelledby="footer-dialog-heading">
+    <div class="dialog-header"><h2 id="footer-dialog-heading"></h2><button class="icon-button close" type="button" aria-label="Đóng thông tin"><svg aria-hidden="true"><use href="#close-icon"/></svg></button></div>
+    <div class="dialog-body"><p id="footer-dialog-content"></p></div>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>

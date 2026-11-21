@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F8F2">
+  <meta name="description" content="/* INLINE_DESCRIPTION */">
+  <title>/* INLINE_TITLE */</title>
+  <style>/* INLINE_STYLE */</style>
+</head>
+<body id="top">
+  <a class="skip" href="#agents" data-text="skip"></a>
+  <header class="site-header wrap">
+    <a class="brand" href="#top">
+      <span class="brand-icon" aria-hidden="true"></span>
+      <span data-brand></span>
+    </a>
+    <nav class="site-nav" data-label="navLabel">
+      <a href="#agents" data-text="navAgents"></a>
+      <a href="#workflow" data-text="navWorkflow"></a>
+      <a href="#integrations" data-text="navIntegrations"></a>
+    </nav>
+    <div class="header-actions">
+      <div class="locale" role="group" data-label="language">
+        <button type="button" data-locale="vi" lang="vi" aria-label="Tiếng Việt">VI</button>
+        <button type="button" data-locale="en" lang="en" aria-label="English">EN</button>
+      </div>
+      <!-- HUB_LINK -->
+      <a class="button button-header regular-entry" href="#agents" data-text="navCta"></a>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="agents" aria-labelledby="hero-title" tabindex="-1">
+      <div class="hero-intro wrap">
+        <div class="kicker"><span aria-hidden="true"></span><span data-text="heroLabel"></span></div>
+        <h1 id="hero-title" data-text="heroTitle"></h1>
+        <p data-text="heroBody"></p>
+      </div>
+      <div class="gallery" role="region" data-label="galleryLabel">
+        <div class="rail" id="agent-rail">
+          <ul class="track" id="agent-list" role="list"></ul>
+        </div>
+        <div class="rail-toolbar">
+          <div class="rail-controls" role="group" data-label="controls">
+            <button id="previous" class="icon-button" type="button" aria-controls="agent-rail" data-label="previous"><span data-icon="left"></span></button>
+            <p><span data-icon="drag"></span><span data-text="drag"></span></p>
+            <button id="next" class="icon-button" type="button" aria-controls="agent-rail" data-label="next"><span data-icon="right"></span></button>
+          </div>
+          <button id="motion" class="icon-button motion-button" type="button" aria-controls="agent-rail" data-label="pause"><span data-icon="pause"></span></button>
+        </div>
+      </div>
+      <noscript><p class="script-note">Bật JavaScript để khám phá bộ thẻ. Enable JavaScript to explore the cards.</p></noscript>
+    </section>
+    <section class="workflow wrap" id="workflow" aria-labelledby="workflow-title">
+      <div class="workflow-copy">
+        <div class="kicker"><span aria-hidden="true"></span><span data-text="workflowLabel"></span></div>
+        <h2 id="workflow-title" data-text="workflowTitle"></h2>
+        <p class="section-body" data-text="workflowBody"></p>
+        <ol class="steps" id="workflow-steps"></ol>
+      </div>
+      <figure class="workflow-picture">
+        <img id="workflow-image" width="508" height="508" loading="lazy" decoding="async" alt="">
+        <figcaption data-text="workflowCaption"></figcaption>
+      </figure>
+    </section>
+    <section class="products wrap" id="integrations" aria-labelledby="products-title">
+      <h2 id="products-title" data-text="productsTitle"></h2>
+      <p class="section-body" data-text="productsBody"></p>
+      <div class="product-groups" id="product-groups"></div>
+    </section>
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="closing-content wrap">
+        <div class="closing-glyph" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="kicker"><span aria-hidden="true"></span><span data-text="ctaLabel"></span></div>
+        <h2 id="closing-title" data-text="ctaTitle"></h2>
+        <p data-text="ctaBody"></p>
+        <a id="closing-link" href="#agents" class="button button-accent" data-text="ctaButton"></a>
+      </div>
+      <footer class="footer wrap">
+        <a class="brand" href="#top"><span class="brand-icon" aria-hidden="true"></span><span data-brand></span></a>
+        <p data-text="footer"></p>
+        <a class="footer-link" href="#top" data-text="backToTop"></a>
+      </footer>
+    </section>
+  </main>
+  <dialog class="detail" id="agent-detail" aria-labelledby="detail-title">
+    <button id="close-detail" class="icon-button detail-close" type="button" data-label="close" autofocus><span data-icon="close"></span></button>
+    <div id="detail-body"></div>
+  </dialog>
+  <script type="application/json" id="roster-data">/* INLINE_DATA */</script>
+  <script>/* INLINE_RUNTIME */</script>
+  <!-- /* INLINE_LICENSE */ -->
+</body>
+</html>

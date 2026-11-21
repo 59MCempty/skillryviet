@@ -1,0 +1,1534 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mạch Signal SaaS Site",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "brand",
+    "product",
+    "scenarios",
+    "pricing",
+    "plans",
+    "resources",
+    "events",
+    "updates"
+  ],
+  "properties": {
+    "brand": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20
+    },
+    "product": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "category",
+        "headline",
+        "intro",
+        "coverage",
+        "integrations",
+        "workflow",
+        "timeline",
+        "metric",
+        "workflowTitle",
+        "timelineTitle"
+      ],
+      "properties": {
+        "category": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            }
+          }
+        },
+        "headline": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 21
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "en": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 21
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          }
+        },
+        "intro": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 220
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 220
+            }
+          }
+        },
+        "coverage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            }
+          }
+        },
+        "integrations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 22
+          },
+          "minItems": 2,
+          "maxItems": 5
+        },
+        "workflow": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            }
+          }
+        },
+        "timeline": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "time",
+              "text"
+            ],
+            "properties": {
+              "time": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 5,
+                "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"
+              },
+              "text": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "vi",
+                  "en"
+                ],
+                "properties": {
+                  "vi": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  }
+                }
+              }
+            }
+          },
+          "minItems": 2,
+          "maxItems": 6
+        },
+        "metric": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "label",
+            "unit",
+            "times"
+          ],
+          "properties": {
+            "label": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "vi",
+                "en"
+              ],
+              "properties": {
+                "vi": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 34
+                },
+                "en": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 34
+                }
+              }
+            },
+            "unit": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "vi",
+                "en"
+              ],
+              "properties": {
+                "vi": {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 8
+                },
+                "en": {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 8
+                }
+              }
+            },
+            "times": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 5,
+                "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            }
+          }
+        },
+        "workflowTitle": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 58
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 58
+            }
+          }
+        },
+        "timelineTitle": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 52
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 52
+            }
+          }
+        },
+        "sections": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "features",
+            "workflowContext",
+            "playbooks",
+            "faq",
+            "closing",
+            "footerIntro"
+          ],
+          "properties": {
+            "features": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title",
+                "intro",
+                "items"
+              ],
+              "properties": {
+                "title": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "vi",
+                    "en"
+                  ],
+                  "properties": {
+                    "vi": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 65
+                    },
+                    "en": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 65
+                    }
+                  }
+                },
+                "intro": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "vi",
+                    "en"
+                  ],
+                  "properties": {
+                    "vi": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 230
+                    },
+                    "en": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 230
+                    }
+                  }
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "title",
+                      "body",
+                      "sample"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "vi",
+                          "en"
+                        ],
+                        "properties": {
+                          "vi": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 42
+                          },
+                          "en": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 42
+                          }
+                        }
+                      },
+                      "body": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "vi",
+                          "en"
+                        ],
+                        "properties": {
+                          "vi": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 230
+                          },
+                          "en": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 230
+                          }
+                        }
+                      },
+                      "sample": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "vi",
+                          "en"
+                        ],
+                        "properties": {
+                          "vi": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 52
+                          },
+                          "en": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 52
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "minItems": 3,
+                  "maxItems": 3
+                }
+              }
+            },
+            "workflowContext": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "vi",
+                "en"
+              ],
+              "properties": {
+                "vi": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 175
+                },
+                "en": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 175
+                }
+              }
+            },
+            "playbooks": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title",
+                "intro",
+                "items"
+              ],
+              "properties": {
+                "title": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "vi",
+                    "en"
+                  ],
+                  "properties": {
+                    "vi": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 65
+                    },
+                    "en": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 65
+                    }
+                  }
+                },
+                "intro": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "vi",
+                    "en"
+                  ],
+                  "properties": {
+                    "vi": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 230
+                    },
+                    "en": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 230
+                    }
+                  }
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "title",
+                      "body",
+                      "trigger",
+                      "setup",
+                      "response",
+                      "topic"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "vi",
+                          "en"
+                        ],
+                        "properties": {
+                          "vi": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 40
+                          },
+                          "en": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 40
+                          }
+                        }
+                      },
+                      "body": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "vi",
+                          "en"
+                        ],
+                        "properties": {
+                          "vi": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 175
+                          },
+                          "en": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 175
+                          }
+                        }
+                      },
+                      "trigger": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "vi",
+                          "en"
+                        ],
+                        "properties": {
+                          "vi": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 75
+                          },
+                          "en": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 75
+                          }
+                        }
+                      },
+                      "setup": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "vi",
+                          "en"
+                        ],
+                        "properties": {
+                          "vi": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 240
+                          },
+                          "en": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 240
+                          }
+                        }
+                      },
+                      "response": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "vi",
+                          "en"
+                        ],
+                        "properties": {
+                          "vi": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 240
+                          },
+                          "en": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 240
+                          }
+                        }
+                      },
+                      "topic": {
+                        "type": "string",
+                        "enum": [
+                          "getStarted",
+                          "alerts",
+                          "reliability"
+                        ]
+                      }
+                    }
+                  },
+                  "minItems": 3,
+                  "maxItems": 3
+                }
+              }
+            },
+            "faq": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "question",
+                  "answer"
+                ],
+                "properties": {
+                  "question": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "vi",
+                      "en"
+                    ],
+                    "properties": {
+                      "vi": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 130
+                      },
+                      "en": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 130
+                      }
+                    }
+                  },
+                  "answer": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "vi",
+                      "en"
+                    ],
+                    "properties": {
+                      "vi": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 400
+                      },
+                      "en": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 400
+                      }
+                    }
+                  }
+                }
+              },
+              "minItems": 2,
+              "maxItems": 6
+            },
+            "closing": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title",
+                "body"
+              ],
+              "properties": {
+                "title": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "vi",
+                    "en"
+                  ],
+                  "properties": {
+                    "vi": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 65
+                    },
+                    "en": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 65
+                    }
+                  }
+                },
+                "body": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "vi",
+                    "en"
+                  ],
+                  "properties": {
+                    "vi": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 250
+                    },
+                    "en": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 250
+                    }
+                  }
+                }
+              }
+            },
+            "footerIntro": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "vi",
+                "en"
+              ],
+              "properties": {
+                "vi": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 180
+                },
+                "en": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 180
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "label",
+          "status",
+          "detail",
+          "samples",
+          "value"
+        ],
+        "properties": {
+          "label": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "vi",
+              "en"
+            ],
+            "properties": {
+              "vi": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 16
+              },
+              "en": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 16
+              }
+            }
+          },
+          "status": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "vi",
+              "en"
+            ],
+            "properties": {
+              "vi": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 31
+              },
+              "en": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 31
+              }
+            }
+          },
+          "detail": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "vi",
+              "en"
+            ],
+            "properties": {
+              "vi": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 125
+              },
+              "en": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 125
+              }
+            }
+          },
+          "samples": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "minItems": 8,
+            "maxItems": 32
+          },
+          "value": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9999
+          }
+        }
+      },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "pricing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "intro",
+        "faq",
+        "features"
+      ],
+      "properties": {
+        "title": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 56
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 56
+            }
+          }
+        },
+        "intro": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            }
+          }
+        },
+        "faq": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "question",
+              "answer"
+            ],
+            "properties": {
+              "question": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "vi",
+                  "en"
+                ],
+                "properties": {
+                  "vi": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 130
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 130
+                  }
+                }
+              },
+              "answer": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "vi",
+                  "en"
+                ],
+                "properties": {
+                  "vi": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 400
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 400
+                  }
+                }
+              }
+            }
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "unit"
+            ],
+            "properties": {
+              "label": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "vi",
+                  "en"
+                ],
+                "properties": {
+                  "vi": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 35
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 35
+                  }
+                }
+              },
+              "unit": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "vi",
+                  "en"
+                ],
+                "properties": {
+                  "vi": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 16
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 16
+                  }
+                }
+              }
+            }
+          },
+          "minItems": 3,
+          "maxItems": 3
+        }
+      }
+    },
+    "plans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "description",
+          "featured",
+          "monthly",
+          "yearly",
+          "limits"
+        ],
+        "properties": {
+          "name": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "vi",
+              "en"
+            ],
+            "properties": {
+              "vi": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 20
+              },
+              "en": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 20
+              }
+            }
+          },
+          "description": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "vi",
+              "en"
+            ],
+            "properties": {
+              "vi": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 140
+              },
+              "en": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 140
+              }
+            }
+          },
+          "featured": {
+            "type": "boolean"
+          },
+          "monthly": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100000000
+          },
+          "yearly": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1200000000,
+            "multipleOf": 12
+          },
+          "limits": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "minItems": 3,
+            "maxItems": 3
+          }
+        }
+      },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "resources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "intro",
+        "articles",
+        "searchHint"
+      ],
+      "properties": {
+        "title": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 56
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 56
+            }
+          }
+        },
+        "intro": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            }
+          }
+        },
+        "articles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "category",
+              "title",
+              "summary",
+              "body"
+            ],
+            "properties": {
+              "category": {
+                "type": "string",
+                "enum": [
+                  "getStarted",
+                  "alerts",
+                  "reliability"
+                ]
+              },
+              "title": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "vi",
+                  "en"
+                ],
+                "properties": {
+                  "vi": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  }
+                }
+              },
+              "summary": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "vi",
+                  "en"
+                ],
+                "properties": {
+                  "vi": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 180
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 180
+                  }
+                }
+              },
+              "body": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "vi",
+                  "en"
+                ],
+                "properties": {
+                  "vi": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 700
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 700
+                  }
+                }
+              }
+            }
+          },
+          "minItems": 1,
+          "maxItems": 30
+        },
+        "searchHint": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 75
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 75
+            }
+          }
+        }
+      }
+    },
+    "events": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "intro",
+        "items"
+      ],
+      "properties": {
+        "title": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 56
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 56
+            }
+          }
+        },
+        "intro": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            }
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "start",
+              "minutes",
+              "format",
+              "title",
+              "summary",
+              "notes"
+            ],
+            "properties": {
+              "start": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 20,
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+                "format": "date-time"
+              },
+              "minutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 720
+              },
+              "format": {
+                "type": "string",
+                "enum": [
+                  "workshop",
+                  "talk"
+                ]
+              },
+              "title": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "vi",
+                  "en"
+                ],
+                "properties": {
+                  "vi": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  }
+                }
+              },
+              "summary": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "vi",
+                  "en"
+                ],
+                "properties": {
+                  "vi": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 180
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 180
+                  }
+                }
+              },
+              "notes": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "vi",
+                  "en"
+                ],
+                "properties": {
+                  "vi": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 600
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 600
+                  }
+                }
+              }
+            }
+          },
+          "minItems": 1,
+          "maxItems": 20
+        }
+      }
+    },
+    "updates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "intro",
+        "items"
+      ],
+      "properties": {
+        "title": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 56
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 56
+            }
+          }
+        },
+        "intro": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vi",
+            "en"
+          ],
+          "properties": {
+            "vi": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            }
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "date",
+              "type",
+              "title",
+              "body"
+            ],
+            "properties": {
+              "date": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 10,
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                "format": "date"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "new",
+                  "improved"
+                ]
+              },
+              "title": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "vi",
+                  "en"
+                ],
+                "properties": {
+                  "vi": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  }
+                }
+              },
+              "body": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "vi",
+                  "en"
+                ],
+                "properties": {
+                  "vi": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 450
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 450
+                  }
+                }
+              }
+            }
+          },
+          "minItems": 1,
+          "maxItems": 30
+        }
+      }
+    }
+  }
+}

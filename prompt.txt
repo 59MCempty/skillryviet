@@ -1,0 +1,11 @@
+prompt:
+Hãy tạo một Website Template hoàn chỉnh cho ngành [TÊN NGÀNH: ví dụ Cà Phê Đặc Sản & Xưởng Rang / Nội Thất Bắc Âu / Studio Nhiếp Ảnh] theo đúng quy chuẩn trong AGENTS.md.
+
+Bắt buộc thiết kế theo 4 thông số kiến trúc sau:
+1. BẢNG MÀU CẢM QUAN (Sensory Palette): Không dùng màu trắng/đen mặc định. Hãy định nghĩa 6 mã màu HEX lấy cảm hứng từ vật liệu thật của ngành này (ví dụ: màu gỗ thông, màu đồng thau, màu giấy cũ, màu đất nung...).
+2. HERO SECTION BẤT ĐỐI XỨNG (12-Column Grid): Cột trái (7 phần) là visual tương tác trực tiếp (có thể bấm chuyển đổi 3 sản phẩm/góc nhìn ngay trên Hero); Cột phải (5 phần) là tuyên ngôn thương hiệu dùng font Serif lớn + thông số kỹ thuật Micro-Mono.
+3. 3 MODULE TƯƠNG TÁC ĐẶC THÙ NGÀNH (Interactive Widgets):
+   - Module 1: [Ví dụ: Bộ lọc sản phẩm kết hợp chuyển đổi 2 chế độ xem: Xem lưới ảnh & Xem bảng thông số kỹ thuật/thực đơn giấy].
+   - Module 2: [Ví dụ: Công cụ cấu hình/tính toán trực quan như Chọn vị trí bàn trên sơ đồ / Phối set đồ / Tính định lượng cà phê].
+   - Module 3: [Ví dụ: Drawer giỏ hàng mang hình dáng phiếu xuất xưởng / phiếu bếp in nhiệt có răng cưa + Modal tùy chỉnh chi tiết sản phẩm].
+4. HOÀN THIỆN KỸ THUẬT: Toàn bộ hiệu ứng chuyển động dùng `cubic-bezier(0.16, 1, 0.3, 1)`. Mọi nút bấm, bộ lọc, giỏ hàng, tính tổng tiền đều phải có code JS xử lý logic thật 100%, không dùng placeholder chết.

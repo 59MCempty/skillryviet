@@ -1,0 +1,180 @@
+{
+  "brand": "roster.",
+  "ctaHref": "#agents",
+  "featureImage": "../assets/workflow.webp",
+  "copy": {
+    "vi": {
+      "title": "Đội agent AI của bạn",
+      "skip": "Đến bộ thẻ agent",
+      "navLabel": "Điều hướng chính",
+      "language": "Chọn ngôn ngữ",
+      "navAgents": "Các agent",
+      "navWorkflow": "Cách hoạt động",
+      "navIntegrations": "Tích hợp",
+      "navCta": "Khám phá agent",
+      "heroLabel": "Bộ sưu tập agent AI",
+      "heroTitle": "Gặp đội AI của bạn.",
+      "heroBody": "Từ câu hỏi đầu tiên đến bản bàn giao cuối cùng. Tìm agent phù hợp với việc bạn đang làm.",
+      "galleryLabel": "Bộ thẻ agent",
+      "controls": "Điều hướng thẻ",
+      "drag": "Kéo để khám phá",
+      "previous": "Thẻ trước",
+      "next": "Thẻ tiếp theo",
+      "pause": "Dừng chuyển động",
+      "play": "Tiếp tục chuyển động",
+      "flip": "Lật thẻ",
+      "open": "Xem chi tiết",
+      "cardBack": "Agent này làm gì?",
+      "close": "Đóng chi tiết",
+      "detailTasks": "Việc có thể giao",
+      "detailExample": "Đề bài thử",
+      "detailCta": "Mở sản phẩm",
+      "workflowLabel": "Quy trình làm việc",
+      "workflowTitle": "Giao đúng việc, cho đúng agent.",
+      "workflowBody": "Bắt đầu với một nhiệm vụ cụ thể. Mỗi agent tiếp nhận bối cảnh, xử lý phần việc của mình và để lại kết quả để bạn duyệt.",
+      "workflowAlt": "Collage một hộp hồ sơ mở tung, với điện thoại, ảnh in và giấy ghi chú bay lên.",
+      "workflowCaption": "Từ ghi chú rời rạc đến một bản bàn giao rõ ràng.",
+      "steps": [
+        {"title":"Chọn agent","body":"Tìm agent phù hợp với loại công việc bạn cần giao."},
+        {"title":"Giao đề bài","body":"Đưa mục tiêu, tài liệu và định dạng kết quả bạn muốn."},
+        {"title":"Duyệt kết quả","body":"Kiểm tra bản bàn giao và chuyển tiếp cho nhóm."}
+      ],
+      "productsTitle": "Khớp với bộ công cụ của bạn.",
+      "productsBody": "Đưa đầu vào đến đúng agent và chuyển bản bàn giao về nơi nhóm đang làm việc.",
+      "ctaLabel": "Bắt đầu với một nhiệm vụ",
+      "ctaTitle": "Việc gì đang chờ bạn?",
+      "ctaBody": "Chọn một agent, xem đề bài mẫu và lên kế hoạch cho lần bàn giao tiếp theo.",
+      "ctaButton": "Chọn một agent",
+      "footer": "Mẫu giới thiệu sản phẩm agent AI.",
+      "backToTop": "Về đầu trang"
+    },
+    "en": {
+      "title": "Your AI agent team",
+      "skip": "Skip to the agent cards",
+      "navLabel": "Main navigation",
+      "language": "Choose language",
+      "navAgents": "Agents",
+      "navWorkflow": "How it works",
+      "navIntegrations": "Integrations",
+      "navCta": "Explore agents",
+      "heroLabel": "The AI agent collection",
+      "heroTitle": "Meet your AI crew.",
+      "heroBody": "From the first question to the final handoff. Find the agent built for the work in front of you.",
+      "galleryLabel": "Agent cards",
+      "controls": "Card navigation",
+      "drag": "Drag to explore",
+      "previous": "Previous card",
+      "next": "Next card",
+      "pause": "Pause motion",
+      "play": "Resume motion",
+      "flip": "Flip card",
+      "open": "Open details",
+      "cardBack": "What does this agent do?",
+      "close": "Close agent details",
+      "detailTasks": "What you can delegate",
+      "detailExample": "A prompt to try",
+      "detailCta": "Open product",
+      "workflowLabel": "How it works",
+      "workflowTitle": "The right job for the right agent.",
+      "workflowBody": "Start with one specific task. Each agent takes the context, handles its part and leaves a result for you to review.",
+      "workflowAlt": "Collage of an open file box with a telephone, printed photos and a notepad flying out.",
+      "workflowCaption": "From scattered notes to a handoff you can review.",
+      "steps": [
+        {"title":"Pick an agent","body":"Match the agent to the kind of work you need done."},
+        {"title":"Share the brief","body":"Give it a goal, source material and your preferred format."},
+        {"title":"Review the handoff","body":"Check the work and share the result with your team."}
+      ],
+      "productsTitle": "Fits your existing toolkit.",
+      "productsBody": "Bring inputs to the right agent and send the handoff back to the tools your team works in.",
+      "ctaLabel": "Start with one task",
+      "ctaTitle": "What’s waiting on you?",
+      "ctaBody": "Pick an agent, read a sample prompt and plan your next handoff.",
+      "ctaButton": "Pick an agent",
+      "footer": "An AI agent product website template.",
+      "backToTop": "Back to top"
+    }
+  },
+  "agents": [
+    {
+      "id": "scout", "name": "Scout", "tone": "#C4CCFB", "image": "../assets/scout.webp",
+      "copy": {
+        "vi": {"role":"Nghiên cứu","summary":"Lọc nguồn, đối chiếu thông tin và tóm tắt phát hiện kèm dẫn chứng.","description":"Scout biến một câu hỏi rộng thành bản nghiên cứu có nguồn, các điểm còn tranh luận và hướng kiểm chứng tiếp theo.","tasks":["Tìm và đối chiếu các nguồn","Tóm tắt phát hiện chính","Chỉ ra dữ liệu còn thiếu"],"example":"Đọc các nguồn này và lập một trang tóm tắt về ba đối thủ, có dẫn chứng cho từng nhận định."},
+        "en": {"role":"Research","summary":"Find sources, check the facts and turn your findings into a cited brief.","description":"Scout turns an open question into a research brief with sources, open questions and a clear path for follow-up.","tasks":["Find and compare sources","Summarize key findings","Flag gaps in the evidence"],"example":"Read these sources and create a one-page brief on three competitors, with evidence for each claim."}
+      }
+    },
+    {
+      "id": "quill", "name": "Quill", "tone": "#F6BF8F", "image": "../assets/quill.webp",
+      "copy": {
+        "vi": {"role":"Viết nội dung","summary":"Biến dàn ý và tài liệu thành bản nháp theo đúng giọng thương hiệu.","description":"Quill đọc đề bài và mẫu giọng văn của bạn để viết nội dung sẵn sàng cho vòng biên tập.","tasks":["Viết nháp từ tài liệu","Điều chỉnh giọng văn","Biên tập tiêu đề và đoạn mở"],"example":"Viết email ra mắt từ ghi chú sản phẩm, dùng giọng văn của hai email mẫu và giữ dưới 180 từ."},
+        "en": {"role":"Writing","summary":"Turn your outline and source notes into a draft in your voice.","description":"Quill uses your brief and tone samples to draft copy ready for a human edit.","tasks":["Draft from source notes","Match a brand voice","Edit headlines and openings"],"example":"Draft a launch email from these product notes, match the two sample emails and stay under 180 words."}
+      }
+    },
+    {
+      "id": "relay", "name": "Relay", "tone": "#C5EAD6", "image": "../assets/relay.webp",
+      "copy": {
+        "vi": {"role":"Điều phối","summary":"Chuyển cập nhật rời rạc thành việc cần làm, người phụ trách và hạn chót.","description":"Relay sắp xếp các cập nhật từ nhóm thành bản bàn giao để mỗi người biết phần việc tiếp theo.","tasks":["Tổng hợp cập nhật dự án","Đề xuất người phụ trách","Đánh dấu mục cần quyết định"],"example":"Từ các cập nhật này, gom việc theo người phụ trách và đánh dấu những việc chưa có hạn chót."},
+        "en": {"role":"Operations","summary":"Turn scattered updates into next steps, owners and due dates.","description":"Relay organizes team updates into a handoff so everyone knows what to do next.","tasks":["Consolidate project updates","Suggest owners for tasks","Flag open decisions"],"example":"Group tasks from these updates by owner and flag any tasks missing a due date."}
+      }
+    },
+    {
+      "id": "echo", "name": "Echo", "tone": "#D6C8F8", "image": "../assets/echo.webp",
+      "copy": {
+        "vi": {"role":"Ghi chú họp","summary":"Chắt lọc bản ghi họp thành quyết định, câu hỏi mở và việc cần theo dõi.","description":"Echo đọc bản ghi hoặc transcript và tìm những đoạn cần lưu lại để nhóm tiếp tục công việc.","tasks":["Tách quyết định khỏi thảo luận","Trích các việc cần theo dõi","Soạn ghi chú gửi nhóm"],"example":"Tóm tắt buổi họp này theo ba mục: quyết định, câu hỏi mở và người phụ trách việc tiếp theo."},
+        "en": {"role":"Meeting notes","summary":"Pull decisions, open questions and follow-ups out of meeting transcripts.","description":"Echo reads a meeting transcript and captures the parts your team needs to keep the work moving.","tasks":["Extract decisions from discussion","List follow-up items","Draft notes to share with the team"],"example":"Summarize this meeting under three headings: decisions, open questions and follow-up owners."}
+      }
+    },
+    {
+      "id": "atlas", "name": "Atlas", "tone": "#F4C6DF", "image": "../assets/atlas.webp",
+      "copy": {
+        "vi": {"role":"Tri thức","summary":"Kết nối tài liệu nội bộ thành câu trả lời có thể tra lại nguồn.","description":"Atlas tìm trong tài liệu bạn đưa và viết câu trả lời có chỉ dẫn đến đúng phần để kiểm tra.","tasks":["Tra cứu quy trình nội bộ","Trả lời theo tài liệu nguồn","Đánh dấu hướng dẫn mâu thuẫn"],"example":"Dựa vào các tài liệu này, giải thích quy trình tiếp nhận khách hàng mới và chỉ rõ mục tham chiếu."},
+        "en": {"role":"Knowledge","summary":"Turn internal documentation into answers with a trail back to the source.","description":"Atlas searches the material you provide and answers with references to the exact sections you can check.","tasks":["Find internal procedures","Answer from source documents","Flag conflicting instructions"],"example":"Explain the new customer onboarding process from these documents and cite the relevant sections."}
+      }
+    },
+    {
+      "id": "studio", "name": "Studio", "tone": "#D6C8F8", "image": "../assets/studio.webp",
+      "copy": {
+        "vi": {"role":"Hướng hình ảnh","summary":"Chuyển đề bài thành ba hướng hình ảnh có thể giao cho designer.","description":"Chuyển đề bài thành ba hướng hình ảnh có thể giao cho designer.","tasks":["Xác định bố cục","Đề xuất bảng màu","Viết brief cho họa sĩ"],"example":"Tạo ba hướng ảnh bìa cho bản tin công nghệ dành cho doanh nghiệp nhỏ."},
+        "en": {"role":"Visual direction","summary":"Turn a brief into three concrete visual directions for a designer.","description":"Turn a brief into three concrete visual directions for a designer.","tasks":["Suggest layouts","Propose palettes","Write an illustrator brief"],"example":"Suggest three cover directions for a technology newsletter for small businesses."}
+      }
+    },
+    {
+      "id": "forge", "name": "Forge", "tone": "#C4CCFB", "image": "../assets/forge.webp",
+      "copy": {
+        "vi": {"role":"Triển khai kỹ thuật","summary":"Phác thảo cách làm, mã mẫu và các bước kiểm thử một tính năng.","description":"Phác thảo cách làm, mã mẫu và các bước kiểm thử một tính năng.","tasks":["Phân tích đầu vào","Đề xuất triển khai","Viết tình huống kiểm thử"],"example":"Viết hàm chuẩn hóa họ tên và liệt kê trường hợp đầu vào cần kiểm thử."},
+        "en": {"role":"Implementation","summary":"Outline an implementation, example code and a way to test it.","description":"Outline an implementation, example code and a way to test it.","tasks":["Analyze inputs","Outline implementation","Write test scenarios"],"example":"Write a function to normalize names and list the inputs to test."}
+      }
+    },
+    {
+      "id": "tally", "name": "Tally", "tone": "#F6BF8F", "image": "../assets/tally.webp",
+      "copy": {
+        "vi": {"role":"Phân tích số liệu","summary":"Đọc số liệu được cung cấp và tách kết luận khỏi ước tính.","description":"Đọc số liệu được cung cấp và tách kết luận khỏi ước tính.","tasks":["Kiểm tra phép tính","Giải thích biến động","Ghi rõ phần chưa biết"],"example":"So sánh số lượt đăng ký và chi phí của hai tháng trong bảng này."},
+        "en": {"role":"Data analysis","summary":"Review supplied figures and separate findings from estimates.","description":"Review supplied figures and separate findings from estimates.","tasks":["Check arithmetic","Explain changes","Identify missing data"],"example":"Compare signups and costs for two months from the supplied table."}
+      }
+    },
+    {
+      "id": "hello", "name": "Hello", "tone": "#C5EAD6", "image": "../assets/hello.webp",
+      "copy": {
+        "vi": {"role":"Hỗ trợ khách hàng","summary":"Soạn câu trả lời ngắn, hữu ích và có bước xử lý rõ.","description":"Soạn câu trả lời ngắn, hữu ích và có bước xử lý rõ.","tasks":["Xác định nhu cầu","Soạn phản hồi","Đề xuất bước tiếp theo"],"example":"Viết câu trả lời cho khách chưa nhận được hóa đơn đặt hàng."},
+        "en": {"role":"Customer support","summary":"Draft a helpful response with a clear next step.","description":"Draft a helpful response with a clear next step.","tasks":["Identify the issue","Draft a reply","Suggest a next step"],"example":"Draft a reply for a customer who hasn't received their invoice."}
+      }
+    },
+    {
+      "id": "audit", "name": "Audit", "tone": "#D6C8F8", "image": "../assets/audit.webp",
+      "copy": {
+        "vi": {"role":"Kiểm tra chất lượng","summary":"Đối chiếu bản nháp với tiêu chí, nêu lỗi và cách sửa.","description":"Đối chiếu bản nháp với tiêu chí, nêu lỗi và cách sửa.","tasks":["Rà yêu cầu","Chỉ điểm chưa khớp","Đưa cách sửa cụ thể"],"example":"Kiểm tra bản tóm tắt này theo yêu cầu về độ dài và độ chính xác."},
+        "en": {"role":"Review","summary":"Check a draft against criteria and suggest specific corrections.","description":"Check a draft against criteria and suggest specific corrections.","tasks":["Check requirements","Flag discrepancies","Propose corrections"],"example":"Check this summary against the requested length and accuracy."}
+      }
+    },
+    {
+      "id": "frame", "name": "Frame", "tone": "#F4C6DF", "image": "../assets/frame.webp",
+      "copy": {
+        "vi": {"role":"Lập storyboard","summary":"Chia câu chuyện thành từng cảnh với nội dung và khung hình.","description":"Chia câu chuyện thành từng cảnh với nội dung và khung hình.","tasks":["Chia nhịp câu chuyện","Mô tả góc máy","Viết lời thoại mẫu"],"example":"Lập storyboard sáu cảnh cho video demo ứng dụng ghi chú."},
+        "en": {"role":"Storyboarding","summary":"Break a story into scenes with copy and shot directions.","description":"Break a story into scenes with copy and shot directions.","tasks":["Outline story beats","Describe framing","Draft lines"],"example":"Outline a six-scene storyboard for a note-taking app demo."}
+      }
+    }
+  ],
+  "productGroups": [
+    {"label":{"vi":"Tài liệu và lưu trữ","en":"Docs and storage"},"products":[{"name":"Fieldnotes","mark":"tab"},{"name":"Archive","mark":"stack"},{"name":"Prism","mark":"prism"}]},
+    {"label":{"vi":"Làm việc nhóm","en":"Team workflows"},"products":[{"name":"Dayline","mark":"beam"},{"name":"Threadline","mark":"weave"},{"name":"Knot","mark":"knot"}]}
+  ]
+}

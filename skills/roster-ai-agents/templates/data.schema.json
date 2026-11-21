@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Roster bilingual template input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["brand", "ctaHref", "featureImage", "copy", "agents", "productGroups"],
+  "properties": {
+    "brand": {"type": "string", "minLength": 1, "maxLength": 22},
+    "ctaHref": {"$ref": "#/$defs/href"},
+    "featureImage": {"$ref": "#/$defs/asset"},
+    "copy": {"$ref": "#/$defs/bilingualPage"},
+    "agents": {"type": "array", "items": {"$ref": "#/$defs/agent"}, "minItems": 3, "maxItems": 24},
+    "productGroups": {"type": "array", "items": {"$ref": "#/$defs/group"}, "minItems": 2, "maxItems": 3}
+  },
+  "$defs": {
+    "text": {"type": "string", "minLength": 1},
+    "asset": {"$ref": "#/$defs/text", "maxLength": 240, "description": "Raster image path relative to the source JSON."},
+    "href": {"$ref": "#/$defs/text", "maxLength": 550, "pattern": "^(https://[^\\s]+|mailto:[^\\s]+|#(agents|workflow|integrations))$"},
+    "bilingualPage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vi", "en"],
+      "properties": {"vi": {"$ref": "#/$defs/page"}, "en": {"$ref": "#/$defs/page"}}
+    },
+    "page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "skip", "navLabel", "language", "navAgents", "navWorkflow", "navIntegrations", "navCta", "heroLabel", "heroTitle", "heroBody", "galleryLabel", "controls", "drag", "previous", "next", "pause", "play", "flip", "open", "cardBack", "close", "detailTasks", "detailExample", "detailCta", "workflowLabel", "workflowTitle", "workflowBody", "workflowAlt", "workflowCaption", "steps", "productsTitle", "productsBody", "ctaLabel", "ctaTitle", "ctaBody", "ctaButton", "footer", "backToTop"],
+      "properties": {
+        "title": {"$ref": "#/$defs/text", "maxLength": 70},
+        "skip": {"$ref": "#/$defs/text", "maxLength": 55},
+        "navLabel": {"$ref": "#/$defs/text", "maxLength": 55},
+        "language": {"$ref": "#/$defs/text", "maxLength": 40},
+        "navAgents": {"$ref": "#/$defs/text", "maxLength": 30},
+        "navWorkflow": {"$ref": "#/$defs/text", "maxLength": 30},
+        "navIntegrations": {"$ref": "#/$defs/text", "maxLength": 30},
+        "navCta": {"$ref": "#/$defs/text", "maxLength": 30},
+        "heroLabel": {"$ref": "#/$defs/text", "maxLength": 42},
+        "heroTitle": {"$ref": "#/$defs/text", "maxLength": 48},
+        "heroBody": {"$ref": "#/$defs/text", "maxLength": 170},
+        "galleryLabel": {"$ref": "#/$defs/text", "maxLength": 60},
+        "controls": {"$ref": "#/$defs/text", "maxLength": 55},
+        "drag": {"$ref": "#/$defs/text", "maxLength": 25},
+        "previous": {"$ref": "#/$defs/text", "maxLength": 45},
+        "next": {"$ref": "#/$defs/text", "maxLength": 45},
+        "pause": {"$ref": "#/$defs/text", "maxLength": 45},
+        "play": {"$ref": "#/$defs/text", "maxLength": 45},
+        "flip": {"$ref": "#/$defs/text", "maxLength": 45},
+        "open": {"$ref": "#/$defs/text", "maxLength": 45},
+        "cardBack": {"$ref": "#/$defs/text", "maxLength": 40},
+        "close": {"$ref": "#/$defs/text", "maxLength": 50},
+        "detailTasks": {"$ref": "#/$defs/text", "maxLength": 46},
+        "detailExample": {"$ref": "#/$defs/text", "maxLength": 46},
+        "detailCta": {"$ref": "#/$defs/text", "maxLength": 34},
+        "workflowLabel": {"$ref": "#/$defs/text", "maxLength": 44},
+        "workflowTitle": {"$ref": "#/$defs/text", "maxLength": 56},
+        "workflowBody": {"$ref": "#/$defs/text", "maxLength": 220},
+        "workflowAlt": {"$ref": "#/$defs/text", "maxLength": 190},
+        "workflowCaption": {"$ref": "#/$defs/text", "maxLength": 120},
+        "steps": {"type": "array", "items": {"$ref": "#/$defs/step"}, "minItems": 3, "maxItems": 3},
+        "productsTitle": {"$ref": "#/$defs/text", "maxLength": 55},
+        "productsBody": {"$ref": "#/$defs/text", "maxLength": 160},
+        "ctaLabel": {"$ref": "#/$defs/text", "maxLength": 42},
+        "ctaTitle": {"$ref": "#/$defs/text", "maxLength": 48},
+        "ctaBody": {"$ref": "#/$defs/text", "maxLength": 145},
+        "ctaButton": {"$ref": "#/$defs/text", "maxLength": 30},
+        "footer": {"$ref": "#/$defs/text", "maxLength": 105},
+        "backToTop": {"$ref": "#/$defs/text", "maxLength": 26}
+      }
+    },
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "body"],
+      "properties": {"title": {"$ref": "#/$defs/text", "maxLength": 30}, "body": {"$ref": "#/$defs/text", "maxLength": 130}}
+    },
+    "agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "tone", "image", "copy"],
+      "properties": {
+        "id": {"$ref": "#/$defs/text", "maxLength": 32, "pattern": "^[a-z][a-z0-9-]*$"},
+        "name": {"$ref": "#/$defs/text", "maxLength": 20},
+        "image": {"$ref": "#/$defs/asset"},
+        "tone": {"enum": ["#C4CCFB", "#F6BF8F", "#C5EAD6", "#D6C8F8", "#F4C6DF", "#E2F865"]},
+        "href": {"$ref": "#/$defs/href"},
+        "copy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["vi", "en"],
+          "properties": {"vi": {"$ref": "#/$defs/agentCopy"}, "en": {"$ref": "#/$defs/agentCopy"}}
+        }
+      }
+    },
+    "agentCopy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "summary", "description", "tasks", "example"],
+      "properties": {
+        "role": {"$ref": "#/$defs/text", "maxLength": 24},
+        "summary": {"$ref": "#/$defs/text", "maxLength": 120},
+        "description": {"$ref": "#/$defs/text", "maxLength": 265},
+        "tasks": {"type": "array", "items": {"$ref": "#/$defs/text", "maxLength": 115}, "minItems": 2, "maxItems": 4},
+        "example": {"$ref": "#/$defs/text", "maxLength": 230}
+      }
+    },
+    "group": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "products"],
+      "properties": {
+        "label": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["vi", "en"],
+          "properties": {"vi": {"$ref": "#/$defs/text", "maxLength": 40}, "en": {"$ref": "#/$defs/text", "maxLength": 40}}
+        },
+        "products": {"type": "array", "items": {"$ref": "#/$defs/product"}, "minItems": 2, "maxItems": 5}
+      }
+    },
+    "product": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {"$ref": "#/$defs/text", "maxLength": 23},
+        "image": {"$ref": "#/$defs/asset"},
+        "mark": {"enum": ["beam", "tab", "weave", "prism", "knot", "stack"]},
+        "href": {"$ref": "#/$defs/href"}
+      }
+    }
+  }
+}

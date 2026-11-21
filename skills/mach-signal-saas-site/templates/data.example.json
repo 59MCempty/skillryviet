@@ -1,0 +1,752 @@
+{
+  "brand": "Mạch",
+  "product": {
+    "category": {
+      "vi": "Giám sát hệ thống",
+      "en": "System monitoring"
+    },
+    "headline": {
+      "vi": [
+        "Nghe hệ thống.",
+        "Thấy sự cố."
+      ],
+      "en": [
+        "Hear your stack.",
+        "See the outage."
+      ]
+    },
+    "intro": {
+      "vi": "Theo dõi website, API và tác vụ định kỳ trong một chỗ. Biết dịch vụ nào đang chậm trước khi khách hàng báo lỗi.",
+      "en": "Monitor websites, APIs and scheduled jobs in one place. See which service is slowing down before a customer reports it."
+    },
+    "coverage": {
+      "vi": "Một góc nhìn cho website, API và cron job",
+      "en": "One view for websites, APIs and cron jobs"
+    },
+    "integrations": [
+      "HTTP(S)",
+      "Heartbeat",
+      "Webhook",
+      "Slack"
+    ],
+    "workflow": {
+      "vi": "Đặt điểm giám sát cho các dịch vụ quan trọng. Khi độ trễ vượt ngưỡng, mở một dòng thời gian để xem ai đã nhận cảnh báo và hệ thống phục hồi lúc nào.",
+      "en": "Create monitors for your critical services. When latency crosses a threshold, open the timeline to see who was alerted and when the service recovered."
+    },
+    "timeline": [
+      {
+        "time": "09:12",
+        "text": {
+          "vi": "API thanh toán bắt đầu phản hồi chậm.",
+          "en": "The payment API starts responding slowly."
+        }
+      },
+      {
+        "time": "09:14",
+        "text": {
+          "vi": "Cảnh báo được gửi vào kênh trực vận hành.",
+          "en": "An alert is sent to the on-call channel."
+        }
+      },
+      {
+        "time": "09:19",
+        "text": {
+          "vi": "Nhóm trực xác nhận đã nhận sự cố.",
+          "en": "The on-call team acknowledges the incident."
+        }
+      },
+      {
+        "time": "09:26",
+        "text": {
+          "vi": "Độ trễ trở lại ngưỡng bình thường.",
+          "en": "Latency returns to its normal range."
+        }
+      }
+    ],
+    "metric": {
+      "label": {
+        "vi": "Độ trễ p95",
+        "en": "p95 latency"
+      },
+      "unit": {
+        "vi": "ms",
+        "en": "ms"
+      },
+      "times": [
+        "09:00",
+        "09:15",
+        "09:30"
+      ]
+    },
+    "workflowTitle": {
+      "vi": "Từ tín hiệu đến xử lý",
+      "en": "From signal to response"
+    },
+    "timelineTitle": {
+      "vi": "Diễn tiến sự cố",
+      "en": "Incident timeline"
+    },
+    "sections": {
+      "features": {
+        "title": {
+          "vi": "Mỗi dịch vụ cần một cách kiểm tra",
+          "en": "Different services need different checks"
+        },
+        "intro": {
+          "vi": "Một website trả về 200 vẫn có thể chậm. Một tác vụ chạy đêm có thể im lặng khi lỗi. Mạch dùng tín hiệu phù hợp với từng việc.",
+          "en": "A website can return 200 and still be slow. An overnight job can fail silently. Mạch watches for the signal that fits each service."
+        },
+        "items": [
+          {
+            "title": {
+              "vi": "Kiểm tra website và API",
+              "en": "Check websites and APIs"
+            },
+            "body": {
+              "vi": "Đặt URL cần theo dõi, mã phản hồi mong đợi và ngưỡng thời gian. Xem lúc dịch vụ bắt đầu chậm, kể cả khi yêu cầu vẫn thành công.",
+              "en": "Set the URL, expected response code and time threshold. See when a service begins to slow down while requests are still succeeding."
+            },
+            "sample": {
+              "vi": "GET /health · 200 OK",
+              "en": "GET /health · 200 OK"
+            }
+          },
+          {
+            "title": {
+              "vi": "Biết khi tác vụ không chạy",
+              "en": "Catch silent job failures"
+            },
+            "body": {
+              "vi": "Gửi heartbeat sau mỗi lần sao lưu hoặc đồng bộ thành công. Khi quá thời hạn chờ, nhóm trực biết chính xác tác vụ nào chưa báo về.",
+              "en": "Send a heartbeat after each successful backup or sync. If the grace period passes, the on-call team can see exactly which job is missing."
+            },
+            "sample": {
+              "vi": "Bản sao lưu · Chưa nhận heartbeat",
+              "en": "Backup · Heartbeat missing"
+            }
+          },
+          {
+            "title": {
+              "vi": "Báo đúng người trực",
+              "en": "Notify the right responder"
+            },
+            "body": {
+              "vi": "Định tuyến theo dịch vụ đến Slack hoặc webhook. Mỗi thông báo có tín hiệu, thời điểm và liên kết mở diễn tiến để người nhận bắt đầu xử lý.",
+              "en": "Route alerts for each service to Slack or a webhook. Every notification includes the signal, time and a link to the timeline so responders can act."
+            },
+            "sample": {
+              "vi": "API thanh toán · Đã báo nhóm trực",
+              "en": "Payments API · On-call notified"
+            }
+          }
+        ]
+      },
+      "workflowContext": {
+        "vi": "Ví dụ minh họa với API thanh toán lúc cao điểm. Ngưỡng cảnh báo p95 là 300 ms.",
+        "en": "An example from a checkout API during peak traffic. The p95 alert threshold is 300 ms."
+      },
+      "playbooks": {
+        "title": {
+          "vi": "Ba kịch bản nhóm trực có thể áp dụng",
+          "en": "Three playbooks for the on-call team"
+        },
+        "intro": {
+          "vi": "Chọn tình huống gần nhất với hệ thống của bạn. Mỗi kịch bản có điều kiện phát hiện và bước xử lý đầu tiên.",
+          "en": "Start with the scenario closest to your system. Each playbook defines what to detect and what to do first."
+        },
+        "items": [
+          {
+            "title": {
+              "vi": "Website bán hàng",
+              "en": "Storefront"
+            },
+            "body": {
+              "vi": "Phát hiện khi khách không thể mở trang chủ hoặc vào trang thanh toán.",
+              "en": "Detect when shoppers can’t reach the storefront or checkout."
+            },
+            "trigger": {
+              "vi": "Tín hiệu mẫu: hai lần kiểm tra liên tiếp thất bại",
+              "en": "Example signal: two consecutive failed checks"
+            },
+            "setup": {
+              "vi": "Kiểm tra trang chủ và trang thanh toán mỗi phút. Kỳ vọng mã 200 và đặt cảnh báo sau hai lần lỗi liên tiếp.",
+              "en": "Check the storefront and checkout every minute. Expect a 200 response and alert after two failures in a row."
+            },
+            "response": {
+              "vi": "Mở cả hai URL để xác định lỗi cục bộ hay toàn site, rồi kiểm tra đợt triển khai gần nhất.",
+              "en": "Open both URLs to see whether one page or the whole site is affected, then check the most recent deployment."
+            },
+            "topic": "getStarted"
+          },
+          {
+            "title": {
+              "vi": "API thanh toán",
+              "en": "Payments API"
+            },
+            "body": {
+              "vi": "Phát hiện giao dịch chậm trước khi chúng bắt đầu hết thời gian chờ.",
+              "en": "Catch slow transactions before they start timing out."
+            },
+            "trigger": {
+              "vi": "Tín hiệu mẫu: p95 vượt 300 ms",
+              "en": "Example signal: p95 exceeds 300 ms"
+            },
+            "setup": {
+              "vi": "Báo khi p95 vượt 300 ms trong ba lần kiểm tra liên tiếp.",
+              "en": "Alert when p95 exceeds 300 ms for three consecutive checks."
+            },
+            "response": {
+              "vi": "Đối chiếu độ trễ với nhật ký của cổng thanh toán và cơ sở dữ liệu.",
+              "en": "Compare the slowdown with payment gateway and database logs."
+            },
+            "topic": "alerts"
+          },
+          {
+            "title": {
+              "vi": "Sao lưu định kỳ",
+              "en": "Scheduled backup"
+            },
+            "body": {
+              "vi": "Phát hiện bản sao lưu bị bỏ lỡ trước khi cần khôi phục dữ liệu.",
+              "en": "Catch a missed backup before you need to restore data."
+            },
+            "trigger": {
+              "vi": "Tín hiệu mẫu: quá 15 phút chưa có heartbeat",
+              "en": "Example signal: no heartbeat after 15 minutes"
+            },
+            "setup": {
+              "vi": "Gửi heartbeat khi sao lưu xong và đặt khoảng chờ 15 phút sau giờ dự kiến.",
+              "en": "Send a heartbeat after a successful backup and allow 15 minutes beyond the expected time."
+            },
+            "response": {
+              "vi": "Xem log tác vụ, kiểm tra bản sao gần nhất rồi chạy lại nếu cần.",
+              "en": "Check the job logs and latest backup, then rerun the job if needed."
+            },
+            "topic": "reliability"
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": {
+            "vi": "Tôi cần chuẩn bị gì để theo dõi một website?",
+            "en": "What do I need to monitor a website?"
+          },
+          "answer": {
+            "vi": "Bắt đầu với một URL mà bộ kiểm tra có thể truy cập. Chọn mã HTTP mong đợi, thời gian chờ và kênh nhận thông báo thử. Trang tài nguyên có hướng dẫn đặt điểm giám sát đầu tiên.",
+            "en": "Start with one URL that a monitor can reach. Set the expected HTTP code, timeout and a channel for a test notification. The resources page explains how to set up your first monitor."
+          }
+        },
+        {
+          "question": {
+            "vi": "Kiểm tra HTTP và heartbeat khác nhau thế nào?",
+            "en": "What is the difference between HTTP checks and heartbeats?"
+          },
+          "answer": {
+            "vi": "Kiểm tra HTTP gửi yêu cầu tới website hoặc API theo lịch. Heartbeat chờ tác vụ chủ động gửi một tín hiệu khi chạy xong. Dùng heartbeat cho việc chạy ngầm như sao lưu và đồng bộ.",
+            "en": "An HTTP check sends requests to your website or API on a schedule. A heartbeat waits for a job to send a signal after it finishes. Use heartbeats for background work such as backups and syncs."
+          }
+        },
+        {
+          "question": {
+            "vi": "p95 cho biết điều gì về độ trễ?",
+            "en": "What does p95 tell me about latency?"
+          },
+          "answer": {
+            "vi": "Trong một khoảng đo, 95% yêu cầu có độ trễ bằng hoặc thấp hơn p95. Chỉ số này giúp thấy khi nhóm yêu cầu chậm bị ảnh hưởng, kể cả khi số trung bình thay đổi ít.",
+            "en": "In a measurement window, 95% of requests finish at or below the p95 latency. It helps you spot slow requests even when the average barely moves."
+          }
+        },
+        {
+          "question": {
+            "vi": "Thử bản mẫu có cần kết nối hệ thống thật không?",
+            "en": "Does the demo need a connection to my system?"
+          },
+          "answer": {
+            "vi": "Bạn có thể đổi ba trạng thái trên bản đồ ngay trong trình duyệt. Bản mẫu dùng dữ liệu minh họa và mở offline. Biểu mẫu chọn gói và đăng ký sự kiện cũng chạy ở chế độ mô phỏng.",
+            "en": "You can switch among three signal scenarios in your browser. The demo uses sample data and works offline. Plan selection and event registration are also simulated."
+          }
+        }
+      ],
+      "closing": {
+        "title": {
+          "vi": "Xem đội trực sẽ nhận tín hiệu gì",
+          "en": "See what your on-call team would receive"
+        },
+        "body": {
+          "vi": "Đổi kịch bản trên bản đồ để xem dấu hiệu khi API chậm hoặc mất tín hiệu. Sau đó so gói theo số dịch vụ cần theo dõi.",
+          "en": "Switch scenarios on the signal map to see what a slowdown or outage looks like. Then compare plans by the number of services you monitor."
+        }
+      },
+      "footerIntro": {
+        "vi": "Theo dõi website, API và tác vụ chạy ngầm. Từ tín hiệu đầu tiên đến lúc hệ thống phục hồi, nhóm trực nhìn cùng một diễn tiến.",
+        "en": "Track websites, APIs and background jobs. From the first signal through recovery, everyone on call can see the same timeline."
+      }
+    }
+  },
+  "scenarios": [
+    {
+      "label": {
+        "vi": "Bình ổn",
+        "en": "Healthy"
+      },
+      "status": {
+        "vi": "Dịch vụ ổn định",
+        "en": "Service healthy"
+      },
+      "detail": {
+        "vi": "API thanh toán duy trì dưới ngưỡng 300 ms.",
+        "en": "The payment API stays below the 300 ms threshold."
+      },
+      "samples": [
+        202,
+        280,
+        160,
+        265,
+        190,
+        320,
+        218,
+        260,
+        190,
+        245,
+        175,
+        230,
+        190
+      ],
+      "value": 118
+    },
+    {
+      "label": {
+        "vi": "Tăng độ trễ",
+        "en": "Slowdown"
+      },
+      "status": {
+        "vi": "API phản hồi chậm",
+        "en": "API response slowed"
+      },
+      "detail": {
+        "vi": "API thanh toán vượt ngưỡng 300 ms.",
+        "en": "The payment API crosses the 300 ms threshold."
+      },
+      "samples": [
+        90,
+        205,
+        125,
+        310,
+        196,
+        380,
+        270,
+        620,
+        960,
+        725,
+        390,
+        300,
+        210
+      ],
+      "value": 486
+    },
+    {
+      "label": {
+        "vi": "Gián đoạn",
+        "en": "Outage"
+      },
+      "status": {
+        "vi": "Mất tín hiệu",
+        "en": "Signal lost"
+      },
+      "detail": {
+        "vi": "Mẫu cuối được ghi nhận trước khi API ngừng phản hồi.",
+        "en": "Last recorded reading before the API stopped responding."
+      },
+      "samples": [
+        125,
+        222,
+        180,
+        315,
+        204,
+        477,
+        925,
+        640,
+        985,
+        310,
+        0,
+        0,
+        0
+      ],
+      "value": 932
+    }
+  ],
+  "pricing": {
+    "title": {
+      "vi": "Chọn gói theo số dịch vụ",
+      "en": "Choose a plan for your stack"
+    },
+    "intro": {
+      "vi": "Bắt đầu với một website. Nâng cấp khi bạn cần kiểm tra thường xuyên hơn hoặc lưu lịch sử lâu hơn.",
+      "en": "Start with one website. Upgrade for more frequent checks or a longer incident history."
+    },
+    "faq": [
+      {
+        "question": {
+          "vi": "Gói miễn phí lưu lịch sử bao lâu?",
+          "en": "How long does the free plan keep history?"
+        },
+        "answer": {
+          "vi": "Gói Khởi đầu lưu kết quả trong 7 ngày và kiểm tra mỗi 300 giây.",
+          "en": "The Starter plan keeps 7 days of history and checks every 300 seconds."
+        }
+      },
+      {
+        "question": {
+          "vi": "Giá theo năm được tính thế nào?",
+          "en": "How is yearly billing calculated?"
+        },
+        "answer": {
+          "vi": "Khi chọn Theo năm, thẻ gói hiển thị chi phí bình quân theo tháng và tổng số tiền thanh toán cho 12 tháng.",
+          "en": "In yearly mode, each plan shows the monthly equivalent and the amount billed for a full year."
+        }
+      },
+      {
+        "question": {
+          "vi": "Một điểm giám sát là gì?",
+          "en": "What counts as one monitor?"
+        },
+        "answer": {
+          "vi": "Mỗi URL hoặc heartbeat có lịch kiểm tra riêng được tính là một điểm giám sát.",
+          "en": "Each URL or heartbeat with its own check schedule counts as one monitor."
+        }
+      }
+    ],
+    "features": [
+      {
+        "label": {
+          "vi": "Điểm giám sát",
+          "en": "Monitors"
+        },
+        "unit": {
+          "vi": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "vi": "Chu kỳ kiểm tra",
+          "en": "Check interval"
+        },
+        "unit": {
+          "vi": "giây",
+          "en": "seconds"
+        }
+      },
+      {
+        "label": {
+          "vi": "Lưu lịch sử",
+          "en": "Data retention"
+        },
+        "unit": {
+          "vi": "ngày",
+          "en": "days"
+        }
+      }
+    ]
+  },
+  "plans": [
+    {
+      "name": {
+        "vi": "Khởi đầu",
+        "en": "Starter"
+      },
+      "description": {
+        "vi": "Giám sát một website và các điểm cuối ưu tiên.",
+        "en": "Monitor a website and your highest-priority endpoints."
+      },
+      "featured": false,
+      "monthly": 0,
+      "yearly": 0,
+      "limits": [
+        3,
+        300,
+        7
+      ]
+    },
+    {
+      "name": {
+        "vi": "Đội nhóm",
+        "en": "Team"
+      },
+      "description": {
+        "vi": "Theo dõi các dịch vụ đang phục vụ khách hàng.",
+        "en": "Monitor the services that customers depend on."
+      },
+      "featured": true,
+      "monthly": 390000,
+      "yearly": 3900000,
+      "limits": [
+        25,
+        60,
+        30
+      ]
+    },
+    {
+      "name": {
+        "vi": "Mở rộng",
+        "en": "Scale"
+      },
+      "description": {
+        "vi": "Theo dõi nhiều dịch vụ với chu kỳ kiểm tra ngắn.",
+        "en": "Monitor more services with shorter check intervals."
+      },
+      "featured": false,
+      "monthly": 890000,
+      "yearly": 9360000,
+      "limits": [
+        100,
+        30,
+        90
+      ]
+    }
+  ],
+  "resources": {
+    "title": {
+      "vi": "Sổ tay vận hành",
+      "en": "Operations handbook"
+    },
+    "intro": {
+      "vi": "Tra cứu cách đặt điểm giám sát, điều chỉnh cảnh báo và đọc lại diễn tiến sự cố.",
+      "en": "Learn how to set up monitors, tune alerts and review incidents."
+    },
+    "articles": [
+      {
+        "category": "getStarted",
+        "title": {
+          "vi": "Đặt điểm giám sát API đầu tiên",
+          "en": "Create your first API monitor"
+        },
+        "summary": {
+          "vi": "Chọn endpoint, chu kỳ kiểm tra và điều kiện thành công.",
+          "en": "Choose an endpoint, check interval and success criteria."
+        },
+        "body": {
+          "vi": "Dùng một URL kiểm tra sức khỏe ổn định. Đặt chu kỳ kiểm tra một phút, kỳ vọng mã 200, rồi gửi một cảnh báo thử vào kênh trực. Nếu endpoint phụ thuộc vào cơ sở dữ liệu, ghi rõ phụ thuộc đó cho người trực ca.",
+          "en": "Use a stable health-check URL. Check it every minute, expect a 200 response, and send a test alert to your on-call channel. If the endpoint depends on a database, document that dependency for the responder."
+        }
+      },
+      {
+        "category": "alerts",
+        "title": {
+          "vi": "Đặt ngưỡng cảnh báo độ trễ p95",
+          "en": "Set a p95 latency alert"
+        },
+        "summary": {
+          "vi": "Chọn ngưỡng theo lưu lượng thực tế và gom các cảnh báo trùng.",
+          "en": "Pick a threshold from normal traffic and group duplicate alerts."
+        },
+        "body": {
+          "vi": "Xem phân vị p95 trong các khung giờ có nhiều truy cập nhất. Thử cảnh báo khi độ trễ vượt ngưỡng trong ba lần kiểm tra liên tiếp. Mỗi cảnh báo cần ghi rõ dịch vụ, ngưỡng và điều kiện đóng sự cố.",
+          "en": "Review the p95 latency during your busiest periods. Alert after three successive threshold breaches. Include the service, threshold and condition for closing the incident."
+        }
+      },
+      {
+        "category": "reliability",
+        "title": {
+          "vi": "Kiểm tra tác vụ cron bằng heartbeat",
+          "en": "Monitor a cron job with a heartbeat"
+        },
+        "summary": {
+          "vi": "Phát hiện bản sao lưu bị bỏ lỡ hoặc báo cáo chưa được gửi.",
+          "en": "Detect a missed backup or an unsent report."
+        },
+        "body": {
+          "vi": "Gửi heartbeat khi tác vụ hoàn tất thành công. Đặt khoảng chờ dài hơn thời lượng chạy thông thường. Với tác vụ chạy đêm, thống nhất múi giờ của lịch chạy và lịch trực.",
+          "en": "Send a heartbeat only after the job succeeds. Allow a grace period longer than its usual duration. For overnight jobs, align the job schedule and on-call time zones."
+        }
+      },
+      {
+        "category": "alerts",
+        "title": {
+          "vi": "Chuyển cảnh báo vào kênh trực",
+          "en": "Route alerts to the on-call channel"
+        },
+        "summary": {
+          "vi": "Gửi thông tin cần xử lý vào đúng kênh.",
+          "en": "Send actionable information to the right channel."
+        },
+        "body": {
+          "vi": "Tạo một kênh riêng cho cảnh báo cần hành động. Mỗi thông báo nên có tên dịch vụ, thời điểm bắt đầu, trạng thái và liên kết tới diễn tiến. Thử lộ trình trước khi bật trên dịch vụ thật.",
+          "en": "Create a channel for actionable alerts. Include the service name, start time, status and incident timeline link. Test the routing before enabling it for a production service."
+        }
+      },
+      {
+        "category": "reliability",
+        "title": {
+          "vi": "Viết bản ghi sau sự cố",
+          "en": "Write an incident review"
+        },
+        "summary": {
+          "vi": "Ghi lại thời gian, tác động và người phụ trách việc tiếp theo.",
+          "en": "Record the timing, impact and owners of the follow-up work."
+        },
+        "body": {
+          "vi": "Bắt đầu bằng điều khách hàng trải qua. Ghi các mốc phát hiện, xác nhận, giảm tác động và phục hồi. Giao từng hành động có thể kiểm tra cho một người phụ trách với ngày hoàn thành.",
+          "en": "Start with what customers experienced. Record detection, acknowledgement, mitigation and recovery. Assign each measurable follow-up to an owner and due date."
+        }
+      }
+    ],
+    "searchHint": {
+      "vi": "Ví dụ: API, cảnh báo, cron",
+      "en": "Try API, alert or cron"
+    }
+  },
+  "events": {
+    "title": {
+      "vi": "Cùng diễn tập xử lý sự cố",
+      "en": "Practice incident response"
+    },
+    "intro": {
+      "vi": "Các buổi thực hành giả lập dành cho người trực vận hành và nhóm phụ trách sản phẩm.",
+      "en": "Simulated practice sessions for on-call responders and product teams."
+    },
+    "items": [
+      {
+        "start": "2026-12-03T12:30:00Z",
+        "minutes": 45,
+        "format": "workshop",
+        "title": {
+          "vi": "Khoanh vùng API chậm",
+          "en": "Triage a slow API"
+        },
+        "summary": {
+          "vi": "Đọc biểu đồ p95, kiểm tra log và quyết định khi nào báo động.",
+          "en": "Read p95, check the logs and decide when to escalate."
+        },
+        "notes": {
+          "vi": "Bài tập gồm thiết lập ngưỡng, kiểm tra các phụ thuộc và viết thông báo cho nhóm trực.",
+          "en": "The exercise covers setting a threshold, checking dependencies and writing the on-call notification."
+        }
+      },
+      {
+        "start": "2026-12-10T12:30:00Z",
+        "minutes": 30,
+        "format": "talk",
+        "title": {
+          "vi": "Thiết kế lịch trực cho nhóm nhỏ",
+          "en": "Build an on-call rota for a small team"
+        },
+        "summary": {
+          "vi": "Chốt thời gian phản hồi và cách bàn giao ngoài giờ.",
+          "en": "Set response expectations and handover steps for after-hours incidents."
+        },
+        "notes": {
+          "vi": "Chuẩn bị lịch trực của nhóm và một ví dụ cần chuyển ca. Chốt người nhận cảnh báo cuối cùng khi không có phản hồi.",
+          "en": "Bring your team's rota and one handover scenario. Decide who receives the last escalation if no one responds."
+        }
+      },
+      {
+        "start": "2026-12-17T12:30:00Z",
+        "minutes": 60,
+        "format": "workshop",
+        "title": {
+          "vi": "Tập viết báo cáo sau sự cố",
+          "en": "Practice writing an incident review"
+        },
+        "summary": {
+          "vi": "Viết diễn tiến và chọn hành động phòng ngừa có thể kiểm tra.",
+          "en": "Write a timeline and choose measurable prevention steps."
+        },
+        "notes": {
+          "vi": "Dùng diễn tiến mẫu để phân biệt thời điểm ghi nhận với thời điểm phát hiện. Viết một hành động có hạn hoàn thành.",
+          "en": "Use the example timeline to distinguish when a problem began from when it was detected. Assign one action with a due date."
+        }
+      },
+      {
+        "start": "2026-11-12T12:30:00Z",
+        "minutes": 40,
+        "format": "workshop",
+        "title": {
+          "vi": "Giám sát tác vụ chạy đêm",
+          "en": "Monitor overnight jobs"
+        },
+        "summary": {
+          "vi": "Xác định khi nào heartbeat đến trễ hoặc mất tín hiệu.",
+          "en": "Recognize a late or missing heartbeat."
+        },
+        "notes": {
+          "vi": "Buổi thực hành dùng một tác vụ sao lưu hằng đêm. Nhóm thử khoảng chờ 15 phút và đặt tuyến cảnh báo riêng cho sự cố sao lưu.",
+          "en": "The workshop used a nightly backup job. The team tried a 15-minute grace period and a dedicated alert route for backup failures."
+        }
+      }
+    ]
+  },
+  "updates": {
+    "title": {
+      "vi": "Nhật ký cập nhật",
+      "en": "Product changelog"
+    },
+    "intro": {
+      "vi": "Theo dõi những thay đổi trong cách giám sát, nhận cảnh báo và xem lại sự cố.",
+      "en": "Follow changes to monitoring, alerting and incident reviews."
+    },
+    "items": [
+      {
+        "date": "2026-11-18",
+        "type": "new",
+        "title": {
+          "vi": "Gom cảnh báo theo dịch vụ",
+          "en": "Group alerts by service"
+        },
+        "body": {
+          "vi": "Các cảnh báo của cùng một dịch vụ xuất hiện trong một mục. Mở mục để xem thời điểm đầu tiên, lần ghi nhận mới nhất và trạng thái xử lý.",
+          "en": "Alerts from the same service now appear together. Open the group to see the first occurrence, latest signal and response status."
+        }
+      },
+      {
+        "date": "2026-11-04",
+        "type": "improved",
+        "title": {
+          "vi": "Đọc diễn tiến trên điện thoại",
+          "en": "Read incident timelines on mobile"
+        },
+        "body": {
+          "vi": "Mốc thời gian và nội dung cảnh báo nằm cùng một hàng trên màn hình nhỏ. Có thể mở sự kiện mà không cần cuộn ngang.",
+          "en": "Timestamps and alerts stay together on small screens. Open an event without scrolling sideways."
+        }
+      },
+      {
+        "date": "2026-10-21",
+        "type": "new",
+        "title": {
+          "vi": "Điểm giám sát heartbeat",
+          "en": "Heartbeat monitors"
+        },
+        "body": {
+          "vi": "Đặt thời hạn nhận tín hiệu cho các tác vụ nằm ngoài luồng HTTP, như sao lưu, đồng bộ dữ liệu và tổng hợp báo cáo.",
+          "en": "Set a heartbeat deadline for jobs outside the HTTP request flow, including backups, syncs and scheduled reports."
+        }
+      },
+      {
+        "date": "2026-10-05",
+        "type": "improved",
+        "title": {
+          "vi": "Dấu mốc phục hồi rõ hơn",
+          "en": "Clearer recovery markers"
+        },
+        "body": {
+          "vi": "Diễn tiến ghi riêng lúc tín hiệu trở lại và lúc người trực đóng sự cố.",
+          "en": "Timelines now record signal recovery and incident closure as separate events."
+        }
+      },
+      {
+        "date": "2026-09-19",
+        "type": "new",
+        "title": {
+          "vi": "Gửi cảnh báo qua webhook",
+          "en": "Send alerts through webhooks"
+        },
+        "body": {
+          "vi": "Gắn webhook theo dịch vụ để chuyển các thông báo tới công cụ vận hành của nhóm.",
+          "en": "Attach a webhook per service to forward notices to your team's operations tools."
+        }
+      }
+    ]
+  }
+}

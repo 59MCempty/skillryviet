@@ -1,0 +1,84 @@
+product-listing { display: block; scroll-margin-top: 20px; }
+product-listing [hidden] { display: none !important; }
+.listing-band { padding-block: 32px; }
+.listing-container { width: min(100%, 1280px); margin-inline: auto; padding-inline: 16px; }
+.listing-toolbar { display: flex; flex-direction: column; gap: 16px; margin-bottom: 16px; }
+.listing-breadcrumb, .listing-toolbar-actions, .listing-card-actions, .listing-icon-actions, .listing-rating, .listing-stars, .listing-features, .listing-price-row, .listing-modal-header, .listing-modal-footer, .listing-tabs { display: flex; align-items: center; }
+.listing-breadcrumb { gap: 4px; flex-wrap: wrap; }
+.listing-breadcrumb a { display: inline-flex; align-items: center; }
+.listing-breadcrumb svg { width: 20px; height: 20px; }
+.listing-breadcrumb a svg { width: 12px; height: 12px; margin-inline-end: 10px; }
+.listing-title { --heading-size: 1.25rem; margin-top: 12px; }
+.listing-toolbar-actions { gap: 16px; flex-direction: column; align-items: stretch; }
+.listing-toolbar-button { gap: 8px; padding: 8px 12px; width: 100%; min-height: 40px; }
+.listing-toolbar-button svg, .listing-stars svg, .listing-features svg { width: 16px; height: 16px; flex: 0 0 auto; }
+.listing-sort { position: relative; }
+.listing-sort-menu { position: absolute; inset-inline-end: 0; top: calc(100% + 6px); z-index: 1; width: 160px; padding: 8px; margin: 0; list-style: none; }
+.listing-sort-menu button { width: 100%; border: 0; padding: 8px 12px; text-align: start; }
+.listing-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.listing-card { min-width: 0; padding: 24px; display: flex; flex-direction: column; }
+.listing-image { display: block; height: 224px; }
+.listing-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.listing-card-content { display: flex; flex-direction: column; flex: 1; padding-top: 24px; }
+.listing-card-actions, .listing-price-row, .listing-modal-header { justify-content: space-between; gap: 16px; }
+.listing-card-actions { margin-bottom: 16px; }
+.listing-discount { padding: 2px 10px; }
+.listing-icon-actions { gap: 4px; }
+.listing-icon-button { min-width: 36px; min-height: 36px; padding: 8px; }
+.listing-icon-button svg, .listing-add svg, .listing-close svg { width: 20px; height: 20px; flex: 0 0 auto; }
+.listing-tip-wrap { position: relative; }
+.listing-tooltip { position: absolute; z-index: 1; inset-inline-end: 0; top: calc(100% + 4px); padding: 4px 8px; white-space: nowrap; visibility: hidden; pointer-events: none; }
+.listing-tip-wrap:hover .listing-tooltip, .listing-tip-wrap:focus-within .listing-tooltip { visibility: visible; }
+.listing-rating, .listing-features { margin-top: 8px; gap: 8px; }
+.listing-stars { gap: 2px; }
+.listing-features { padding: 0; margin-bottom: 0; list-style: none; gap: 8px 16px; flex-wrap: wrap; }
+.listing-features li { display: flex; align-items: center; gap: 8px; }
+.listing-price-row { padding-top: 16px; margin-top: auto; flex-wrap: wrap; }
+.listing-more { display: grid; justify-items: center; margin-top: 16px; }
+.listing-add, .listing-more button, .listing-modal-footer button { min-height: 40px; padding: 10px 20px; gap: 8px; }
+.listing-empty { padding-block: 16px; }
+dialog.listing-modal { width: min(576px, calc(100% - 32px)); max-height: calc(100dvh - 32px); overflow: hidden; }
+.listing-filter-form { display: flex; flex-direction: column; max-height: calc(100dvh - 34px); }
+.listing-modal-header, .listing-tabs, .listing-modal-footer { flex-shrink: 0; }
+.listing-modal-header, .listing-modal-footer { padding: 16px; }
+.listing-close { padding: 6px; min-width: 32px; min-height: 32px; }
+.listing-tabs { gap: 16px; padding-inline: 16px; }
+.listing-tabs button { padding: 12px 0; }
+.listing-modal-content { min-height: 0; padding: 16px; overflow-y: auto; overscroll-behavior: contain; }
+.listing-lines, .listing-attributes, .listing-regions, .listing-advanced-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.listing-advanced-columns { grid-template-columns: minmax(0, 1fr); }
+.listing-advanced { display: grid; gap: 16px; }
+.listing-field-stack { display: grid; align-content: start; gap: 8px; }
+.listing-lines legend, .listing-attributes legend, .listing-advanced > fieldset > legend { padding-bottom: 8px; }
+.listing-price-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.listing-number-pair { display: grid; grid-column: 1 / -1; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 8px; align-items: center; }
+.listing-number-pair input, .listing-advanced-columns > div > input { padding: 10px; }
+.listing-field-stack input[type="range"] { width: 100%; min-width: 0; height: 8px; margin-inline: 0; }
+.listing-choice { display: flex; align-items: center; gap: 8px; min-height: 24px; }
+.listing-choice input { width: 16px; height: 16px; margin: 0; flex-shrink: 0; }
+.listing-choice .listing-stars svg { width: 20px; height: 20px; }
+.listing-choice .ds-color-dot { width: 14px; height: 14px; flex-shrink: 0; }
+.listing-segments { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: hidden; }
+.listing-segments label { justify-content: center; padding: 6px; min-height: 36px; }
+.listing-regions label { display: grid; gap: 4px; padding: 8px; }
+.listing-modal-footer { gap: 16px; flex-wrap: wrap; }
+@media (min-width: 640px) {
+  .listing-title { --heading-size: 1.5rem; }
+  .listing-toolbar { flex-direction: row; align-items: end; justify-content: space-between; }
+  .listing-toolbar-actions { flex-direction: row; }
+  .listing-toolbar-button { width: auto; white-space: nowrap; }
+  .listing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 768px) {
+  .listing-band { padding-block: 48px; }
+  .listing-toolbar { margin-bottom: 32px; }
+  .listing-more { margin-top: 32px; }
+  .listing-breadcrumb { gap: 8px; }
+  .listing-modal-header, .listing-modal-footer, .listing-modal-content { padding: 20px; }
+  .listing-lines, .listing-attributes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .listing-advanced-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .listing-regions label { padding: 20px; }
+}
+@media (min-width: 1024px) { .listing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1280px) { .listing-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 1536px) { .listing-container { padding-inline: 0; } }

@@ -1,0 +1,845 @@
+{
+  "brand": "SổLãi",
+  "recordPrefix": "SL",
+  "referenceDate": "2026-11-18",
+  "sources": {
+    "shopee": "Shopee",
+    "tiktok": "TikTok Shop"
+  },
+  "records": [
+    {
+      "number": 8142,
+      "daysAgo": 0,
+      "source": "shopee",
+      "expected": 360000,
+      "cost": 164000,
+      "adjustments": {
+        "selling": 28000,
+        "shipping": 12000,
+        "payment": 8000
+      }
+    },
+    {
+      "number": 8141,
+      "daysAgo": 0,
+      "source": "tiktok",
+      "expected": 249000,
+      "cost": 128000
+    },
+    {
+      "number": 8140,
+      "daysAgo": 1,
+      "source": "shopee",
+      "expected": 185000,
+      "cost": 92000
+    },
+    {
+      "number": 8139,
+      "daysAgo": 1,
+      "source": "tiktok",
+      "expected": 320000,
+      "cost": 192000,
+      "adjustments": {
+        "selling": 24500,
+        "payment": 6500
+      }
+    },
+    {
+      "number": 8138,
+      "daysAgo": 2,
+      "source": "shopee",
+      "expected": 570000,
+      "cost": 278000
+    },
+    {
+      "number": 8137,
+      "daysAgo": 2,
+      "source": "tiktok",
+      "expected": 420000,
+      "cost": 210000,
+      "adjustments": {
+        "selling": 34000
+      }
+    },
+    {
+      "number": 8136,
+      "daysAgo": 3,
+      "source": "shopee",
+      "expected": 440000,
+      "cost": 295000
+    },
+    {
+      "number": 8135,
+      "daysAgo": 3,
+      "source": "tiktok",
+      "expected": 281000,
+      "cost": 178000
+    },
+    {
+      "number": 8134,
+      "daysAgo": 4,
+      "source": "tiktok",
+      "expected": 495000,
+      "cost": 167000
+    },
+    {
+      "number": 8133,
+      "daysAgo": 4,
+      "source": "shopee",
+      "expected": 487000,
+      "cost": 260000,
+      "adjustments": {
+        "selling": 29000
+      }
+    },
+    {
+      "number": 8132,
+      "daysAgo": 5,
+      "source": "tiktok",
+      "expected": 268000,
+      "cost": 117000
+    },
+    {
+      "number": 8131,
+      "daysAgo": 5,
+      "source": "shopee",
+      "expected": 219000,
+      "cost": 143000
+    },
+    {
+      "number": 8130,
+      "daysAgo": 6,
+      "source": "shopee",
+      "expected": 354000,
+      "cost": 193000
+    },
+    {
+      "number": 8129,
+      "daysAgo": 6,
+      "source": "tiktok",
+      "expected": 219000,
+      "cost": 128000
+    },
+    {
+      "number": 8128,
+      "daysAgo": 8,
+      "source": "shopee",
+      "expected": 648000,
+      "cost": 310000
+    },
+    {
+      "number": 8127,
+      "daysAgo": 11,
+      "source": "tiktok",
+      "expected": 782000,
+      "cost": 407000
+    },
+    {
+      "number": 8126,
+      "daysAgo": 13,
+      "source": "shopee",
+      "expected": 219000,
+      "cost": 110000
+    },
+    {
+      "number": 8125,
+      "daysAgo": 16,
+      "source": "tiktok",
+      "expected": 915000,
+      "cost": 456000
+    },
+    {
+      "number": 8124,
+      "daysAgo": 20,
+      "source": "shopee",
+      "expected": 350000,
+      "cost": 240000
+    },
+    {
+      "number": 8123,
+      "daysAgo": 22,
+      "source": "tiktok",
+      "expected": 434000,
+      "cost": 207000
+    },
+    {
+      "number": 8122,
+      "daysAgo": 26,
+      "source": "shopee",
+      "expected": 609000,
+      "cost": 301000
+    },
+    {
+      "number": 8121,
+      "daysAgo": 28,
+      "source": "tiktok",
+      "expected": 328000,
+      "cost": 167000
+    }
+  ],
+  "annualMonths": 10,
+  "plans": [
+    {
+      "monthly": {
+        "VND": 0,
+        "USD": 0
+      }
+    },
+    {
+      "monthly": {
+        "VND": 249000,
+        "USD": 10
+      },
+      "featured": true
+    },
+    {
+      "monthly": {
+        "VND": 649000,
+        "USD": 26
+      }
+    }
+  ],
+  "articleTopics": [
+    "start",
+    "cod",
+    "margin",
+    "cod",
+    "margin",
+    "start"
+  ],
+  "workshop": {
+    "weekday": 3,
+    "hour": 19,
+    "minute": 0
+  },
+  "releases": [
+    {
+      "date": "2026-11-18",
+      "version": "1.4.0",
+      "type": "new"
+    },
+    {
+      "date": "2026-11-04",
+      "version": "1.3.0",
+      "type": "improved"
+    },
+    {
+      "date": "2026-10-21",
+      "version": "1.2.1",
+      "type": "fix"
+    },
+    {
+      "date": "2026-10-07",
+      "version": "1.2.0",
+      "type": "new"
+    },
+    {
+      "date": "2026-09-23",
+      "version": "1.1.0",
+      "type": "improved"
+    },
+    {
+      "date": "2026-09-09",
+      "version": "1.0.1",
+      "type": "fix"
+    }
+  ],
+  "content": {
+    "vi": {
+      "footer": {
+        "title": [
+          "Thấy lãi",
+          "từng đơn."
+        ],
+        "description": "Đối soát tiền về từ Shopee và TikTok Shop.",
+        "navigation": "Liên kết cuối trang",
+        "demo": "Thử đối soát",
+        "credit": "Mẫu của SkillryViet",
+        "top": "Về đầu trang",
+        "groups": [
+          [
+            "Sản phẩm",
+            [
+              [
+                "Tổng quan",
+                "product"
+              ],
+              [
+                "Bảng giá",
+                "pricing"
+              ],
+              [
+                "Cập nhật",
+                "changelog"
+              ]
+            ]
+          ],
+          [
+            "Hướng dẫn",
+            [
+              [
+                "Tài nguyên",
+                "resources"
+              ],
+              [
+                "Sự kiện",
+                "events"
+              ],
+              [
+                "Câu hỏi thường gặp",
+                "product/faq"
+              ]
+            ]
+          ]
+        ]
+      },
+      "category": "Đối soát cho shop đa sàn",
+      "headline": [
+        "Tiền về.",
+        "Lãi ở đâu?"
+      ],
+      "intro": "Đối chiếu tiền sàn chuyển với từng đơn Shopee và TikTok Shop. Mở phiếu để xem phí bị trừ và phần lãi còn lại.",
+      "receipt": "Phiếu đối soát",
+      "sampleOrder": "Đơn minh hoạ",
+      "adjustment": "Chênh lệch",
+      "hideFees": "Thu gọn chi tiết",
+      "demoTitle": "Đối soát theo kỳ",
+      "demoIntro": "Đổi sàn hoặc kỳ để xem tiền thực nhận và lãi ròng.",
+      "ledger": "Bàn đối soát",
+      "sampleData": "Dữ liệu minh hoạ",
+      "expected": "Dự kiến",
+      "received": "Thực nhận",
+      "summary": "Tổng quan đối soát",
+      "ledgerOrders": "Đơn gần đây",
+      "profitTrend": "Biểu đồ lãi",
+      "chartTitles": [
+        "Lãi theo ngày",
+        "Lãi theo nhóm 5 ngày"
+      ],
+      "stats": [
+        "Doanh thu",
+        "Thực nhận",
+        "Lãi ròng"
+      ],
+      "allPlatforms": "Tất cả sàn",
+      "platform": "Sàn bán hàng",
+      "period": "Kỳ đối soát",
+      "periods": [
+        "7 ngày",
+        "30 ngày"
+      ],
+      "mismatch": "Lệch",
+      "matched": "Đã khớp",
+      "inspect": "Kiểm tra đơn",
+      "collapse": "Thu gọn đơn",
+      "biggest": "Khoản trừ lớn nhất",
+      "total": "Tổng khấu trừ",
+      "fees": {
+        "selling": "Phí bán hàng",
+        "shipping": "Điều chỉnh phí vận chuyển",
+        "payment": "Phí xử lý thanh toán"
+      },
+      "process": "Cách SổLãi đối soát",
+      "processIntro": "Theo dõi từng đơn từ lúc giao thành công đến khi sàn chuyển tiền.",
+      "steps": [
+        [
+          "Gom đơn",
+          "Dùng mã đơn để ghép dòng bán hàng với dòng tiền sàn chuyển."
+        ],
+        [
+          "Tìm chênh lệch",
+          "Đối chiếu số tiền dự kiến và số thực nhận trong cùng kỳ."
+        ],
+        [
+          "Kiểm khoản trừ",
+          "Mở đơn bị lệch để xác định khoản nào ảnh hưởng nhiều nhất."
+        ]
+      ],
+      "marketTitle": "Theo sàn bán hàng",
+      "markets": {
+        "shopee": "Đối chiếu báo cáo quyết toán với mã đơn đã giao. Kiểm phí bán hàng và khoản điều chỉnh vận chuyển.",
+        "tiktok": "Đối chiếu dòng thanh toán với mã đơn. Kiểm ngày chốt và các khoản hoàn phát sinh sau khi giao."
+      },
+      "productFaqTitle": "Câu hỏi thường gặp",
+      "productFaq": [
+        [
+          "Vì sao đơn giao rồi mà tiền chưa về?",
+          "Đơn có thể nằm ở kỳ quyết toán kế tiếp. Kiểm ngày chốt trước khi kết luận có chênh lệch."
+        ],
+        [
+          "Bản thử dùng khoản phí nào?",
+          "Ba khoản trên đơn mẫu dùng số liệu minh hoạ. Khi đối soát đơn thật, hãy dùng các dòng phí trong báo cáo của sàn."
+        ],
+        [
+          "Đơn hoàn xuất hiện ở đâu?",
+          "Khoản hoàn có thể nằm ở kỳ sau. Dùng mã đơn gốc để nối khoản hoàn với giao dịch bán."
+        ]
+      ],
+      "band": "Chọn gói theo số đơn của shop",
+      "seePricing": "Xem bảng giá",
+      "pricing": [
+        "Giá theo",
+        "lượng đơn.",
+        "So sánh chi phí và hạn mức để chọn gói phù hợp với lượng đơn của shop."
+      ],
+      "plans": [
+        [
+          "Sổ cơ bản",
+          "Một người tự theo dõi đơn.",
+          [
+            "Tối đa 150 đơn/tháng",
+            "Một sổ đối soát",
+            "Xuất bảng tổng hợp"
+          ]
+        ],
+        [
+          "Sổ tăng trưởng",
+          "Cho shop hoạt động trên nhiều sàn.",
+          [
+            "Tối đa 2.000 đơn/tháng",
+            "Bộ lọc nhiều sàn",
+            "Đối chiếu phí và giá vốn"
+          ]
+        ],
+        [
+          "Sổ đội nhóm",
+          "Cho shop chia việc với kế toán.",
+          [
+            "Tối đa 10.000 đơn/tháng",
+            "Tối đa 5 người",
+            "Báo cáo theo kỳ"
+          ]
+        ]
+      ],
+      "pricingNote": "Giá và quyền lợi dùng để minh hoạ giao diện. Hai đơn vị tiền có mức giá mẫu riêng.",
+      "featured": "Shop đa sàn",
+      "faq": "Câu hỏi về gói",
+      "questions": [
+        [
+          "Đổi tháng và năm ảnh hưởng thế nào?",
+          "Giá theo năm được hiển thị cho cả kỳ, với mức tương đương {months} tháng trong bản minh hoạ."
+        ],
+        [
+          "Phí sàn có nằm trong giá gói không?",
+          "Giá gói là phí sử dụng phần mềm. Phí sàn hiển thị riêng theo từng đơn."
+        ],
+        [
+          "Gói lớn hơn phù hợp khi nào?",
+          "Xem số đơn mỗi tháng và số người cần dùng chung sổ để chọn gói phù hợp."
+        ]
+      ],
+      "resources": [
+        "Sổ tay",
+        "đối soát.",
+        "Hướng dẫn ngắn để chủ shop đọc số tiền nhận, kiểm tra phí và tính lãi."
+      ],
+      "topics": {
+        "start": "Bắt đầu",
+        "cod": "COD",
+        "margin": "Lãi ròng"
+      },
+      "articles": [
+        [
+          "Chuẩn bị bảng đơn trước khi đối soát",
+          "Những cột cần có khi tải dữ liệu từ sàn.",
+          [
+            "Chuẩn bị mã đơn, ngày giao, doanh thu và tên sàn. Một mã đơn chỉ nên xuất hiện một lần trong mỗi tệp.",
+            "Tách đơn hoàn khỏi đơn đã giao trước khi cộng doanh thu. Giữ lại ngày chốt để lọc đúng kỳ."
+          ]
+        ],
+        [
+          "Tại sao tiền COD về chưa đủ?",
+          "Kiểm các khoản khấu trừ trước khi báo chênh lệch.",
+          [
+            "Đặt tiền khách thanh toán cạnh khoản sàn đã chuyển. Kiểm tra phí dịch vụ, tiền hoàn và các khoản bù trừ trước.",
+            "Nếu đơn đã giao mà chưa có dòng trong kỳ hiện tại, hãy kiểm tra lịch thanh toán của kỳ tiếp theo."
+          ]
+        ],
+        [
+          "Tính lãi ròng trên từng đơn",
+          "Tách doanh thu, phí và giá vốn trong một phép tính.",
+          [
+            "Lấy doanh thu trừ phí để ra thực nhận. Tiếp tục trừ giá vốn để ra lãi của đơn trong bản mẫu.",
+            "Ví dụ doanh thu 350.000 ₫, phí 45.000 ₫, giá vốn 192.000 ₫ cho lãi 113.000 ₫."
+          ]
+        ],
+        [
+          "Rà lại đơn hoàn và hoàn một phần",
+          "Hai trường cần giữ là số tiền hoàn và ngày phát sinh.",
+          [
+            "Một đơn hoàn có thể thuộc kỳ khác với đơn bán ban đầu. Lưu liên kết bằng mã đơn gốc.",
+            "Khi hoàn một phần, dùng số tiền thực hoàn và giữ lại các khoản phí vẫn phát sinh."
+          ]
+        ],
+        [
+          "Đọc biên lãi theo nhóm sản phẩm",
+          "Nhóm đơn theo mặt hàng trước khi so sánh.",
+          [
+            "Cộng lãi của các đơn trong cùng nhóm, rồi chia cho tổng doanh thu của nhóm để ra biên lãi.",
+            "So sánh trong cùng kỳ để giảm sai lệch do phí hoặc chương trình khuyến mãi."
+          ]
+        ],
+        [
+          "Chốt sổ trước khi bàn giao",
+          "Checklist cho người phụ trách và kế toán.",
+          [
+            "Kiểm tổng phí, số đơn thiếu thông tin và các khoản chờ chuyển. Ghi chú người phụ trách từng mục.",
+            "Xuất báo cáo theo kỳ, kèm mốc thời gian và danh sách các mục cần theo dõi tiếp."
+          ]
+        ]
+      ],
+      "events": [
+        "Cùng nhau",
+        "chốt sổ.",
+        "Xem lịch thực hành đối soát minh hoạ và thử đăng ký một buổi."
+      ],
+      "eventTitle": "Đối soát một kỳ bán hàng",
+      "eventText": "Mang theo một bảng đơn mẫu. Buổi thực hành đi qua cách lọc kỳ, đối chiếu phí và chốt số tiền thực nhận.",
+      "starts": "Buổi thực hành tiếp theo",
+      "agenda": "Nội dung buổi thực hành",
+      "eventCards": [
+        [
+          "Chuẩn bị bảng đơn",
+          "Rà mã đơn, ngày giao, doanh thu và giá vốn trước buổi thực hành."
+        ],
+        [
+          "Kiểm phí từng sàn",
+          "Dùng bảng tổng hợp để xác định khoản khấu trừ lớn nhất."
+        ],
+        [
+          "Lập báo cáo kỳ",
+          "Ghi lại số đã nhận và khoản cần theo dõi trong kỳ tiếp theo."
+        ]
+      ],
+      "changes": [
+        "Nhật ký",
+        "cập nhật.",
+        "Theo dõi tính năng, cải tiến và bản sửa lỗi qua các phiên bản minh hoạ."
+      ],
+      "releases": [
+        [
+          "Đơn lệch xuất hiện ngay đầu danh sách",
+          "Đối chiếu ngay tiền dự kiến và thực nhận trong cùng một hàng đơn."
+        ],
+        [
+          "Chi tiết phí trong từng đơn",
+          "Số tiền thực nhận và lãi ròng được trình bày thành từng dòng để dễ kiểm tra."
+        ],
+        [
+          "Hiển thị giá trị bằng 0",
+          "Dòng phí bằng 0 hiển thị rõ để phân biệt với dữ liệu còn thiếu."
+        ],
+        [
+          "Thêm ví dụ theo sàn bán hàng",
+          "Xem tình huống đối chiếu mã đơn cho Shopee và TikTok Shop."
+        ],
+        [
+          "Tối ưu bảng trên điện thoại",
+          "Giữ mã đơn và số tiền dễ đọc trên màn hình hẹp."
+        ],
+        [
+          "Chuẩn hoá định dạng VND",
+          "Số tiền dùng cùng một định dạng ở bảng và phần chi tiết."
+        ]
+      ]
+    },
+    "en": {
+      "footer": {
+        "title": [
+          "Track profit",
+          "by order."
+        ],
+        "description": "Reconcile Shopee and TikTok Shop payouts.",
+        "navigation": "Footer links",
+        "demo": "Try reconciliation",
+        "credit": "Template by SkillryViet",
+        "top": "Back to top",
+        "groups": [
+          [
+            "Product",
+            [
+              [
+                "Overview",
+                "product"
+              ],
+              [
+                "Pricing",
+                "pricing"
+              ],
+              [
+                "Changelog",
+                "changelog"
+              ]
+            ]
+          ],
+          [
+            "Learn",
+            [
+              [
+                "Resources",
+                "resources"
+              ],
+              [
+                "Events",
+                "events"
+              ],
+              [
+                "FAQ",
+                "product/faq"
+              ]
+            ]
+          ]
+        ]
+      },
+      "category": "Reconciliation for multi-channel shops",
+      "headline": [
+        "See what",
+        "you kept."
+      ],
+      "intro": "Match Shopee and TikTok Shop payouts to individual orders. Open a statement to see the deductions and the profit left over.",
+      "receipt": "Payout statement",
+      "sampleOrder": "Sample order",
+      "adjustment": "Payout difference",
+      "hideFees": "Hide deductions",
+      "demoTitle": "Reconcile a sales period",
+      "demoIntro": "Switch marketplaces or periods to see payouts and net profit.",
+      "ledger": "Reconciliation desk",
+      "sampleData": "Sample data",
+      "expected": "Expected",
+      "received": "Received",
+      "summary": "Payout overview",
+      "ledgerOrders": "Recent orders",
+      "profitTrend": "Profit chart",
+      "chartTitles": [
+        "Daily profit",
+        "Profit by five-day period"
+      ],
+      "stats": [
+        "Revenue",
+        "Payouts",
+        "Net profit"
+      ],
+      "allPlatforms": "All marketplaces",
+      "platform": "Marketplace",
+      "period": "Reporting period",
+      "periods": [
+        "7 days",
+        "30 days"
+      ],
+      "mismatch": "Short by",
+      "matched": "Matched",
+      "inspect": "Check order",
+      "collapse": "Collapse order",
+      "biggest": "Largest deduction",
+      "total": "Total deductions",
+      "fees": {
+        "selling": "Selling fee",
+        "shipping": "Shipping fee adjustment",
+        "payment": "Payment processing fee"
+      },
+      "process": "How reconciliation works",
+      "processIntro": "Follow each order from delivery through to the marketplace payout.",
+      "steps": [
+        [
+          "Collect orders",
+          "Use the order ID to link sales to the marketplace payout."
+        ],
+        [
+          "Spot differences",
+          "Compare expected and actual payouts for the same period."
+        ],
+        [
+          "Check deductions",
+          "Open an order with a difference to find the largest deduction."
+        ]
+      ],
+      "marketTitle": "By marketplace",
+      "markets": {
+        "shopee": "Match the settlement report to the delivered order ID. Review selling fees and shipping adjustments.",
+        "tiktok": "Match the payout row to the order ID. Check the cutoff date and any refunds issued after delivery."
+      },
+      "productFaqTitle": "Frequently asked questions",
+      "productFaq": [
+        [
+          "Why has a delivered order not paid out yet?",
+          "The order may be in the next settlement period. Check the cutoff before flagging a difference."
+        ],
+        [
+          "Which fees does the demo use?",
+          "The three amounts are illustrative. Use the marketplace report when reconciling actual fees."
+        ],
+        [
+          "Where do refunds appear?",
+          "A refund can fall in a later period. Link it to the original sale using the order ID."
+        ]
+      ],
+      "band": "Pick a plan by order volume",
+      "seePricing": "Compare plans",
+      "pricing": [
+        "Plans by",
+        "order volume.",
+        "Compare costs and order limits to find a plan that fits your sales volume."
+      ],
+      "plans": [
+        [
+          "Starter ledger",
+          "For a shop managed by one person.",
+          [
+            "Up to 150 orders/month",
+            "One reconciliation ledger",
+            "Summary export"
+          ]
+        ],
+        [
+          "Growth ledger",
+          "For a shop selling on multiple platforms.",
+          [
+            "Up to 2,000 orders/month",
+            "Multi-platform filters",
+            "Fee and cost breakdowns"
+          ]
+        ],
+        [
+          "Team ledger",
+          "For a shop working with its accountant.",
+          [
+            "Up to 10,000 orders/month",
+            "Up to 5 members",
+            "Reporting by period"
+          ]
+        ]
+      ],
+      "pricingNote": "Prices and features are illustrative. Each currency uses its own sample prices.",
+      "featured": "Multi-channel",
+      "faq": "Plan questions",
+      "questions": [
+        [
+          "How does yearly billing work?",
+          "The yearly total covers the whole term at the equivalent of {months} months in this demo."
+        ],
+        [
+          "Are marketplace fees included?",
+          "Plan prices cover software usage. Marketplace fees appear separately on each order."
+        ],
+        [
+          "When does a larger plan make sense?",
+          "Compare the number of orders each month and how many teammates need access to the ledger."
+        ]
+      ],
+      "resources": [
+        "The reconciliation",
+        "handbook.",
+        "Short guides on payouts, fees and net profit for shop owners."
+      ],
+      "topics": {
+        "start": "Getting started",
+        "cod": "COD",
+        "margin": "Net profit"
+      },
+      "articles": [
+        [
+          "Prepare your order sheet",
+          "The columns to keep when exporting marketplace data.",
+          [
+            "Keep order IDs, delivery dates, revenue and platform names. An order ID should appear once per file.",
+            "Separate returns from delivered orders before adding revenue. Keep the cutoff date for each period."
+          ]
+        ],
+        [
+          "Why did the COD payout fall short?",
+          "Review deductions before reporting a discrepancy.",
+          [
+            "Compare what the customer paid with the marketplace transfer. Check service fees, refunds and adjustments first.",
+            "For a delivered order missing from the current period, check the next payout schedule."
+          ]
+        ],
+        [
+          "Calculate profit per order",
+          "Use one calculation for revenue, fees and inventory cost.",
+          [
+            "Subtract fees from revenue to find the payout. Deduct inventory cost to get order profit in this demo.",
+            "Revenue of ₫350,000, fees of ₫45,000 and cost of ₫192,000 leave ₫113,000 in profit."
+          ]
+        ],
+        [
+          "Check returns and partial refunds",
+          "Keep both the refund amount and the transaction date.",
+          [
+            "A return can fall in a different period than the original sale. Link the two with the original order ID.",
+            "For partial refunds, record the actual amount returned and retain any fees still due."
+          ]
+        ],
+        [
+          "Read margins by product group",
+          "Group orders by item before comparing margins.",
+          [
+            "Add the profit from orders in the same group and divide by the group’s total revenue.",
+            "Compare the same period to reduce the effect of changing fees and promotions."
+          ]
+        ],
+        [
+          "Close the ledger before handover",
+          "A checklist for operators and accountants.",
+          [
+            "Review total fees, incomplete orders and pending transfers. Assign each unresolved item.",
+            "Export the period report with the cutoff date and the items that still need follow-up."
+          ]
+        ]
+      ],
+      "events": [
+        "Close the books",
+        "together.",
+        "Explore the sample workshop schedule and try registering for a session."
+      ],
+      "eventTitle": "Reconcile a sales period",
+      "eventText": "Bring a sample order sheet. The session covers filtering a period, checking fees and confirming the payout.",
+      "starts": "Next workshop",
+      "agenda": "Workshop agenda",
+      "eventCards": [
+        [
+          "Prepare an order sheet",
+          "Review order IDs, delivery dates, revenue and inventory cost."
+        ],
+        [
+          "Check marketplace fees",
+          "Find the largest deduction in your payout summary."
+        ],
+        [
+          "Report on the period",
+          "Record completed transfers and items to check next period."
+        ]
+      ],
+      "changes": [
+        "See what’s",
+        "changed.",
+        "Follow features, improvements and fixes across sample releases."
+      ],
+      "releases": [
+        [
+          "Payout differences at the top of the list",
+          "Compare the expected and actual payout in the same order row."
+        ],
+        [
+          "Fee breakdowns for each order",
+          "Payout and profit now appear on separate lines for easier review."
+        ],
+        [
+          "Clear zero amounts",
+          "Zero fees now display explicitly so they are easy to distinguish from missing data."
+        ],
+        [
+          "Marketplace examples",
+          "See how order IDs are matched for Shopee and TikTok Shop."
+        ],
+        [
+          "Improved mobile ledger",
+          "Order IDs and amounts remain readable on narrow screens."
+        ],
+        [
+          "Consistent VND formatting",
+          "Amounts now use the same format in the table and in order details."
+        ]
+      ]
+    }
+  }
+}
